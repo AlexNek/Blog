@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Blazor-Komponententests mit bUnit | Alex Nek </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Blazor-Komponententests mit bUnit | Alex Nek ">
+    
+    
+      <link rel="shortcut icon" href="../../images/favicon.svg">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+
+<p><img src="/images/posts/blazor-testing/cover.png" alt="cover"></p>
+<h2 id="überblick">Überblick</h2>
+<p>Das Testen von Blazor-Komponenten muss nicht kompliziert sein. Mit <strong>bUnit</strong> können Sie die Komponentenlogik, -rendering und -verhalten validieren, ohne sich mit einer vollständigen Browser-Einrichtung auseinanderzusetzen. Dieser Leitfaden beschreibt die Grundlagen für die Verwendung von bUnit zum effizienten und effektiven Testen von Komponenten.</p>
+<p>Wir werden untersuchen, wie <strong>bUnit</strong> eingerichtet wird, warum <strong>xUnit</strong> eine gute Wahl für die Durchführung von Tests ist und wie <strong>FluentAssertions</strong> Assertions lesbarer machen kann. Sie erfahren auch, wie Sie Abhängigkeiten simulieren, JavaScript-Interop handhaben und asynchrone Operationen verwalten - und das alles, ohne den Komfort einer simulierten Testumgebung zu verlassen.</p>
+<p>Am Ende haben Sie ein klares Verständnis dafür, wie zuverlässige Tests geschrieben werden, Best Practices befolgt werden und wann auf Tools wie Selenium für umfassendere End-to-End-Tests zurückgegriffen werden sollte.</p>
+<h1 id="warum-wir-diese-tools-gewählt-haben">Warum wir diese Tools gewählt haben</h1>
+<h2 id="xunit">xUnit</h2>
+<p>Wenn es um das Testen von Blazor-Komponenten geht, ist xUnit unser bevorzugtes Framework. Es ist modern, unkompliziert und vollgepackt mit nützlichen Funktionen, die das Testen zum Kinderspiel machen. Im Gegensatz zu älteren Frameworks, die schwerfällig wirken können, wurde xUnit mit dem Ziel entwickelt, einfach und flexibel zu sein.</p>
+<p>Warum also xUnit? Es hält die Dinge sauber und organisiert, unterstützt asynchrone Tests direkt aus der Box und führt Tests parallel aus, um die Dinge zu beschleunigen. Außerdem arbeitet es nahtlos mit FluentAssertions zusammen, wodurch Ihre Test-Assertions klarer und lesbarer werden.</p>
+<p>Andere Optionen wie NUnit und MSTest? Sicher, sie sind schon eine Weile da, aber sie haben ihre eigenen Macken. NUnit hat Probleme mit der effizienten Verwaltung von Testinstanzen, und MSTest bietet einfach nicht die gleiche Flexibilität und Benutzerfreundlichkeit. Letztendlich ist xUnit einfach besser für das moderne Testen von Blazor-Komponenten geeignet.</p>
+<p>Für eine detailliertere Aufschlüsselung, warum wir xUnit gegenüber anderen Optionen gewählt haben, siehe umfassender</p>
+<h2 id="xunit-vs-nunit-ein-vergleich-für-erfahrene-entwickler">xUnit vs. nUnit: Ein Vergleich für erfahrene Entwickler</h2>
+<p>xUnit und nUnit sind beliebte und bewährte Testframeworks für .NET. Trotzdem gibt es Unterschiede in ihrer Art und ihren Funktionen. Dieser Vergleich konzentriert sich auf die wichtigsten Punkte für erfahrene Entwickler, besonders wenn es um das Testen von Blazor-Komponenten geht.</p>
+<h3 id="1-teststruktur-und-attribute">1. Teststruktur und Attribute</h3>
+<ul>
+<li><strong>xUnit:</strong> Betont Konventionen über Konfiguration. Verwendet <code>[Fact]</code> für einzelne Testmethoden und <code>[Theory]</code> für datengesteuerte Tests mit <code>[InlineData]</code>, <code>[MemberData]</code> oder benutzerdefinierten <code>DataAttribute</code>-Implementierungen.</li>
+<li><strong>nUnit:</strong> Verwendet <code>[Test]</code> für Testmethoden und <code>[TestCase]</code> für datengesteuerte Tests. Gruppiert Tests mit <code>[TestFixture]</code> und unterstützt <code>[SetUp]</code>/<code>[TearDown]</code>.</li>
+</ul>
+<h3 id="2-testlebenszyklus-und-isolation">2. Testlebenszyklus und Isolation</h3>
+<ul>
+<li><strong>xUnit:</strong> Erstellt eine neue Instanz der Testklasse für <em><strong>jede</strong></em> Testmethode. Dies bietet hervorragende Testisolation.</li>
+<li><strong>nUnit:</strong> Erstellt standardmäßig eine einzige Instanz der Test-Fixture für alle Tests. Kann zu Problemen mit gemeinsam genutztem Zustand führen.</li>
+</ul>
+<h3 id="3-erweiterbarkeit-und-anpassung">3. Erweiterbarkeit und Anpassung</h3>
+<ul>
+<li><strong>xUnit:</strong> Wurde so entwickelt, dass es leicht erweitert werden kann. Es nutzt ein Provider-Modell. Bietet auch <code>ITestOutputHelper</code> für Testausgaben.</li>
+<li><strong>nUnit:</strong> Kann ebenfalls erweitert werden, aber das Provider-Modell von xUnit gilt oft als flexibler.</li>
+</ul>
+<h3 id="4-datengesteuerte-tests">4. Datengesteuerte Tests</h3>
+<ul>
+<li><strong>xUnit:</strong> Bietet <code>[Theory]</code> mit <code>[InlineData]</code>, <code>[MemberData]</code> — sauber und prägnant.</li>
+<li><strong>nUnit:</strong> Verwendet <code>[TestCase]</code> — funktional, aber xUnit's Ansatz wird oft als eleganter angesehen.</li>
+</ul>
+<h3 id="5-assertions">5. Assertions</h3>
+<p>Beide bieten eingebaute Assertions. Viele Entwickler bevorzugen FluentAssertions wegen ihrer lesbaren Syntax.</p>
+<h3 id="6-community-und-ökosystem">6. Community und Ökosystem</h3>
+<p>Beide haben starke Communities. xUnit wird oft als moderner angesehen. Es ist das Standard-Testframework für ASP.NET Core-Projekte.</p>
+<h3 id="warum-xunit-oft-für-blazor-komponententests-bevorzugorzugt-wird">Warum xUnit oft für Blazor-Komponententests bevorzugorzugt wird</h3>
+<ul>
+<li><strong>Testisolation:</strong> Die Erstellung von Instanzen pro Testmethode verhindert Zustandslecks.</li>
+<li><strong>Einfachheit und Fokus:</strong> Konventionsbasierter Ansatz für fokussierte Unit-Tests.</li>
+<li><strong>Erweiterbarkeit:</strong> Provider-Modell für einfache Integration mit Blazor-Testbibliotheken.</li>
+<li><strong>Testausgabe:</strong> <code>ITestOutputHelper</code> für die Testausgabe.</li>
+<li><strong>Modernes Design:</strong> Aktiver entwickelt in den letzten Jahren.</li>
+<li><strong>Parallele Testausführung:</strong> Schnellere Testläufe.</li>
+<li><strong>Async-Unterstützung:</strong> Hervorragende Unterstützung für asynchrone Tests.</li>
+</ul>
+<h3 id="wie-tests-mit-xunit-und-bunit-unabhängig-voneinander-ausgeführt-werden-können">Wie Tests mit xUnit und bUnit unabhängig voneinander ausgeführt werden können</h3>
+<pre><code class="lang-csharp">public class CounterComponentTests : TestContext
+{
+    [Fact]
+    public void Increment_ShouldIncreaseCountByOne()
+    {
+        var cut = RenderComponent&lt;Counter&gt;();
+        cut.Find(&quot;button&quot;).Click();
+        cut.Find(&quot;p&quot;).MarkupMatches(&quot;&lt;p&gt;Current count: 1&lt;/p&gt;&quot;);
+    }
+
+    [Fact]
+    public void IncrementTwice_ShouldIncreaseCountByTwo()
+    {
+        var cut = RenderComponent&lt;Counter&gt;();
+        cut.Find(&quot;button&quot;).Click();
+        cut.Find(&quot;button&quot;).Click();
+        cut.Find(&quot;p&quot;).MarkupMatches(&quot;&lt;p&gt;Current count: 2&lt;/p&gt;&quot;);
+    }
+}
+</code></pre>
+<p>Jeder Test erhält seine <em>eigene</em> Instanz der <code>Counter</code>-Komponente. Der erste Test beeinflusst den zweiten Test in keiner Weise.</p>
+<h3 id="zusammenfassung">Zusammenfassung</h3>
+<p>nUnit ist ein starkes Testframework, aber <strong>xUnit ist oft die bessere Wahl für moderne .NET-Projekte</strong>, besonders für das Testen von Blazor-Komponenten. xUnit legt großen Wert auf Testisolation, Einfachheit und Erweiterbarkeit.
+.</p>
+<h2 id="bunit">bUnit</h2>
+<p>Blazor-Komponenten benötigen ein Testtool, das ihre Sprache spricht, und hier glänzt bUnit. Es erstellt eine simulierte browserähnliche Umgebung, die es uns ermöglicht, zu testen, wie sich unsere Komponenten verhalten, ohne tatsächlich einen echten Browser zu starten.</p>
+<p>Mit bUnit können wir die Komponentenlogik, das Rendering und das Verhalten schnell und effizient überprüfen.Es eignet sich hervorragend, um isoliert zu testen, ohne dass externe Abhängigkeiten die Arbeit verlangsamen. Außerdem ist das Mocken von JavaScript-Interop-Aufrufen mit <code>IJSRuntime</code> ein Kinderspiel.</p>
+<p>Aber bUnit ist nicht perfekt. Es unterstützt CSS nicht vollständig, sodass visuelle Styling-Tests möglicherweise nicht immer wie erwartet funktionieren. Da es auch kein echter Browser ist, ist die JavaScript-Ausführung eingeschränkt, was manchmal eine Herausforderung sein kann.</p>
+<blockquote>
+<p><strong>Hinweis:</strong> Um mehr über die Einschränkungen von bUnit zu erfahren, lesen Sie bitte</p>
+</blockquote>
+<h1 id="bunit-verständnis-der-einschränkungen-für-effektives-blazor-komponententesten">bUnit: Verständnis der Einschränkungen für effektives Blazor-Komponententesten</h1>
+<p>bUnit ist ein leistungsstarkes Tool für das Unit-Testing von Blazor-Komponenten und bietet eine schnelle und effiziente Möglichkeit, deren Logik und Rendering-Verhalten zu überprüfen. Es ist jedoch entscheidend zu verstehen, dass bUnit in einer simulierten Browserumgebung und nicht in einem vollwertigen Browser arbeitet. Diese Designentscheidung, die zu seiner Geschwindigkeit und Ressourceneffizienz beiträgt, führt auch zu bestimmten Einschränkungen. Dieser Artikel beschreibt diese Einschränkungen und bietet Anleitungen sowie konkrete Beispiele, wie man sie effektiv navigieren kann.</p>
+<h3 id="das-kernprinzip-simuliert-nicht-emuliert">Das Kernprinzip: Simuliert, nicht emuliert</h3>
+<p>Die Stärke von bUnit liegt in seiner leichtgewichtigen Rendering-Engine, die eine speicherinterne Darstellung des Document Object Model (DOM) erstellt. Dies ermöglicht es den Komponenten, ihre HTML-Struktur zu rendern, die bUnit dann verwendet, um die Ausgabe zu überprüfen. Es ist jedoch wichtig zu verstehen, dass dies eine <em>Simulation</em> und keine vollständige Emulation eines Browsers ist. Dieser grundlegende Unterschied führt zu den nachstehend beschriebenen Einschränkungen.</p>
+<h3 id="herausforderungen-und-beispiele-bei-der-css-interpretation">Herausforderungen und Beispiele bei der CSS-Interpretation</h3>
+<p>Die Rendering-Engine von bUnit versteht die grundlegende HTML-Struktur und einige einfache CSS-Stile (wie Inline-Stile), implementiert jedoch nicht vollständig das CSSOM (CSS Object Model) oder die Layout-Engine eines echten Browsers. Das bedeutet:</p>
+<ul>
+<li><strong>Einschränkungen bei externen Stylesheets:</strong> Obwohl Sie <code>&lt;link&gt;</code>-Tags zu externen CSS-Dateien hinzufügen <em>können</em>, wird bUnit nicht alle CSS-Regeln aus diesen Dateien vollständig parsen und anwenden. Einfache Selektoren und Inline-Stile funktionieren möglicherweise, aber komplexe Layouts, Medienabfragen und fortgeschrittene CSS-Funktionen werden wahrscheinlich nicht korrekt gerendert.</li>
+</ul>
+<pre><code class="lang-razor">// MyComponent.razor
+&lt;div style=&quot;background-color: red;&quot;&gt;
+     &lt;p class=&quot;my-text&quot;&gt;Hello&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-css">   /* styles.css */
+   .my-text {
+       color: blue;
+       font-size: 20px;
+   }
+</code></pre>
+<p>In bUnit würde die <code>background-color: red;</code> (Inline-Style) wahrscheinlich in der gerenderten Ausgabe reflektiert, aber die <code>.my-text</code>-Stile (aus dem externen CSS) würden möglicherweise nicht korrekt angewendet. Sie benötigen einen vollständigen Browser-Test, um zu überprüfen, ob der Text tatsächlich blau und 20 px groß ist.</p>
+<ul>
+<li><strong>Einschränkungen bei CSS-in-JS:</strong> Bibliotheken, die CSS zur Laufzeit generieren (wie JSS oder styled-components), funktionieren nicht wie erwartet, da keine echte CSS-Engine vorhanden ist, um die generierten Stile zu interpretieren.</li>
+<li><strong>Keine Unterstützung für komplexe Layouts:</strong> Layouts, die auf Flexbox, Grid oder fortschrittlichen Positionierungstechniken basieren, werden nicht genau gerendert. bUnit konzentriert sich hauptsächlich auf die Ausgabestruktur der Komponente, nicht auf ihr visuelles Layout.</li>
+<li><strong>Probleme mit Icon-Fonts:</strong> Icon-Fonts, die häufig in UI-Frameworks wie Bootstrap oder Font Awesome verwendet werden, werden nicht korrekt gerendert. bUnit lädt und rendert die Schriftarten oder das CSS nicht, das benötigt wird, um sie anzuwenden, sodass Sie anstelle von Icons normalerweise Platzhalterzeichen, Leerzeichen oder nichts sehen. Ebenso werden SVG-Icons, die als Hintergrundbilder verwendet werden, ebenfalls nicht gerendert.</li>
+</ul>
+<pre><code class="lang-razor">// MyComponentWithIcons.razor
+&lt;span class=&quot;bi bi-check&quot;&gt;&lt;/span&gt; &lt;!-- Bootstrap Icon --&gt;
+</code></pre>
+<p>In bUnit würde das Bootstrap-Icon nicht korrekt gerendert. Sie würden das Häkchen nicht sehen.</p>
+<h3 id="einschränkungen-und-beispiele-bei-der-javascript-ausführung">Einschränkungen und Beispiele bei der JavaScript-Ausführung</h3>
+<p>bUnit <strong>führt JavaScript-Code nicht in einer echten Browserumgebung aus</strong>. Dies hat mehrere Implikationen:</p>
+<ul>
+<li><strong>JavaScript-Interop-Tests (teilweise):</strong> Obwohl Sie JavaScript-Interop testen können, indem Sie <code>IJSRuntime</code> mocken, überprüfen Sie nur, dass die Interop-Aufrufe mit den richtigen Parametern durchgeführt werden. Sie testen <em>nicht</em> den tatsächlichen JavaScript-Code, der im Browser ausgeführt wird.</li>
+</ul>
+<pre><code class="lang-csharp">// MyComponentWithJSInterop.razor.cs
+public async Task CallAlert()
+{
+    await JSRuntime.InvokeVoidAsync(&quot;alert&quot;, &quot;Hello from JS!&quot;);
+}
+</code></pre>
+<p>In einem bUnit-Test könnten Sie <code>IJSRuntime</code> mocken:</p>
+<pre><code class="lang-csharp">// MyComponentWithJSInteropTest.cs
+var jsRuntimeMock = new Mock&lt;IJSRuntime&gt;();
+var ctx = new Bunit.TestContext();
+ctx.Services.AddSingleton(jsRuntimeMock.Object);
+var cut = ctx.RenderComponent&lt;MyComponentWithJSInterop&gt;();
+await cut.Instance.CallAlert();
+jsRuntimeMock.Verify(x =&gt; x.InvokeVoidAsync(&quot;alert&quot;, &quot;Hello from JS!&quot;), Times.Once);
+</code></pre>
+<p>Dies überprüft, dass <code>InvokeVoidAsync</code> mit den richtigen Parametern aufgerufen wurde, testet jedoch nicht die tatsächliche <code>alert()</code>-Funktion des Browsers.</p>
+<ul>
+<li><strong>Probleme mit JavaScript-Bibliotheken:</strong> Clientseitige JavaScript-Bibliotheken (wie jQuery, React oder Vue), die das DOM manipulieren oder komplexe UI-Interaktionen handhaben, funktionieren nicht innerhalb von bUnit.</li>
+<li><strong>Einschränkungen bei der Ereignisbehandlung (mit JS):</strong> Wenn Sie Ereignishandler haben, die für ihre Logik auf JavaScript angewiesen sind (z. B. <code>onclick</code> mit Inline-JavaScript), werden diese Ereignishandler ignoriert. bUnit kann Ereignisse auf Elementen auslösen, aber der zugehörige JavaScript-Code wird nicht ausgeführt.</li>
+</ul>
+<pre><code class="lang-razor">// MyComponentWithInlineJS.razor
+&lt;button onclick=&quot;alert('Button Clicked')&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<p>Das Klicken auf die Schaltfläche in einem bUnit-Test löst die <code>alert()</code>-Funktion nicht so aus, wie es in einem echten Browser der Fall wäre.</p>
+<h3 id="unvollständige-unterstützung-der-browser-api">Unvollständige Unterstützung der Browser-API</h3>
+<p>bUnit unterstützt nicht alle Fähigkeiten eines modernen Browsers, einschließlich:</p>
+<ul>
+<li><strong>Geolocation und Sensor-APIs:</strong> Komponenten, die darauf angewiesen sind, benötigen manuelles Mocking.</li>
+<li><strong>Lokaler/Sitzungsspeicher:</strong> Obwohl Mock-Implementierungen verfügbar sind, spiegelt das Verhalten möglicherweise nicht genau den tatsächlichen Browserspeicher wider.</li>
+<li><strong>Zwischenablagezugriff:</strong> Komponenten, die Zwischenablagezugriff erfordern, können nicht direkt in bUnit getestet werden.</li>
+<li><strong>Andere native Funktionen:</strong> Interaktionen, die von Browserberechtigungen und nativen APIs abhängen, können nicht direkt getestet werden.</li>
+</ul>
+<h3 id="zusammenfassung-der-bunit-einschränkungen">Zusammenfassung der bUnit-Einschränkungen</h3>
+<p>Obwohl bUnit ein hervorragendes Tool für das Unit-Testing von Blazor-Komponenten ist, ist es wichtig, seine Einschränkungen zu verstehen, um Frustrationen zu vermeiden und das richtige Werkzeug für die Aufgabe auszuwählen. bUnit spezialisiert sich auf das Rendern von Komponenten und das Testen ihrer Logik in einer isolierten Umgebung, repliziert jedoch nicht vollständig das Verhalten eines echten Browsers. Dies bedeutet, dass einige Szenarien möglicherweise zusätzliche Tools oder Workarounds erfordern.</p>
+<ul>
+<li><strong>Keine vollständige Browser-Simulation:</strong> bUnit läuft nicht in einem echten Browser, was bedeutet, dass es keine Unterstützung bietet für:
+<ul>
+<li><strong>CSS-Styling-Validierung:</strong> Da bUnit CSS nicht auf die gleiche Weise wie ein echter Browser verarbeitet, können visuelle Aspekte von Komponenten – wie Layoutanpassungen, Animationen und Medienabfragen – nicht genau getestet werden.</li>
+<li><strong>Genaues Layout-Testen:</strong> Das genaue Layout und die Positionierung von Elementen sollten nicht mit bUnit getestet werden, da es Komponenten nicht mit der gleichen Genauigkeit wie ein echter Browser rendert.</li>
+<li><strong>Pixelgenaues Rendering:</strong> Elemente erscheinen möglicherweise nicht genau so, wie sie in einem echten Browser erscheinen würden, was es für die UI/UX-Validierung ungeeignet macht.</li>
+<li><strong>DOM-Manipulationseinschränkungen:</strong> Obwohl es ein simuliertes DOM bereitstellt, verhalten sich fortgeschrittene CSS-Selektoren und berechnete Stile nicht so wie in einer Live-Browserumgebung.</li>
+</ul>
+</li>
+<li><strong>Eingeschränkte JavaScript-Ausführung:</strong> Blazor-Komponenten sind oft auf JavaScript-Interop für bestimmte Funktionen angewiesen, aber bUnit führt JavaScript nicht in einem echten Browserkontext aus. Stattdessen ermöglicht es das Mocking über Dependency Injection, was bedeutet:
+<ul>
+<li><strong>Keine tatsächliche JS-Ausführung:</strong> JavaScript-Aufrufe werden abgefangen und durch Mocks ersetzt, sodass das tatsächliche Verhalten von Skripten nicht überprüft werden kann.</li>
+<li><strong>Einschränkungen bei externen Bibliotheken:</strong> JavaScript-Bibliotheken von Drittanbietern (wie Diagrammbibliotheken oder interaktive Elemente) können nicht vollständig getestet werden.</li>
+<li><strong>Ereignisbehandlungsbeschränkungen:</strong> Komplexe JavaScript-Ereignisinteraktionen funktionieren möglicherweise nicht wie erwartet ohne manuelles Mocking.</li>
+</ul>
+</li>
+<li><strong>Unvollständige Unterstützung der Browser-API:</strong>
+<ul>
+<li><strong>Geolocation und Sensoren:</strong> Komponenten, die darauf angewiesen sind, müssen manuell gemockt werden.</li>
+<li><strong>Lokaler Speicher und Sitzungsspeicher:</strong> Obwohl Mock-Implementierungen existieren, kann sich das tatsächliche Browserverhalten unterscheiden.</li>
+<li><strong>Zwischenablagezugriff und andere native Funktionen:</strong> Einige Interaktionen, die von Browserberechtigungen und nativen APIs abhängen, können nicht direkt getestet werden.</li>
+</ul>
+</li>
+<li><strong>Abhängigkeit vom Blazor-Lebenszyklus:</strong> bUnit bietet Hooks zum Testen des Blazor-Komponentenlebenszyklus, aber bestimmte Lebenszyklus-Feinheiten verhalten sich möglicherweise nicht genau so wie in Produktionsumgebungen, einschließlich:
+<ul>
+<li><strong>Timing asynchroner Operationen:</strong> Verzögerungen und die Ausführung asynchroner Methoden spiegeln möglicherweise nicht perfekt reale Szenarien wider.</li>
+<li><strong>Render-Timing-Unterschiede:</strong> Komponenten rendern möglicherweise schneller oder langsamer als in der Produktion, was zu subtilen zeitbezogenen Problemen führt.</li>
+</ul>
+</li>
+<li><strong>Nicht geeignet für End-to-End-Tests:</strong> bUnit konzentriert sich ausschließlich auf das Unit-Testing einzelner Komponenten in Isolation. Wenn Ihr Ziel darin besteht, den gesamten Anwendungsablauf zu testen, benötigen Sie End-to-End-Testtools wie:
+<ul>
+<li><strong>Selenium, Playwright oder Cypress:</strong> Diese Tools simulieren echte Benutzerinteraktionen und handhaben das vollständige Anwendungsverhalten über mehrere Komponenten und Seiten hinweg.</li>
+<li><strong>Leistungs- und Lasttests:</strong> bUnit misst nicht, wie gut eine Komponente unter hoher Auslastung oder Stress funktioniert.</li>
+</ul>
+</li>
+</ul>
+<h3 id="warum-diese-einschränkungen-existieren-fokus-auf-unit-tests">Warum diese Einschränkungen existieren: Fokus auf Unit-Tests</h3>
+<p>Die Einschränkungen ergeben sich aus dem primären Zweck von bUnit: dem Unit-Testing von Blazor-Komponenten. Das Ziel ist es, die Logik und das Rendering-Verhalten der Komponente von den Komplexitäten und dem Overhead einer vollständigen Browserumgebung zu isolieren. Das Ausführen einer vollständigen Browserinstanz für jeden Unit-Test wäre langsam und ressourcenintensiv und würde den Zweck des Unit-Testings zunichtemachen.</p>
+<h3 id="best-practices-workarounds-und-beispiele">Best Practices, Workarounds und Beispiele</h3>
+<p>Hier erfahren Sie, wie Sie effektiv mit den Einschränkungen von bUnit arbeiten, zusammen mit weiteren Beispielen:</p>
+<ol>
+<li><strong>Konzentrieren Sie sich auf die Komponentenlogik:</strong> Verwenden Sie bUnit, um die C#-Logik der Komponente, das Rendern der HTML-Struktur, die Behandlung von Ereignissen innerhalb des C#-Codes der Komponente und die Interaktionen mit anderen Blazor-Komponenten zu testen.</li>
+<li><strong>Mocken Sie JavaScript-Interop:</strong> Mocken Sie <code>IJSRuntime</code>, um zu überprüfen, ob JavaScript-Funktionen korrekt und mit den richtigen Parametern aufgerufen werden, wie im obigen Beispiel gezeigt.</li>
+<li><strong>Verwenden Sie vereinfachtes CSS für Tests:</strong> Wenn minimales CSS-Styling erforderlich ist, verwenden Sie Inline-Stile oder eine sehr einfache CSS-Datei. Vermeiden Sie komplexe CSS-Funktionen oder die Verwendung externer Stylesheets. Für fortgeschrittene CSS-Rendering ist ein Test außerhalb von bUnit erforderlich.</li>
+<li><strong>Mocken Sie Icon-Komponenten:</strong> Wenn Sie eine Komponente verwenden, um Icons zu umschließen, mocken Sie die Komponente und konzentrieren Sie sich auf die Überprüfung der Anwesenheit der entsprechenden HTML-Elemente.</li>
+</ol>
+<pre><code class="lang-csharp">// Mocking the Icon component
+var mockIcon = new Mock&lt;Icon&gt;();
+mockIcon.Setup(i =&gt; i.Render()).Returns(builder =&gt; builder.AddContent(0, &quot;[Icon: Check]&quot;));
+ctx.ComponentFactories.AddStub&lt;Icon&gt;(mockIcon.Object);
+
+var cut = ctx.RenderComponent&lt;MyComponentUsingIcon&gt;();
+cut.MarkupMatches(&quot;&lt;p&gt;[Icon: Check]&lt;/p&gt;&quot;);
+</code></pre>
+<ol start="5">
+<li><strong>Platzhalter für Test-Icons:</strong> Sie können einen Platzhalter in der Komponente verwenden, wenn Sie wie zuvor getestet haben.</li>
+<li><strong>Integrations-/End-to-End-Tests für vollständiges Rendering:</strong> Verwenden Sie für das Testen des vollständigen Renderings, des visuellen Layouts und der tatsächlichen JavaScript-Ausführung Integrations-/End-to-End-Testtools wie Selenium, Playwright oder Cypress. Diese Tools laufen in einem echten Browser und können die vollständige UI genau testen.</li>
+<li><strong>CSS-Visual-Testing:</strong> Verwenden Sie CSS-Testtools oder visuelle Regressionstests zur Überprüfung von Stilen, insbesondere beim Verwenden einer Komponentenbibliothek.</li>
+<li><strong>Komponenteninteraktionstests:</strong> Nutzen Sie bUnit-Methoden wie <code>ClickAsync</code>, <code>InputAsync</code>, <code>FocusAsync</code> und <code>BlurAsync</code>, um Benutzerinteraktionen zu simulieren und das resultierende Komponentenverhalten zu testen.</li>
+<li><strong>Dependency Injection für Testflexibilität:</strong> Nutzen Sie die Unterstützung von bUnit für das Mocken von Abhängigkeiten und Diensten, um isolierte Komponenten zu testen.</li>
+<li><strong>Testen von Lebenszyklusereignissen:</strong> bUnit bietet Mechanismen zum Auslösen und Testen von Blazor-Komponentenlebenszyklusereignissen, die helfen können, lebenszyklusspezifische Probleme zu identifizieren.</li>
+<li><strong>Wann Workarounds oder Alternativen verwenden</strong>
+<ul>
+<li>Wenn Ihre Tests eines der folgenden erfordern, sollten Sie bUnit durch andere Tools ergänzen:
+<ul>
+<li><strong>UI/UX-Validierung:</strong> Verwenden Sie screenshotbasierte Testtools oder manuelle visuelle Tests.</li>
+<li><strong>Umfangreiche JavaScript-Tests:</strong> Nutzen Sie Testframeworks wie Jest oder Mocha.</li>
+<li><strong>Vollständiges Browser-Testing:</strong> Playwright oder Selenium können eine echte Browserausführung bieten.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="zusammenfassung-kenne-die-stärken-und-schwächen-deines-tools">Zusammenfassung: Kenne die Stärken und Schwächen deines Tools</h3>
+<p>bUnit ist ein leistungsstarkes und effizientes Unit-Test-Tool für Blazor-Komponenten, ideal zum Überprüfen der Logik, Struktur und Kerninteraktionen. Seine Einschränkungen in Bezug auf CSS und JavaScript-Ausführung sowie die unvollständige API-Unterstützung sollten jedoch gut verstanden werden. Durch Konzentration auf das, was bUnit gut kann, und Ergänzung durch andere Testtools bei Bedarf können Sie umfassende und robuste Tests für Ihre Blazor-Anwendungen erreichen. Denken Sie immer daran, bUnit ist für das Unit-Testing von Komponenten konzipiert; für vollständige visuelle und Benutzerinteraktionstests müssen Sie browserbasierte Tests nutzen.</p>
+<p>Wie schneidet bUnit im Vergleich zu anderen Tools ab? Nun, wenn Sie schnelle, fokussierte Unit-Tests benötigen, ist bUnit Ihre beste Wahl. Wenn Sie den gesamten Anwendungsablauf testen möchten, sind Tools wie Selenium, Playwright oder Cypress möglicherweise besser geeignet – aber sie bringen mehr Overhead und langsamere Ausführung mit sich.</p>
+<p>Kurz gesagt, bUnit ist perfekt für das Testen einzelner Komponenten in Isolation, während Selenium und ähnliche Tools besser für vollständige End-to-End-Tests geeignet sind, wenn Sie eine vollständige Browser-Erfahrung benötigen.</p>
+<h1 id="grundlegende-bunit-konzepte-und--einrichtung">Grundlegende bUnit-Konzepte und -Einrichtung</h1>
+<h2 id="einrichten-des-testkontexts">Einrichten des Testkontexts</h2>
+<p>Bevor Tests geschrieben werden, besteht der erste Schritt darin, einen <code>TestContext</code> zu initialisieren. Betrachten Sie es als Ihren Test-Hub – es richtet alles ein, was Sie benötigen, um Blazor-Komponenten zu rendern, zu finden und damit zu interagieren. So geht's los:</p>
+<pre><code class="lang-csharp">using Bunit;
+using Xunit;
+
+public class MyComponentTest
+{
+    [Fact]
+    public void MyTest()
+    {
+       using var ctx = new TestContext();
+        // Der Test wird hier geschrieben
+    }
+}
+</code></pre>
+<p><code>TestContext</code> bietet Zugriff auf verschiedene Dienste, die zum Testen von Komponenten benötigt werden, ohne dass externe Abhängigkeiten erforderlich sind.</p>
+<h2 id="komponenten-rendering-ansätze">Komponenten-Rendering-Ansätze</h2>
+<p>Sobald Sie Ihren <code>TestContext</code> eingerichtet haben, können Sie Komponenten auf verschiedene Weise rendern, je nachdem, was getestet werden muss.</p>
+<ul>
+<li><p><strong>Grundlegendes Komponenten-Rendering:</strong> <code>RenderComponent&lt;T&gt;()</code>: Dies ist eine unkomplizierte Möglichkeit, eine Komponente vom Typ <code>T</code> zu rendern. Zum Beispiel:</p>
+<pre><code class="lang-csharp">[Fact]
+public void MyComponent_Render()
+{
+    // Arrange
+    using var ctx = new TestContext();
+
+    // Act
+    var cut = ctx.RenderComponent&lt;MyComponent&gt;();
+
+    // Assert
+    Assert.NotNull(cut);
+}
+</code></pre>
+<p>Diese Methode gibt <code>IRenderedComponent&lt;T&gt;</code> zurück, das Ihnen die Interaktion mit der Komponente in Ihren Tests ermöglicht.</p>
+</li>
+<li><p><strong>Rendering mit Parametern:</strong> <code>RenderComponent(ComponentParameter[] parameters)</code>: Dies ist praktisch, wenn Sie beim Rendern Parameter an die Komponente übergeben müssen. Angenommen, Sie haben <code>MyComponent</code>, das einen Parameter <code>Title</code> akzeptiert:</p>
+<pre><code class="lang-csharp">[Fact]
+public void MyComponent_RenderWithTitle()
+{
+    // Arrange
+    using var ctx = new TestContext();
+
+    // Act
+    var cut = ctx.RenderComponent&lt;MyComponent&gt;(
+        ComponentParameter.CreateParameter(nameof(MyComponent.Title), &quot;Hello bUnit!&quot;));
+
+    // Assert
+    Assert.NotNull(cut);
+    Assert.Equal(&quot;Hello bUnit!&quot;, cut.Instance.Title);
+}
+</code></pre>
+<p><code>ComponentParameter</code> ermöglicht es Ihnen, Eigenschaften auf typesichere Weise zu liefern.</p>
+</li>
+<li><p><strong>Rendering mit Markup:</strong> Manchmal müssen Sie Komponenten innerhalb zusätzlicher Markups rendern. Für diesen Zweck stellt bUnit die <code>Render</code>-Methode bereit. Sie ermöglicht das Übergeben von beliebigem Razor-Markup.</p>
+<pre><code class="lang-csharp">private RenderFragment ConvertToFragment(string html) =&gt; builder =&gt;
+{
+    builder.AddMarkupContent(0, html);
+};
+
+[Fact]
+public void MyComponent_RenderInMarkup()
+{
+// Arrange
+using var ctx = new TestContext();
+
+// Act
+var htmlString = &quot;&quot;&quot;
+    &lt;p&gt;
+        &lt;MyComponent Title=&quot;Hello&quot; /&gt;
+    &lt;/p&gt;
+&quot;&quot;&quot;;
+
+var cut = ctx.Render(ConvertToFragment(htmlString));
+
+// Assert
+var component = cut.FindComponent&lt;MyComponent&gt;();
+Assert.Equal(&quot;Hello&quot;, component.Instance.Title);
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="überprüfen-von-lebenszyklusereignissen">Überprüfen von Lebenszyklusereignissen</h2>
+<p>Blazor-Komponenten durchlaufen einen Lebenszyklus. Mit bUnit können Sie überprüfen, ob Lebenszyklusereignisse korrekt ausgelöst werden, indem Sie Hooks wie <code>OnInitialized</code>, <code>OnParametersSet</code> und andere verwenden. Sie können dies erreichen, indem Sie eine Dummy-Komponente erstellen. Dann müssen Sie Ihre Komponenten davon erben lassen.</p>
+<pre><code class="lang-csharp">public class LifecycleComponent : ComponentBase
+{
+    public bool OnInitializedCalled { get; set; }
+    public bool OnParametersSetCalled { get; set; }
+    public int ParametersSetCount { get; set; }
+
+    protected override void OnInitialized()
+    {
+        OnInitializedCalled = true;
+    }
+
+    protected override void OnParametersSet()
+    {
+         ParametersSetCount++;
+        OnParametersSetCalled = true;
+    }
+    [Parameter]
+    public int Value {get;set;}
+}
+</code></pre>
+<pre><code class="lang-csharp">[Fact]
+public void LifecycleComponent_LifecycleEvents()
+{
+    using var ctx = new TestContext();
+    var cut = ctx.RenderComponent&lt;LifecycleComponent&gt;();
+
+    Assert.True(cut.Instance.OnInitializedCalled);
+    Assert.True(cut.Instance.OnParametersSetCalled);
+    Assert.Equal(1, cut.Instance.ParametersSetCount);
+
+    cut.SetParametersAndRender(ComponentParameter.CreateParameter(nameof(LifecycleComponent.Value), 2));
+    
+    Assert.Equal(2, cut.Instance.ParametersSetCount);
+
+}
+</code></pre>
+<h2 id="verwalten-von-abhängigkeiten">Verwalten von Abhängigkeiten</h2>
+<p>Oft hängen Ihre Komponenten von externen Diensten ab. bUnit ermöglicht es Ihnen, diese Dienste mit der <code>Services</code>-Eigenschaft Ihres <code>TestContext</code> zu registrieren. Dies ist so, als ob man Abhängigkeiten injizieren würde.</p>
+<pre><code class="lang-csharp">public interface IMyService {
+    string GetData();
+}
+public class MyService : IMyService {
+    public string GetData() {
+        return &quot;Hello from the Service!&quot;;
+    }
+}
+public class MyComponentWithService: ComponentBase{
+    [Inject]
+    public IMyService MyService { get; set; }
+
+    public string ServiceData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ServiceData = MyService.GetData();
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">[Fact]
+public void MyComponentWithService_Render_ServiceDataIsSet() {
+    using var ctx = new TestContext();
+    ctx.Services.AddSingleton&lt;IMyService&gt;(new MyService());
+    
+    var cut = ctx.RenderComponent&lt;MyComponentWithService&gt;();
+
+    Assert.Equal(&quot;Hello from the Service!&quot;, cut.Instance.ServiceData);
+}
+</code></pre>
+<p>Das klingt nach einer großartigen Idee! Das Extrahieren des Abschnitts zu den bUnit-Einschränkungen in eine separate Datei hilft, den Hauptartikel prägnant zu halten und erleichtert zukünftige Aktualisierungen oder Erweiterungen der Einschränkungen. Es verbessert auch die Lesbarkeit für Ihr Publikum, indem es eine fokussierte, hochrangige Übersicht bietet und gleichzeitig detaillierte Einblicke für diejenigen bietet, die sie benötigen.</p>
+<h1 id="erweiterte-testszenarien-mit-bunit--fluentassertions">Erweiterte Testszenarien mit bUnit + FluentAssertions</h1>
+<p>Nun, da Sie mit den grundlegenden Konzepten vertraut sind, wollen wir fortgeschrittene Testtechniken erkunden und <code>FluentAssertions</code> verwenden, um Assertions klarer und verständlicher zu machen.</p>
+<blockquote>
+<p><strong>Hinweis:</strong> Ab Version 8 ist <a href="https://xceed.com/products/unit-testing/fluent-assertions">FluentAssertion</a> nicht mehr für alle kostenlos. Verwenden Sie stattdessen Version 7.x.</p>
+</blockquote>
+<h2 id="testen-von-komponentenzustandsänderungen">Testen von Komponentenzustandsänderungen</h2>
+<p>Blazor-Komponenten haben oft einen Zustand, der aktualisiert wird, wenn Benutzer(innen) mit ihnen interagieren. <code>FluentAssertions</code> bietet eine intuitive Möglichkeit, diese Zustandsänderungen zu überprüfen.</p>
+<pre><code class="lang-csharp">using FluentAssertions;
+public class CounterComponent : ComponentBase
+{
+    public int CurrentCount { get; private set; }
+
+    public void IncrementCount()
+    {
+        CurrentCount++;
+    }
+}
+
+[Fact]
+public void CounterComponent_IncrementCount()
+{
+    // Arrange
+    using var ctx = new TestContext();
+    var cut = ctx.RenderComponent&lt;CounterComponent&gt;();
+
+    // Act
+    cut.Instance.IncrementCount();
+
+    // Assert
+    cut.Instance.CurrentCount.Should().Be(1);
+}
+</code></pre>
+<p>Die <code>Should()</code>-Methode von <code>FluentAssertions</code> macht Tests einfacher zu lesen und bietet eine natürliche Möglichkeit, Assertions zu schreiben.</p>
+<h2 id="überprüfen-von-ereignishandlern-und-benutzerinteraktionen">Überprüfen von Ereignishandlern und Benutzerinteraktionen</h2>
+<p>Blazor-Komponenten reagieren oft über Ereignishandler auf Benutzerinteraktionen. Mit bUnit können Sie diese Interaktionen simulieren und ihre Auswirkungen überprüfen.</p>
+<pre><code class="lang-csharp">public class ButtonComponent : ComponentBase
+{
+    [Parameter]
+    public EventCallback OnButtonClicked { get; set; }
+
+    public async Task HandleClick()
+    {
+        await OnButtonClicked.InvokeAsync();
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">[Fact]
+public async Task ButtonComponent_ClickEvent()
+{
+    // Arrange
+    using var ctx = new TestContext();
+    bool eventTriggered = false;
+    var cut = ctx.RenderComponent&lt;ButtonComponent&gt;(
+        ComponentParameter.CreateParameter(
+            nameof(ButtonComponent.OnButtonClicked),
+            EventCallback.Factory.Create(this, () =&gt; eventTriggered = true)));
+
+    // Act
+    await cut.Instance.HandleClick();
+
+    // Assert
+    eventTriggered.Should().BeTrue();
+}
+</code></pre>
+<h2 id="mocken-von-abhängigkeiten-und-externen-diensten">Mocken von Abhängigkeiten und externen Diensten</h2>
+<p>Blazor-Komponenten sind häufig von externen Diensten abhängig, und bUnit in Kombination mit Moq ermöglicht es Ihnen, zuverlässige Testumgebungen zu erstellen, indem Sie diese Abhängigkeiten simulieren.</p>
+<pre><code class="lang-csharp">public interface IDataService {
+    Task&lt;string&gt; GetDataAsync();
+}
+public class DataComponent : ComponentBase
+{
+    [Inject]
+    public IDataService DataService { get; set; }
+
+    public string Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await DataService.GetDataAsync();
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">using Moq;
+...
+[Fact]
+public async Task DataComponent_DataIsLoadedFromService()
+{
+    // Arrange
+    using var ctx = new TestContext();
+    var mockService = new Mock&lt;IDataService&gt;();
+    mockService.Setup(s =&gt; s.GetDataAsync()).ReturnsAsync(&quot;Mocked Data&quot;);
+    ctx.Services.AddSingleton&lt;IDataService&gt;(mockService.Object);
+    var cut = ctx.RenderComponent&lt;DataComponent&gt;();
+
+    // Assert
+    cut.Instance.Data.Should().Be(&quot;Mocked Data&quot;);
+}
+</code></pre>
+<h2 id="testen-von-komponentenparametern-und-kaskadierenden-werten">Testen von Komponentenparametern und kaskadierenden Werten</h2>
+<p>Blazor-Komponenten erhalten häufig Parameter und kaskadierende Werte von übergeordneten Komponenten. bUnit macht es einfach, diese Werte zu übertragen und zu überprüfen.</p>
+<pre><code class="lang-csharp">public class ParameterComponent : ComponentBase
+{
+    [Parameter]
+    public string Message { get; set; }
+}
+</code></pre>
+<pre><code class="lang-csharp">[Fact]
+public void ParameterComponent_MessageIsSet()
+{
+    // Arrange
+    using var ctx = new TestContext();
+    var cut = ctx.RenderComponent&lt;ParameterComponent&gt;(
+        ComponentParameter.CreateParameter(nameof(ParameterComponent.Message), &quot;Hello Parameters&quot;));
+
+    // Assert
+    cut.Instance.Message.Should().Be(&quot;Hello Parameters&quot;);
+}
+</code></pre>
+<p>Für kaskadierende Werte:</p>
+<pre><code class="lang-csharp">@* ParentComponent.razor *@
+@using Microsoft.AspNetCore.Components
+
+&lt;CascadingValue Value=&quot;@SomeValue&quot;&gt;
+    @ChildContent
+&lt;/CascadingValue&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public int SomeValue { get; set; } = 123;
+}
+</code></pre>
+<pre><code class="lang-csharp">// CascadingValueComponent.razor.cs
+using Microsoft.AspNetCore.Components;
+
+public class CascadingValueComponent : ComponentBase
+{
+    [CascadingParameter]
+    public int SomeValue { get; set; }
+}
+</code></pre>
+<pre><code class="lang-csharp">// Test
+using Bunit;
+using FluentAssertions;
+using Xunit;
+
+public class CascadingValueComponentTests
+{
+    [Fact]
+    public void ParentComponent_CascadingValue_ValueIsCascaded()
+    {
+        // Arrange
+        using var ctx = new TestContext();
+        var cut = ctx.RenderComponent&lt;ParentComponent&gt;(parameters =&gt;
+        {
+            parameters.Add(p =&gt; p.ChildContent, childComponent =&gt;
+            {
+                childComponent.AddChildContent&lt;CascadingValueComponent&gt;();
+            });
+        });
+        //Act
+        var component = cut.FindComponent&lt;CascadingValueComponent&gt;();
+        // Assert
+        component.Instance.SomeValue.Should().Be(123);
+    }
+}
+</code></pre>
+<h2 id="handhabung-von-javascript-interop">Handhabung von JavaScript-Interop</h2>
+<p>Wenn Ihre Blazor-Komponenten mit JavaScript interagieren, können Sie <code>IJSRuntime</code>-Aufrufe mit bUnit mocken.</p>
+<pre><code class="lang-csharp">using Microsoft.JSInterop;
+public class JsComponent : ComponentBase
+{
+    [Inject]
+    public IJSRuntime Js { get; set; }
+
+    public string Result { get; set; }
+
+    public async Task GetJsValue()
+    {
+        Result = await Js.InvokeAsync&lt;string&gt;(&quot;someJsFunction&quot;);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">[Fact]
+public async Task JsComponent_InvokeJs()
+{
+    // Arrange
+    using var ctx = new TestContext();
+    var mockJsRuntime = new Mock&lt;IJSRuntime&gt;();
+    mockJsRuntime.Setup(x =&gt; x.InvokeAsync&lt;string&gt;(&quot;someJsFunction&quot;, It.IsAny&lt;object[]&gt;()))
+      .ReturnsAsync(&quot;Hello JS&quot;);
+    ctx.Services.AddSingleton&lt;IJSRuntime&gt;(mockJsRuntime.Object);
+    var cut = ctx.RenderComponent&lt;JsComponent&gt;();
+
+    // Act
+    await cut.Instance.GetJsValue();
+
+    // Assert
+    cut.Instance.Result.Should().Be(&quot;Hello JS&quot;);
+}
+</code></pre>
+<p>Durch das Mocken von <code>IJSRuntime</code> können Sie Ihre Komponentenlogik isolieren, ohne eine tatsächliche JavaScript-Ausführung zu erfordern.
+Weitere bUnit-Beispiele finden Sie <a href="https://github.com/AlexNek/TodoAppMaui">hier</a></p>
+<h1 id="best-practices-und-muster">Best Practices und Muster</h1>
+<p>Nachdem wir nun die Grundlagen kennen, werden wir einige Best Practices durchgehen, um Ihren Testcode organisiert, zuverlässig und performant zu halten.</p>
+<h2 id="testorganisation-und-struktur">Testorganisation und Struktur</h2>
+<p>Eine gut strukturierte Testsuite ist genauso wichtig wie sauberer Anwendungscode. Befolgen Sie diese Richtlinien, um Klarheit und Effizienz zu wahren:</p>
+<ul>
+<li><strong>Eine Testklasse pro Komponente:</strong> Führen Sie für jede Komponente eine eigene Testdatei und stellen Sie sicher, dass ähnliche Tests zusammengefasst werden.</li>
+<li><strong>Aussagekräftige Namensgebung:</strong> Verwende eine konsistente Namenskonvention wie <code>[Szenario]_[ErwartetesErgebnis]</code> (z.B. <code>IncrementCount_IncrementsByOne</code>). Falls Tests mehrere Komponenten betreffen oder zusätzlicher Kontext erforderlich ist, kann es hilfreich sein, den Komponentennamen einzubeziehen, z.B. <code>[Komponente]_[Szenario]_[ErwartetesErgebnis]</code>, insbesondere für Testberichte und Logs.</li>
+<li><strong>Das Arrange-Act-Assert (AAA) Muster:</strong> Strukturieren Sie Ihre Tests nach dem AAA-Ansatz, um die Lesbarkeit und die logische Trennung von Themen zu verbessern.</li>
+<li><strong>Hilfsmethoden:</strong> Extrahieren gemeinsamer Konfigurationslogik in Hilfsfunktionen, um Code-Duplizierung zu reduzieren und das Testen bei der Weiterentwicklung des Systems zu vereinfachen.</li>
+<li><strong>Zentrale Erstellung von Komponenten:</strong> Vermeiden Sie es, die zu testende Komponente in jedem Test inline zu erzeugen. Verwenden Sie stattdessen eine spezielle Factory oder eine Hilfsfunktion für die Instanziierung. Dieser Ansatz erleichtert die Berücksichtigung von Änderungen der Komponentenabhängigkeiten und -konfigurationen in allen Tests.</li>
+</ul>
+<h2 id="häufige-fehler-und-wie-man-sie-vermeidet">Häufige Fehler und wie man sie vermeidet</h2>
+<p>Achten Sie auf diese Fehler, damit Ihre Tests zuverlässig und leicht zu pflegen bleiben:</p>
+<ul>
+<li><strong>Zu viel testen:</strong> Testen Sie nur, was die Komponente tun soll, und nicht, wie das Framework funktioniert oder wie die Komponente innen aufgebaut ist.</li>
+<li><strong>Empfindliche Tests:</strong> Testen Sie nicht die inneren Details der Komponente. Konzentrieren Sie sich stattdessen darauf, ob die öffentlichen Methoden und Eigenschaften das Richtige tun.</li>
+<li><strong>Besondere Fälle vergessen:</strong> Denken Sie daran, auch seltene Situationen, Fehlerfälle und Grenzwerte zu testen, damit später keine unerwarteten Probleme auftreten.</li>
+</ul>
+<p>Wenn Sie diese Fehler vermeiden, bleiben Ihre Tests stabil und leicht anpassbar.</p>
+<h2 id="leistungsüberlegungen">Leistungsüberlegungen</h2>
+<p>bUnit-Tests sind normalerweise schnell, aber es ist wichtig, sie effizient zu halten:</p>
+<ul>
+<li><strong>Zu viel Rendering vermeiden:</strong> Rendern Sie nur die Teile der Komponente, die für den Test wirklich nötig sind, um die Testdauer zu verkürzen.</li>
+<li><strong>Komponenten bei Bedarf laden:</strong> Laden Sie nur die notwendigen Teile einer Komponente in komplexen Tests, um unnötige Verarbeitung zu vermeiden.</li>
+<li><strong>Einfaches Setup:</strong> Halten Sie die Testvorbereitung so kurz wie möglich und vermeiden Sie unnötige Abhängigkeiten.</li>
+</ul>
+<h2 id="integration-in-cicd-pipelines">Integration in CI/CD-Pipelines</h2>
+<p>Die Automatisierung Ihrer Tests als Teil der Entwicklungspipeline gewährleistet eine kontinuierliche Validierung Ihrer Komponenten:</p>
+<ul>
+<li><strong>Testrunner-Integration:</strong> Verwenden Sie beliebte Testrunner wie <code>dotnet test</code>, um Ihre xUnit-Tests auszuführen.</li>
+<li><strong>CI/CD-Kompatibilität:</strong> Die meisten CI/CD-Tools (z. B. GitHub Actions, Azure DevOps, Jenkins) können Testprojekte automatisch erkennen und ausführen.</li>
+<li><strong>Pipelineschritt:</strong> Fügen Sie Ihrer CI/CD-Pipeline einen dedizierten Schritt hinzu, um die Tests auszuführen und sicherzustellen, dass sie konsistent mit jedem Build ausgeführt werden.</li>
+</ul>
+<pre><code class="lang-yaml"># Beispiel für GitHub Actions Workflow
+name: .NET CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.x
+      - name: Run tests
+        run: dotnet test
+</code></pre>
+<h1 id="zusammenfassung-1">Zusammenfassung</h1>
+<p>Wir haben untersucht, wie Blazor-Komponenten mit bUnit getestet werden, zusammen mit hilfreichen Tools wie <code>FluentAssertions</code>. Testen ist keine einmalige Aufgabe, sondern eine kontinuierliche Anstrengung, die mit Ihrer Anwendung wächst.</p>
+<p>Jetzt wissen Sie, wie Sie Tests strukturieren, Abhängigkeiten mocken und verschiedene Szenarien handhaben, von einfachem Komponenten-Rendering bis hin zu komplexen Interaktionen.</p>
+<h2 id="wichtige-erkenntnisse">Wichtige Erkenntnisse</h2>
+<ul>
+<li><strong>Organisiert bleiben:</strong> Verwenden Sie klare Benennungen, folgen Sie dem AAA-Muster und halten Sie Tests fokussiert.</li>
+<li><strong>Intelligent testen:</strong> Konzentrieren Sie sich auf das Verhalten anstatt auf Implementierungsdetails.</li>
+<li><strong>Automatisieren:</strong> Fügen Sie Ihre Tests zu CI/CD-Pipelines hinzu, um Probleme frühzeitig zu erkennen.</li>
+<li><strong>Weiter verbessern:</strong> Überprüfen und verfeinern Sie Ihren Testansatz regelmäßig.</li>
+</ul>
+<p>Durch die Anwendung dieser Prinzipien stellen Sie sicher, dass Ihre Blazor-Apps zuverlässig und wartbar bleiben.</p>
+<h2 id="was-kommt-als-nächstes">Was kommt als Nächstes?</h2>
+<p>Jetzt ist es an der Zeit, Ihr Wissen in die Tat umzusetzen. Schreiben Sie weiter Tests, erkennen Sie Probleme frühzeitig und bauen Sie bessere Blazor-Anwendungen.</p>
+<p>Viel Spaß beim Testen!</p>
+<div id="post-nav"></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AlexNek/Blog/blob/master/docs/content/de/posts/2025-01-28-blazor-komponententests-mit-bunit.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      © 2026 Alex Nek — All rights reserved · Code: MIT
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

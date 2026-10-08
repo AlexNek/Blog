@@ -1,4 +1,4 @@
-name: Build and Deploy Blog
+name: Build Blog
 
 on:
   push:
@@ -7,12 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -34,9 +28,10 @@ jobs:
           chmod +x ./build.ps1
           pwsh ./build.ps1
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_site
-          publish_branch: gh-pages
+      - name: Commit built site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "build: update site [skip ci]"
+          git push

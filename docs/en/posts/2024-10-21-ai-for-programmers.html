@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Artificial Intelligence for Programmers | Alex Nek </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Artificial Intelligence for Programmers | Alex Nek ">
+    
+    
+      <link rel="shortcut icon" href="../../images/favicon.svg">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+
+<p><img src="/images/posts/ai-programmers/cover.png" alt="cover"></p>
+<h2 id="overview">Overview</h2>
+<p>The question of whether we need artificial intelligence (AI) right now is a topic of much debate. Some argue that life without AI would be unimaginable, while others dismiss it as unnecessary or overhyped. As with many debates, the truth likely lies somewhere in between.</p>
+<p>AI is increasingly becoming an essential part of modern software development. From automating routine tasks to assisting with complex problem-solving, it can significantly enhance productivity and efficiency. However, it's important to recognize that AI is not a one-size-fits-all solution. Developers must understand both its potential and its limitations to use it effectively.</p>
+<h2 id="the-role-of-ai-in-software-development">The Role of AI in Software Development</h2>
+<p>Understanding AI’s impact requires exploring the models behind AI systems and the platforms that bring them to life.</p>
+<h3 id="ai-language-models">AI Language Models</h3>
+<p>AI language models like GPT-4, Gemini, and Claude are advanced systems capable of processing and generating human-like text by learning from extensive datasets. These models utilize neural networks to recognize language patterns, enabling them to predict subsequent words or phrases.</p>
+<p>By adjusting millions of parameters, these models automate tasks such as writing, code generation, and debugging. They enhance software development processes by creating documentation, providing code suggestions, and simulating human-like conversations. For more details, see the</p>
+<h3 id="ai-models">AI Models</h3>
+<h4 id="text-models">Text Models</h4>
+<ol>
+<li><strong>GPT-3 and GPT-4 (OpenAI)</strong>: Designed for natural language processing tasks such as text generation, translation, summarization, and more.</li>
+<li><strong>Gemini (Google)</strong>: Focuses on dialogue applications, generating conversational responses. Successor to LaMDA and PaLM 2, focusing on multimodal capabilities.</li>
+<li><strong>Claude (Anthropic)</strong>: Known for safety and alignment, designed to be helpful and harmless in generating text.</li>
+<li><strong>PaLM (Google)</strong>: Used in various applications, including Google's Gemini, known for its extensive language understanding and generation capabilities.</li>
+<li><strong>LLaMA (Meta)</strong>: Designed for research purposes, known for their efficiency and performance in various natural language processing tasks.</li>
+<li><strong>BLOOM (Hugging Face)</strong>: An open-source model known for its multilingual capabilities.</li>
+<li><strong>NeMo (Nvidia)</strong>: Used for various applications, including natural language understanding and generation.</li>
+<li><strong>XLM-RoBERTa (Hugging Face)</strong>: Designed for cross-lingual tasks, making it highly effective in multilingual contexts.</li>
+<li><strong>Mistral (Mistral AI)</strong>: A large language model known for its impressive performance on various benchmarks and its ability to generate high-quality text.</li>
+</ol>
+<h4 id="image-models">Image Models</h4>
+<ol>
+<li><strong>DALL-E (OpenAI)</strong>: Generates images from textual descriptions, creating unique and creative visuals.</li>
+<li><strong>Firefly (Adobe)</strong>: Integrates with Adobe's creative tools to generate images and text effects from prompts.</li>
+<li><strong>Midjourney (Midjourney, Inc.)</strong>: Specializes in creating detailed and aesthetically pleasing images from text prompts.</li>
+<li><strong>SDXL-Lightning-4step (ByteDance)</strong>: Generates high-quality 1024x1024 pixel images from text prompts in just 4 inference steps.</li>
+<li><strong>SDXL-Lightning-2step (ByteDance)</strong>: Creates high-quality images in only 2 inference steps, prioritizing even faster generation times.</li>
+<li><strong>SDXL-Lightning-8step (ByteDance)</strong>: Provides the highest image quality among the SDXL-Lightning variants, using 8 inference steps.</li>
+</ol>
+<h4 id="audio-processing-models">Audio Processing Models</h4>
+<ol>
+<li><strong>Demucs (Facebook Research)</strong>: Performs music source separation, isolating individual instruments from mixed audio tracks.</li>
+<li><strong>Demucs v4 (Facebook Research)</strong>: Latest version of Demucs, offering improved separation quality and faster processing.</li>
+<li><strong>MusicGen (Meta)</strong>: Generates high-quality music samples from text descriptions or audio prompts.</li>
+</ol>
+<h4 id="video-models">Video Models</h4>
+<ol>
+<li><strong>OpenPose</strong> (Carnegie Mellon University): A real-time model for detecting human poses in videos.</li>
+<li><strong>vid2vid</strong> (NVIDIA): A generative model that transforms input video frames into high-quality output video sequences.</li>
+<li><strong>Deep Video Portraits</strong> (UC Berkeley): Enables realistic manipulation of video content by re-animating faces in static images.</li>
+<li><strong>MoCoGAN</strong> (UC Berkeley): A generative adversarial network that creates coherent video sequences.</li>
+</ol>
+<h4 id="text-to-speech-models">Text-to-Speech Models</h4>
+<ol>
+<li><strong>WaveNet (Google)</strong>: An AI model that generates human-like speech from text.</li>
+<li><strong>Tacotron and Tacotron 2</strong>: Sequence-to-sequence models for text-to-speech synthesis.</li>
+<li><strong>FastSpeech and FastSpeech 2</strong>: Non-autoregressive models for text-to-speech synthesis.</li>
+<li><strong>Deep Voice (Baidu)</strong>: A family of neural network models for text-to-speech synthesis.</li>
+<li><strong>Transformer TTS</strong>: Based on the Transformer architecture for improved speech synthesis.</li>
+<li><strong>AIVA</strong>: While primarily known for music composition, also incorporates voice synthesis.</li>
+<li><strong>F5-TTS (Open Source)</strong>: Generates highly natural and expressive speech from text. Capable of zero-shot voice cloning.</li>
+</ol>
+<h4 id="multimodal-models">Multimodal Models</h4>
+<ol>
+<li><strong>ChatGPT-4 (OpenAI)</strong>: Processes and responds to text, images, audio, and video.</li>
+<li><strong>Gato (DeepMind)</strong>: A generalist agent capable of performing multiple tasks across different modalities.</li>
+<li><strong>Gemini (Google)</strong>: A powerful multimodal AI model that can understand and generate text, images, videos, and audio.</li>
+</ol>
+<h4 id="enterprise-focused-foundation-models">Enterprise-Focused Foundation Models</h4>
+<ol>
+<li><strong>IBM Granite (IBM)</strong>: Processes and generates text for various business tasks.</li>
+<li><strong>Granite-20b-multilingual (IBM)</strong>: Handles tasks in multiple languages for cross-lingual business communications.</li>
+<li><strong>Granite-34b-code-instruct (IBM)</strong>: Focuses on code-related tasks.</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong>: This is only an overview. No guarantee that all models exist or are included.
+.</p>
+</blockquote>
+<h3 id="applications-and-websites">Applications and Websites</h3>
+<p>AI applications leverage these language models to create user-friendly tools for specific tasks. When integrated into real-world platforms, AI delivers features like virtual assistants, intelligent code suggestions, and personalized user experiences. This integration allows developers to streamline tasks and improve productivity. For more information, check the</p>
+<h2 id="ai-driven-development-support-tools">AI-driven Development Support Tools</h2>
+<p>A category of tools that leverage artificial intelligence and machine learning to support software development. (sorted alphabetically)</p>
+<ol>
+<li><strong><a href="https://aiquery.co">AI Query</a></strong>: Simplifies database querying using natural language processing.</li>
+<li><strong><a href="https://www.qodo.ai">Qodo</a> (formerly CodiumAI)</strong>: AI-powered code completion and generation tool.</li>
+<li><strong><a href="https://aws.amazon.com/codeguru/">CodeGuru</a> (Amazon)</strong>: Uses ML to provide recommendations for improving code quality.</li>
+<li><strong><a href="https://www.deepcode.ai">DeepCode</a> (Snyk)</strong>: AI-powered code review tool that finds bugs and vulnerabilities.</li>
+<li><strong><a href="https://www.figstack.com">Figstack</a></strong>: AI-powered development assistant for code explanation, generation, and refactoring.</li>
+<li><strong><a href="https://www.functionize.com">Functionize</a></strong>: Cloud-based testing platform utilizing AI for functional testing.</li>
+<li><strong><a href="https://www.limitlesstech.com">Limitless</a></strong>: AI-powered platform for customer service automation.</li>
+<li><strong><a href="https://notebooklm.google">NotebookLM</a> (Google)</strong>: Uses Gemini 1.5 Pro for research and note-taking.</li>
+<li><strong><a href="https://openai.com/blog/openai-codex">Codex</a> (OpenAI)</strong>: Translates natural language to code.</li>
+<li><strong><a href="https://otter.ai">Otter</a></strong>: AI-powered transcription and note-taking tool.</li>
+<li><strong><a href="https://aws.amazon.com/codewhisperer/">Q Developer</a> (formerly CodeWhisperer) (Amazon)</strong>: Real-time AI coding companion.</li>
+<li><strong><a href="https://replit.com/site/ghostwriter">Replit Ghostwriter</a> (Replit)</strong>: AI coding assistant integrated into the Replit IDE.</li>
+<li><strong><a href="https://scribehow.com">Scribe</a></strong>: AI-driven documentation tool that generates step-by-step guides.</li>
+<li><strong><a href="https://snyk.io">Snyk</a></strong>: Helps find and fix vulnerabilities in code and dependencies.</li>
+<li><strong><a href="https://sourcery.ai">Sourcery</a></strong>: AI code reviewer and refactoring tool focused on Python.</li>
+<li><strong><a href="https://www.tabnine.com">Tabnine</a></strong>: AI code assistant that accelerates development.</li>
+<li><strong><a href="https://www.testim.io">Testim</a></strong>: AI-driven test automation platform.</li>
+</ol>
+<h4 id="ai-powered-music-platforms">AI-Powered Music Platforms</h4>
+<ol>
+<li><strong><a href="https://www.jukedeck.com">Jukedeck</a> (ByteDance)</strong>: Generates original music tracks.</li>
+<li><strong><a href="https://www.ampermusic.com">Amper Music</a> (Shutterstock)</strong>: Create and customize music tracks using AI.</li>
+<li><strong><a href="https://www.aiva.ai">AIVA</a></strong>: Composes music in various styles and genres.</li>
+<li><strong><a href="https://www.stableaudio.com">Stable Audio</a> (Stability AI)</strong>: Generates high-quality audio from text prompts.</li>
+</ol>
+<h4 id="ai-powered-video-platforms">AI-Powered Video Platforms</h4>
+<ol>
+<li><strong><a href="https://www.synthesia.io">Synthesia</a></strong>: Creates AI-generated videos with virtual presenters.</li>
+<li><strong><a href="https://runwayml.com">Runway ML</a></strong>: Video editing and special effects using AI.</li>
+<li><strong><a href="https://www.kling.ai">Kling AI</a></strong>: AI-powered video creation platform.</li>
+</ol>
+<h4 id="ai-powered-speech-platforms">AI-Powered Speech Platforms</h4>
+<ol>
+<li><strong><a href="https://aws.amazon.com/polly/">Polly</a> (Amazon)</strong>: Converts text into lifelike speech.
+.</li>
+</ol>
+<h2 id="viewing-ai-as-a-helper-not-a-replacement">Viewing AI as a Helper, Not a Replacement</h2>
+<p>The perspective of artificial intelligence (AI) as a supportive tool rather than a complete solution aligns closely with its current applications in software development.</p>
+<p>Despite the capabilities of AI in generating code or providing solutions, the responsibility for reviewing, refining, and integrating AI's output ultimately lies with the developer. The AI's contribution should be viewed as a starting point or suggestion, necessitating human oversight to ensure that the final product meets quality and contextual standards.</p>
+<h3 id="ai-tools-in-programming">AI Tools in Programming</h3>
+<p>The application of AI in software development is wide-ranging:</p>
+<ul>
+<li><strong>Code Generation</strong>: Tools assist in generating code snippets and completing code based on partial inputs. We will focus on this part.</li>
+<li><strong>Bug Detection</strong>: AI-powered tools help identify vulnerabilities or performance issues in real-time.</li>
+<li><strong>Testing and Quality Assurance</strong>: AI platforms automate testing, reducing human error and ensuring better code coverage.</li>
+<li><strong>Project Management</strong>: AI-driven solutions provide project insights, optimize workflows, and automate mundane tasks.</li>
+<li><strong>Documentation</strong>: Assisting in the creation and maintenance of project documentation.</li>
+</ul>
+<h3 id="key-benefits-of-ai-in-development">Key Benefits of AI in Development</h3>
+<p>The primary benefits of AI in software development center around <strong>enhancing productivity</strong> and efficiency. Key advantages include:</p>
+<ol>
+<li><strong>Faster Development</strong>: AI tools enable developers to work more quickly and efficiently.</li>
+<li><strong>Higher Quality Code</strong>: By identifying potential issues early, AI contributes to producing more reliable software.</li>
+<li><strong>Streamlined Workflows</strong>: Automation of routine tasks allows developers to allocate more time to creative problem-solving.</li>
+<li><strong>Efficient Testing</strong>: AI generates and runs test cases more comprehensively than manual efforts.</li>
+<li><strong>Better Collaboration</strong>: Teams can work more cohesively with AI-enhanced documentation and communication tools.</li>
+</ol>
+<p>It is essential to recognize that AI is not a replacement for human expertise and decision-making; rather, it serves to enhance these elements. AI allows developers to focus on more complex and creative aspects of their work.
+AI are designed to <strong>assist</strong> developers rather than replace them.</p>
+<h3 id="key-points-to-consider">Key Points to Consider</h3>
+<ul>
+<li>The current state of AI aligns with the view of AI as a helper, enhancing human capabilities rather than replacing them.</li>
+<li>AI tools are primarily designed to streamline workflows and augment human skills, not to produce finished products in isolation.</li>
+<li>Human oversight is crucial in evaluating, refining, and implementing AI-generated outputs.</li>
+<li>Successful integration of AI across various fields relies on a collaborative approach where AI augments human skills and expertise.</li>
+</ul>
+<p>While the sources discussed primarily focus on specific applications of AI in software development, they support the notion of AI as a helper. Broader philosophical discussions about AI's future potential, including the possibility of creating fully autonomous systems, remain outside the scope of this analysis.</p>
+<h2 id="understanding-ais-dual-nature">Understanding AI's Dual Nature</h2>
+<p>Working with AI is not as easy as you might think. An analogy can be drawn by comparing AI to both a tool and an animal. You need to know how to use the tool and you need to know the animal's habits to know what to expect from it.</p>
+<p><img src="/images/posts/ai-programmers/Ai-tools-andAnimal600.jpg" alt="AI Tools and Animals Illustration"><br>
+<em>Image generated using AI (DALL-E)</em></p>
+<h3 id="ai-as-a-tool">AI as a Tool</h3>
+<ol>
+<li><p><strong>Designed for Specific Functions</strong>: Just like any tool, AI is created with specific tasks in mind. Models like GPT-4 excel at text and code generation, while others, like DALL-E, specialize in image creation. Each AI model is highly efficient in its domain but not versatile across all tasks.  Like any tool, AI requires an understanding of its operation and limitations.</p>
+</li>
+<li><p><strong>Requires User Expertise</strong>: Just as a carpenter must know how to use a hammer properly, a developer must understand how to interact with AI tools. Effective use depends on knowing both the AI's strengths and its limitations. For example, AI is great for generating boilerplate code but may struggle with complex context or nuanced changes.</p>
+</li>
+</ol>
+<h3 id="ai-as-an-animal">AI as an Animal</h3>
+<ol>
+<li><p><strong>Unpredictable Behavior</strong>: Like an animal, AI can behave unpredictably. For example, when tasked with refining code, AI might lose context and deliver inconsistent results. It's important to frame your requests carefully to ensure AI maintains the context and doesn't shift focus. Another challenge arises when switching between different versions of the code—original and updated. After the first iteration, the new code may be fine but could lack parts of the old version. If you ask the AI to restore the missing portions, it might revert to the original code entirely.</p>
+<p>Another issue is the output format: AI might generate a complete class or a mixture of new and unchanged functions, sometimes even adding comments referencing old versions. This can complicate the process of updating your code. To manage this effectively, consider using version control tools like Git or creating separate versions of your files.</p>
+</li>
+<li><p><strong>&quot;Black Box&quot; Nature</strong>: While developers can analyze AI's output, understanding how the AI arrived at that output can be as mysterious as animal instincts. This is due to the opaque nature of machine learning algorithms and the vast amounts of data they process, making their decision-making process difficult to fully comprehend.</p>
+</li>
+</ol>
+<h3 id="balancing-both-perspectives">Balancing Both Perspectives</h3>
+<p>Using AI effectively requires combining the control of a tool with the patience of working with an unpredictable animal. Developers need to both guide and adapt to the AI's strengths while being ready to intervene when things go off track.</p>
+<h2 id="a-practical-workflow-for-using-ai-in-development">A Practical Workflow for Using AI in Development</h2>
+<p>While AI can assist in development, it won’t solve every problem flawlessly. Some tasks are straightforward, but others may require patience and persistence. It is important to know the problem you are trying to solve, otherwise the AI may suggest the wrong way to solve it.<br>
+<img src="/images/posts/ai-programmers/workflow.png" alt="image"></p>
+<p>Here's a structured, iterative approach to using AI effectively:</p>
+<h3 id="1-define-the-task-clearly">1. <strong>Define the Task Clearly</strong></h3>
+<ul>
+<li><p><strong>Document the Task</strong>: Start by outlining the task requirements in detail. The clearer the input, the better the AI's output will be.</p>
+</li>
+<li><p><strong>Task Decomposition:</strong>  Breaking down complex coding tasks into smaller, manageable steps appears to be a key strategy in your approach.</p>
+</li>
+<li><p><strong>Initial Test with Basic AI</strong>: Use a simpler AI model for a preliminary check to refine your task description.</p>
+</li>
+<li><p><strong>Upgrade to Advanced AI</strong>: Switch to a more powerful model, like GPT-4 or Claude, for deeper, more refined results after initial testing.</p>
+</li>
+</ul>
+<h3 id="2-receive-and-inspect-the-solution">2. <strong>Receive and Inspect the Solution</strong></h3>
+<ul>
+<li><strong>Generated Code</strong>: Review the code or solution provided by the AI directly in the output window.</li>
+</ul>
+<h3 id="3-review-test-and-refine">3. <strong>Review, Test, and Refine</strong></h3>
+<ul>
+<li><strong>Manual Review</strong>: Copy code into your IDE and inspect the AI-generated code for correctness, logic, and efficiency.</li>
+<li><strong>Compile and Test</strong>: Ensure the code compiles without errors, and run tests to verify functionality.</li>
+<li><strong>Unit Tests</strong>: Ask the AI to generate unit tests. Then run and correct it together. Expect some adjustments, as the initial results might not be perfect.</li>
+<li><strong>Performance Testing</strong>: Request AI-driven performance optimizations, but monitor for any unexpected slowdowns. AI could also create performance tests.</li>
+<li><strong>Cross-Check with Another AI</strong>: Get a second AI model to review the code for further insights or improvements.Ask the AI to explain the code as well, and compare it with the original task.</li>
+</ul>
+<h3 id="4-iterate-and-refine">4. <strong>Iterate and Refine</strong></h3>
+<ul>
+<li><strong>Code Improvements</strong>: Continuously ask the AI for optimizations, following principles such as DRY (Don't Repeat Yourself) and SOLID, to ensure clean, maintainable code. But don't start optimizing too early.</li>
+<li><strong>Re-run Tests</strong>: Keep testing and refining until the code behaves as expected.</li>
+</ul>
+<h3 id="5-know-when-to-stop">5. <strong>Know When to Stop</strong></h3>
+<ul>
+<li><strong>Avoid Over-Tweaking</strong>: Excessive reliance on AI or endless tweaking may reduce productivity.</li>
+<li><strong>Avoid long repetitive action</strong>: If you're stuck in a repetitive cycle of getting incorrect results, it's time to step back and reassess.</li>
+</ul>
+<p>This structured approach ensures AI can assist in speeding up the development process, but ultimately, the responsibility for code quality remains with the developer.</p>
+<h2 id="limitations-and-challenges-of-ai">Limitations and Challenges of AI</h2>
+<p>Despite its advantages, AI comes with a range of limitations:</p>
+<ul>
+<li><strong>Contextual Understanding</strong>: AI models often struggle to fully grasp complex or evolving contexts, leading to inconsistent or inaccurate outputs. Never ask for more than one change at a time.</li>
+<li><strong>Data Bias</strong>: AI performance is heavily influenced by the data it's trained on. If that data contains biases or gaps, the model will reflect those flaws in its results.</li>
+<li><strong>Limited Creativity</strong>: While AI excels at pattern recognition, it falls short in true innovation and out-of-the-box problem-solving, which remain primarily human strengths.</li>
+<li><strong>Ethical and Privacy Concerns</strong>: The opaque nature of AI decision-making raises significant concerns about accountability and privacy.</li>
+</ul>
+<p>Additionally, AI platforms, especially in free versions, have certain restrictions:</p>
+<ul>
+<li><strong>Input and Output Limits</strong>: There are constraints on the size of input text and overall conversation length.</li>
+<li><strong>Request Limitations</strong>: The number of consecutive requests may also be limited.</li>
+</ul>
+<p>These limitations may vary depending on the platform and whether it’s a free or paid version, with paid versions generally offering fewer restrictions.</p>
+<h2 id="how-to-get-started-with-ai-tools">How to Get Started with AI Tools</h2>
+<p><strong>Try Before You Buy</strong>: Start with the free version of the tool you're interested in, and then decide which paid option suits your needs.</p>
+<ol>
+<li><p><strong>Using Copilot on Windows</strong>:</p>
+<ul>
+<li>Open the Edge browser and launch Microsoft Copilot (not to be confused with GitHub Copilot it is not free for all).
+<img src="/images/posts/ai-programmers/ms_copilot.png" alt="image"></li>
+<li>You can also install it as an <a href="https://www.microsoft.com/en-us/microsoft-copilot/personal-ai-assistant">application</a>.</li>
+<li>Accessing Copilot in Skype: You can also utilize Copilot in Skype.</li>
+</ul>
+</li>
+<li><p><strong>Explore free plan of AI Platforms</strong>:</p>
+<ul>
+<li><a href="https://www.blackbox.ai/">Blackbox AI</a></li>
+<li><a href="https://chatgpt.com/">ChatGPT AI</a> or explore <a href="https://chatgpt.com/gpts">different implementations</a> to find the best fit.</li>
+<li><a href="https://claude.ai">Claude AI</a></li>
+<li><a href="https://gemini.google.com/app">Gemini AI</a></li>
+<li><a href="https://www.perplexity.ai/">Perplexity AI</a></li>
+</ul>
+</li>
+<li><p><strong>Integrate AI plugins into your IDE</strong> (as an example):</p>
+<ul>
+<li>For Visual Studio Code: <a href="https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox">BlackBox AI</a></li>
+<li>For Visual Studio: <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-visual-studio">Tabnine</a> - excellent for creating or updating unit tests.</li>
+<li>For Rider: A free version of Gemini is available until 8.11.2024.</li>
+</ul>
+</li>
+</ol>
+<h2 id="helpful-links">Helpful links</h2>
+<p>For more information about the tools available, see the</p>
+<h2 id="ai-driven-development-support-tools-1">AI-driven Development Support Tools</h2>
+<p>A category of tools that leverage artificial intelligence and machine learning to support software development. (sorted alphabetically)</p>
+<ol>
+<li><strong><a href="https://aiquery.co">AI Query</a></strong>: Simplifies database querying using natural language processing.</li>
+<li><strong><a href="https://www.qodo.ai">Qodo</a> (formerly CodiumAI)</strong>: AI-powered code completion and generation tool.</li>
+<li><strong><a href="https://aws.amazon.com/codeguru/">CodeGuru</a> (Amazon)</strong>: Uses ML to provide recommendations for improving code quality.</li>
+<li><strong><a href="https://www.deepcode.ai">DeepCode</a> (Snyk)</strong>: AI-powered code review tool that finds bugs and vulnerabilities.</li>
+<li><strong><a href="https://www.figstack.com">Figstack</a></strong>: AI-powered development assistant for code explanation, generation, and refactoring.</li>
+<li><strong><a href="https://www.functionize.com">Functionize</a></strong>: Cloud-based testing platform utilizing AI for functional testing.</li>
+<li><strong><a href="https://www.limitlesstech.com">Limitless</a></strong>: AI-powered platform for customer service automation.</li>
+<li><strong><a href="https://notebooklm.google">NotebookLM</a> (Google)</strong>: Uses Gemini 1.5 Pro for research and note-taking.</li>
+<li><strong><a href="https://openai.com/blog/openai-codex">Codex</a> (OpenAI)</strong>: Translates natural language to code.</li>
+<li><strong><a href="https://otter.ai">Otter</a></strong>: AI-powered transcription and note-taking tool.</li>
+<li><strong><a href="https://aws.amazon.com/codewhisperer/">Q Developer</a> (formerly CodeWhisperer) (Amazon)</strong>: Real-time AI coding companion.</li>
+<li><strong><a href="https://replit.com/site/ghostwriter">Replit Ghostwriter</a> (Replit)</strong>: AI coding assistant integrated into the Replit IDE.</li>
+<li><strong><a href="https://scribehow.com">Scribe</a></strong>: AI-driven documentation tool that generates step-by-step guides.</li>
+<li><strong><a href="https://snyk.io">Snyk</a></strong>: Helps find and fix vulnerabilities in code and dependencies.</li>
+<li><strong><a href="https://sourcery.ai">Sourcery</a></strong>: AI code reviewer and refactoring tool focused on Python.</li>
+<li><strong><a href="https://www.tabnine.com">Tabnine</a></strong>: AI code assistant that accelerates development.</li>
+<li><strong><a href="https://www.testim.io">Testim</a></strong>: AI-driven test automation platform.</li>
+</ol>
+<h4 id="ai-powered-music-platforms-1">AI-Powered Music Platforms</h4>
+<ol>
+<li><strong><a href="https://www.jukedeck.com">Jukedeck</a> (ByteDance)</strong>: Generates original music tracks.</li>
+<li><strong><a href="https://www.ampermusic.com">Amper Music</a> (Shutterstock)</strong>: Create and customize music tracks using AI.</li>
+<li><strong><a href="https://www.aiva.ai">AIVA</a></strong>: Composes music in various styles and genres.</li>
+<li><strong><a href="https://www.stableaudio.com">Stable Audio</a> (Stability AI)</strong>: Generates high-quality audio from text prompts.</li>
+</ol>
+<h4 id="ai-powered-video-platforms-1">AI-Powered Video Platforms</h4>
+<ol>
+<li><strong><a href="https://www.synthesia.io">Synthesia</a></strong>: Creates AI-generated videos with virtual presenters.</li>
+<li><strong><a href="https://runwayml.com">Runway ML</a></strong>: Video editing and special effects using AI.</li>
+<li><strong><a href="https://www.kling.ai">Kling AI</a></strong>: AI-powered video creation platform.</li>
+</ol>
+<h4 id="ai-powered-speech-platforms-1">AI-Powered Speech Platforms</h4>
+<ol>
+<li><strong><a href="https://aws.amazon.com/polly/">Polly</a> (Amazon)</strong>: Converts text into lifelike speech.
+.</li>
+</ol>
+<h3 id="articles">Articles</h3>
+<ul>
+<li><a href="https://www.hpe.com/emea_europe/en/what-is/ai-models.html">What are AI Models?</a> - HPE's glossary entry explaining AI models and their operation.</li>
+<li><a href="https://www.koombea.com/blog/ai-models/">AI Models: How Does It Work? Explained</a> - Koombea's blog post detailing different types of AI models and their functionalities.</li>
+<li><a href="https://viso.ai/deep-learning/ml-ai-models/">The Guide to Understanding and Using AI Models (2024)</a> - Viso.ai's comprehensive guide on AI models and their applications in business.</li>
+<li><a href="https://decode.agency/article/ai-software-development-tools/">AI in Software Development: Top Tools and Use Cases</a> - Decode's article on AI tools and their applications in software development.</li>
+<li><a href="https://www.index.dev/blog/11-generative-ai-use-cases-software-development">11 Generative AI Use Cases in Software Development</a> - Index.dev's blog post on various applications of generative AI in software development.</li>
+<li><a href="https://www.alexanderthamm.com/en/blog/ai-in-software-development/">AI in Software Development: Use Cases and Tools</a> - Alexander Thamm's overview of AI applications and tools in software development.</li>
+<li><a href="https://www.zartis.com/8-ways-to-use-ai-in-software-development/">8 Ways to Use AI in Software Development</a> - Zartis's guide on integrating AI into software development processes.</li>
+<li><a href="https://pieces.app/blog/9-best-ai-code-generation-tools">Exploring the Nine Best AI Code Generation Tools</a> - An evaluation of the best AI code generation tools based on accuracy, ease of use, features, pricing, and speed of the generative capabilities.</li>
+<li><a href="https://pieces.app/blog/top-10-ai-tools-for-developers">Top 10 AI Tools for Developers</a> - Pieces.app's list of recommended AI tools for developers.</li>
+</ul>
+<h3 id="videos">Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=1aM1KYvl4Dw">How AI works</a> - An overview of artificial intelligence fundamentals and how AI systems function.</li>
+<li><a href="https://www.youtube.com/watch?v=osKyvYJ3PRM">How LLM works</a> - An explanation of Large Language Models (LLMs) and their underlying mechanisms.</li>
+<li><a href="https://www.youtube.com/watch?v=wjZofJX0v4M">Transformers, how LLM works</a> - A deep dive into transformer architecture, the backbone of modern LLMs.</li>
+<li><a href="https://www.youtube.com/watch?v=cZaNf2rA30k">Introduction to Generative AI</a> - An introductory guide to generative AI and its applications.</li>
+<li><a href="https://www.youtube.com/watch?v=7GIZi7nlIe0">Linus Torvalds: Speaks on Hype and the Future of AI</a> - Linux creator Linus Torvalds shares his perspective on AI's current state and future potential.</li>
+<li><a href="https://www.youtube.com/watch?v=bzwtGU-0ObY">How generative AI is transforming the software development lifecycle</a></li>
+<li><a href="https://www.youtube.com/watch?v=pajcn6ApyD8">AI for software development: A reality check</a></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>To use, or not to use AI, that is the question. It is up to you to decide, but it never hurts to try.</p>
+<p>Developers must harness AI's power to automate and optimize, while remaining aware of its unpredictability and limitations. By integrating AI thoughtfully into the development process-combining human expertise with AI's efficiency programmers can enhance their productivity while maintaining control over the final product.</p>
+<p>As AI continues to evolve, so too will the best practices for using it effectively in software development.</p>
+<h2 id="author">Author</h2>
+<p>Alex Nek</p>
+<p><a href="https://github.com/AlexNek/AI-for-Programmers/blob/master/Ai-talk2.mp4">Audio Talk</a></p>
+<p><a href="https://github.com/user-attachments/assets/cc57ff2f-d348-48cc-9e78-a9cb383cd827">https://github.com/user-attachments/assets/cc57ff2f-d348-48cc-9e78-a9cb383cd827</a></p>
+<div id="post-nav"></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AlexNek/Blog/blob/master/docs/content/en/posts/2024-10-21-ai-for-programmers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      © 2026 Alex Nek — All rights reserved · Code: MIT
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

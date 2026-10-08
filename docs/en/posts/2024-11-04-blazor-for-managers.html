@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Blazor for Managers | Alex Nek </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Blazor for Managers | Alex Nek ">
+    
+    
+      <link rel="shortcut icon" href="../../images/favicon.svg">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+
+<p><img src="/images/posts/blazor-manager/cover.jpeg" alt="cover"></p>
+<h2 id="overview">Overview</h2>
+<p>Blazor, Microsoft's web framework for building interactive client-side web UIs with .NET, has gained significant traction in recent years. As a manager, understanding its strengths, weaknesses, and ideal use cases is crucial for making informed decisions about your technology stack.</p>
+<h2 id="what-is-blazor">What is Blazor?</h2>
+<p>At its core, Blazor is Microsoft's answer to the question: &quot;Can we build web UIs with C# instead of JavaScript?&quot; The resounding answer is yes. Blazor allows developers to leverage their C# skills to create both client-side and server-side web applications, effectively bridging the gap between .NET development and modern web technologies.</p>
+<p>Blazor comes in two primary hosting model:</p>
+<ol>
+<li><p><strong>Blazor WebAssembly</strong>: This client-side solution runs entirely in the browser, leveraging WebAssembly to execute .NET code directly on the client.</p>
+</li>
+<li><p><strong>Blazor Server</strong>: A server-side implementation where the UI updates are managed through a SignalR connection, keeping a thin client in the browser.</p>
+</li>
+</ol>
+<p>.</p>
+<h2 id="net-80-enhancements">.NET 8.0 Enhancements</h2>
+<p>The release of .NET 8.0 marks a significant milestone for Blazor, ushering in a new era of web development. Let's delve into the transformative enhancements that set this version apart:</p>
+<h3 id="unified-rendering-model">Unified Rendering Model</h3>
+<p>Blazor now features a <strong>unified rendering model</strong>, eliminating the need to choose exclusively between WebAssembly and Server rendering. Developers can seamlessly mix server-side and client-side rendering within the same application. This flexibility not only addresses performance concerns but also provides greater architectural freedom, allowing for more dynamic and responsive applications.</p>
+<h3 id="enhanced-user-experience">Enhanced User Experience</h3>
+<p>Improvements in navigation and form handling have significantly elevated the user experience, delivering interactions that rival those of native single-page applications (SPAs). The introduction of <strong>streaming rendering</strong> allows components to be progressively painted, preserving existing DOM elements and minimizing unnecessary refreshes. This results in smoother transitions and faster load times.</p>
+<h3 id="performance-leap">Performance Leap</h3>
+<p>.NET 8 introduces impressive performance gains across ASP.NET Core, <a href="https://devblogs.microsoft.com/dotnet/announcing-dotnet-8/">with reports</a> indicating an 18% improvement in JSON handling and a 24% increase in performance on the Fortunes benchmark compared to .NET 7. These enhancements position Blazor as a formidable contender among high-performance web frameworks, making it an attractive choice for developers focused on speed and efficiency.</p>
+<h3 id="boosted-developer-productivity">Boosted Developer Productivity</h3>
+<p>Blazor enhances developer productivity with innovative features like <strong>QuickGrid</strong>, which simplifies data table creation by incorporating built-in sorting, filtering, and pagination functionalities. This allows developers to concentrate on core application logic rather than repetitive tasks.</p>
+<p>Additionally, the ongoing development of <strong>Blazor Fluent UI Web Components</strong> provides a modern Microsoft look and feel. These pre-built, customizable components ensure design consistency and streamline development processes, empowering teams to build responsive and engaging web applications while reducing boilerplate code.</p>
+<h3 id="diverse-rendering-options-in-net-8">Diverse Rendering Options in .NET 8</h3>
+<p>.NET 8 introduces several rendering options tailored to various application needs:</p>
+<ol>
+<li><p><strong>Static Server-Side Rendering (Static SSR)</strong></p>
+<ul>
+<li>Renders components on the server without interactivity.</li>
+<li>Suitable for content-heavy sites with minimal interactivity needs.</li>
+<li>Default mode for new Blazor components in .NET 8.</li>
+</ul>
+</li>
+<li><p><strong>Interactive Server Rendering</strong></p>
+<ul>
+<li>Renders components on the server and maintains interactivity via a SignalR connection.</li>
+<li>Good for applications requiring real-time server interactions.</li>
+</ul>
+</li>
+<li><p><strong>Interactive WebAssembly Rendering</strong></p>
+<ul>
+<li>Renders and runs components entirely in the browser using WebAssembly.</li>
+<li>Suitable for applications that need to run offline or with minimal server dependency.</li>
+</ul>
+</li>
+<li><p><strong>Interactive Auto Rendering</strong></p>
+<ul>
+<li>Initially renders using Interactive Server, then switches to WebAssembly once the .NET runtime is downloaded.</li>
+<li>Balances fast initial load times with client-side execution benefits.</li>
+</ul>
+</li>
+<li><p><strong>Streaming Rendering</strong> *</p>
+<ul>
+<li>Not a separate mode, but a feature that can be applied to other interactive modes (*).</li>
+<li>Allows components to render incrementally, sending content to the client as soon as it's available.</li>
+<li>Improves perceived performance, especially for components with long-running operations.</li>
+</ul>
+</li>
+</ol>
+<h2 id="additional-considerations">Additional Considerations</h2>
+<ul>
+<li><p><strong>Per-Component Render Modes</strong>: Developers can specify render modes at the component level, allowing for a mix of rendering strategies within a single application.</p>
+</li>
+<li><p><strong>Prerendering</strong>: Available for interactive render modes, it generates initial HTML on the server for faster perceived load times.</p>
+</li>
+<li><p><strong>Global vs. Local Configuration</strong>: Render modes can be set globally for the entire application or locally for specific components.</p>
+</li>
+<li><p><strong>Application State Management</strong>: Currently, application state is not preserved when switching between render modes (e.g., from Interactive Server to Interactive WebAssembly). Developers should implement appropriate state management strategies to ensure state continuity across render mode transitions.</p>
+</li>
+</ul>
+<p>This comprehensive set of rendering options in .NET 8 provides developers with fine-grained control over how their Blazor applications render and execute, allowing for optimized performance and user experience based on specific application requirements.
+a unified rendering model, this addresses performance concerns and provides greater flexibility in application architecture:</p>
+<ol start="3">
+<li><strong>Blazor Unified</strong>: Allowing mix server-side and client-side rendering within the same application.</li>
+</ol>
+<blockquote>
+<p>Note: For the purposes of this article, we will use the name <code>Blazor Unified</code> as a shorthand for <code>Unified Full-Stack Model</code> or <code>Full Stack Web UI with Blazor</code>. This model enables you to opt for any of the various supported rendering modes (client rendering, server-side rendering, and static rendering) and switch between them on a per-component or per-page basis within a single application.</p>
+</blockquote>
+<p><img src="/images/posts/blazor-manager/BlazorRendering.png" alt="Image"><br>
+<em>Pic: Simplified Drawing of Blazor Hosting Models</em></p>
+<h2 id="differences-between-blazor-client-blazor-server-and-blazor-unified">Differences between Blazor Client, Blazor Server and Blazor Unified</h2>
+<h3 id="blazor-client--webassembly">Blazor Client / WebAssembly</h3>
+<p>Blazor WebAssembly applications run entirely within the user's browser, with C# code and .NET libraries downloaded and executed client-side.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Offline Capabilities:</strong> Can work without a permanent server/internet connection once downloaded.</li>
+<li><strong>Responsive UI:</strong> Interactions can be very quick without server round-trips.</li>
+<li><strong>Reduced Server Load:</strong> Processing is offloaded to the client's browser.</li>
+<li><strong>Deployable to Static File Servers or CDNs:</strong> Blazor WebAssembly can be deployed to static file servers or content delivery networks (CDNs), offering flexibility in hosting and deployment options.</li>
+</ul>
+<p><strong>General WASM drawbacks:</strong></p>
+<ul>
+<li><strong>Limited Browser Compatibility:</strong>  WebAssembly depends on browser support. Although it is broadly supported in modern browsers, older versions may have limited compatibility, potentially affecting functionality for users on those platforms.</li>
+<li><strong>Client-Side Security Concerns:</strong> Since the code runs on the client-side, sensitive logic or data is potentially exposed.  It's crucial to implement proper authentication and authorization mechanisms and avoid handling sensitive operations directly within the client-side code.</li>
+</ul>
+<p><strong>Blazor specific drawbacks:</strong></p>
+<ul>
+<li><strong>Longer Initial Load Times:</strong> Downloading the entire application and .NET runtime can slow initial loading. This is a particular concern for public-facing websites where first impressions and user engagement are crucial.</li>
+<li><strong>Performance Trade-offs:</strong> Blazor WebAssembly can be slower than native .NET applications for CPU-intensive tasks. While .NET 8 introduces optimizations like Ahead-of-Time (AOT) compilation to enhance runtime performance, it may also increase the overall application size.</li>
+<li><strong>Limited API Access:</strong> Not all .NET APIs are available in the browser environment.</li>
+</ul>
+<blockquote>
+<p>Note: Most System.Security.Cryptography APIs are not supported in Blazor WebAssembly due to browser sandbox constraints, lack of native cryptographic primitives, performance considerations, security concerns, and the preference for using browser-provided cryptographic APIs.</p>
+</blockquote>
+<h3 id="blazor-server">Blazor Server</h3>
+<p>Blazor Server applications execute primarily on the server, with UI updates communicated to the client's browser over a SignalR connection.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Fast Initial Load:</strong> Smaller download size leads to quicker initial page loads.</li>
+<li><strong>Full Server Resource Access:</strong> Direct access to server-side resources like databases and file systems.</li>
+<li><strong>Enhanced Security:</strong> Sensitive logic and data reside on the server, providing a higher level of security compared to client-side execution.</li>
+<li><strong>Reduced Client CPU Load:</strong> Blazor Server handles most rendering and state management on the server, lowering the processing work for client devices. This is especially helpful for users with older or less powerful hardware.</li>
+</ul>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li><strong>Constant Connection Required:</strong> A persistent connection between the browser and the server is necessary, which can lead to scalability challenges with a large number of concurrent users and might not be suitable for offline scenarios.</li>
+<li><strong>Handling Long User Absences:</strong> Blazor Server can be challenging for users who experience long absences due to potential session timeouts, data synchronization issues, and degraded user experience.</li>
+<li>** Requires ASP.NET Core Hosting:**  Blazor Server applications rely on ASP.NET Core as the server-side runtime environment. This might not be ideal for projects already using different server-side technologies.</li>
+<li><strong>Potential Latency:</strong> UI interactions involve server communication, possibly impacting responsiveness.</li>
+</ul>
+<h3 id="blazor-unified">Blazor Unified</h3>
+<p>The Blazor unified rendering model, introduced in .NET 8.0, provides a powerful way to combine Blazor Server and WebAssembly components within a single application. This unified approach gives developers greater flexibility in designing optimized web application architectures.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Flexibility:</strong> Developers can choose the most suitable rendering mode for different parts of the application.</li>
+<li><strong>Optimized Performance:</strong> Can leverage benefits of both Server and WebAssembly models where appropriate.</li>
+<li><strong>Progressive Enhancement:</strong> Applications can start with server-side rendering and transition to client-side execution when WebAssembly is available.</li>
+<li><strong>Enhanced Scalability:</strong> Distribute load across servers and clients, improving scalability for applications with high user loads.</li>
+<li><strong>Seamless User Experience:</strong> Provide a smooth and responsive user experience, even in scenarios with limited network connectivity.</li>
+</ul>
+<p><strong>Considerations:</strong></p>
+<ul>
+<li><strong>Complexity:</strong> Managing both server and client-side logic in a single application can introduce additional complexity into your application's architecture and development process. Mixing different rendering modes together with state management is not an easy task either.</li>
+<li><strong>Data Access:</strong> Requires careful design to handle data access consistently across server and client components.</li>
+<li><strong>Development Experience:</strong> Developers need to be familiar with both Blazor Server and WebAssembly paradigms.</li>
+</ul>
+<h3 id="performance-and-scalability">Performance and Scalability</h3>
+<ul>
+<li><p>Blazor Server offers good initial performance but may face scalability challenges as user numbers increase. While specific numbers can vary greatly depending on application complexity and server resources, Microsoft has demonstrated that Blazor Server can handle <a href="https://devblogs.microsoft.com/dotnet/blazor-server-in-net-core-3-0-scenarios-and-performance/">thousands (5,000-20,000)</a>, of concurrent users. For precise capacity planning, it's recommended to conduct load testing specific to your application and infrastructure, for example <a href="https://learn.microsoft.com/en-us/azure/azure-signalr/signalr-concept-performance">SignalR</a>.</p>
+</li>
+<li><p>Blazor WebAssembly offers excellent scalability and responsiveness after the initial load, but its startup time can vary from a few seconds to several tens of seconds due to factors like application complexity, network conditions, device hardware, and deployment configuration.</p>
+</li>
+<li><p>Blazor Hybrid allows for optimizing performance by choosing the appropriate model for each component.</p>
+</li>
+</ul>
+<h3 id="server-side-rendering-ssr">Server-Side Rendering (SSR)</h3>
+<p>Server-Side Rendering (SSR) in the Blazor context, particularly with .NET 8, offers several advantages and configurations for web applications:</p>
+<ol>
+<li><p><strong>Improved Performance and SEO</strong>:</p>
+<ul>
+<li>SSR allows the initial rendering of a Blazor application to be performed on the server, resulting in faster initial load times as the browser receives fully rendered HTML.</li>
+<li>This approach enhances SEO because search engines can index the static HTML content more effectively compared to client-side rendered applications.</li>
+</ul>
+</li>
+<li><p><strong>Default Mode in .NET 8</strong>:</p>
+<ul>
+<li>In .NET 8, SSR is the default rendering mode for new Blazor applications. This shift reflects the trend towards leveraging server-side capabilities for better performance and efficiency.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Note: Not all Blazor component libraries fully support SSR. While SSR enables limited user interaction similar to native HTML (e.g., <code>&lt;a&gt;</code> links, forms), certain libraries require a specialized rendering mode for initial rendering, which may differ from SSR.</p>
+</blockquote>
+<ol start="3">
+<li><strong>Use Cases</strong>:
+<ul>
+<li>SSR is particularly beneficial for applications that handle static data or require fast page loads, such as business applications or online shopping sites.</li>
+<li>It reduces computational load on client devices, making it suitable for devices with limited resources.</li>
+</ul>
+</li>
+</ol>
+<p>Overall, SSR in Blazor provides a robust framework for building performant and SEO-friendly web applications by leveraging server capabilities to deliver pre-rendered content efficiently.</p>
+<h2 id="advantages-of-blazor-for-net-familiar-teams">Advantages of Blazor for .NET-Familiar Teams</h2>
+<p>Blazor offers several advantages to teams already familiar with the .NET ecosystem:</p>
+<ul>
+<li><strong>Unified Tech Stack:</strong> Blazor allows developers to use C# for both front-end and back-end development, potentially increasing productivity and code reuse. This can be particularly beneficial for organizations already invested in the .NET ecosystem. For teams already proficient in C# and the .NET framework, adopting Blazor can streamline development processes. This eliminates the need to switch between different languages and frameworks, allowing developers to leverage their existing skills for both client-side and server-side development.</li>
+<li><strong>Large .NET Ecosystem:</strong> Developers can leverage the vast .NET ecosystem, including libraries and tools, for web development. This means teams can tap into a wealth of existing resources, including libraries, frameworks, and tooling built around the .NET ecosystem.</li>
+<li><strong>Performance:</strong> Blazor Server, in particular, can offer excellent performance, especially for applications with complex UI logic. As our previous conversation highlighted, Blazor Server executes application logic on the server, potentially leading to faster initial load times and efficient handling of complex UI interactions.</li>
+<li><strong>Cross-Platform Development:</strong> Blazor supports cross-platform development, allowing teams to build web, desktop, and mobile applications using the same codebase. This can be a significant advantage for teams looking to target multiple platforms with their applications.</li>
+</ul>
+<p>Overall, for teams already well-versed in the .NET environment, Blazor provides a smooth transition into web development, leveraging their existing skills and resources to build performant and feature-rich applications.</p>
+<h2 id="when-to-avoid-blazor">When to Avoid Blazor</h2>
+<p>While Blazor is a powerful framework, it might not be the best fit for every scenario, especially when you need:</p>
+<ol>
+<li><p><strong>Public-Facing Websites</strong>: Where fast initial load times are critical. Although .NET 8 introduced improvements to enhance startup times, Blazor WebAssembly can still be slow to load initially, particularly for larger applications. If you need to serve a large number of users and cannot use Blazor Server due to its scaling limitations, or if offline functionality is essential and Blazor Hybrid cannot provide it, you may want to consider alternative frameworks.</p>
+</li>
+<li><p><strong>Highly Complex Single-Page Applications (SPAs)</strong>: Blazor, while capable of handling SPAs, might not be the most performant choice for extremely complex applications with many components and interactions. In such cases, traditional JavaScript frameworks might offer better performance and optimization options.</p>
+</li>
+<li><p><strong>Real-Time Applications with Strict Latency Requirements</strong>: While Blazor Server offers real-time capabilities, it might not meet the stringent latency requirements of applications like online gaming or financial trading. In these scenarios, technologies like WebSockets or custom protocols might be more suitable.</p>
+</li>
+<li><p><strong>Mobile App Development</strong>: Blazor is primarily designed for web development and doesn't offer direct support for building native mobile apps. While you can use tools like Blazor Hybrid to create mobile apps, it might not provide the same level of performance and native features as a dedicated mobile app framework.</p>
+</li>
+</ol>
+<p><strong>Additional Considerations:</strong></p>
+<ul>
+<li><strong>Developer Expertise</strong>: If your team doesn't have experience with .NET or C#, learning Blazor might have a steeper learning curve compared to JavaScript-based frameworks. For teams primarily experienced in JavaScript frameworks, Blazor's use of C# for front-end development poses a challenge. These teams will need to invest significant time and resources in learning C# and Blazor-specific concepts to achieve proficiency. This learning curve can delay project timelines and increase development costs, especially if the team lacks prior experience with the .NET ecosystem.</li>
+<li><strong>Community and Ecosystem</strong>: While the Blazor community is growing, it might not be as mature or extensive as that of some established JavaScript frameworks. This could impact the availability of third-party libraries, tools, and resources.</li>
+</ul>
+<h2 id="when-to-consider-blazor">When to Consider Blazor</h2>
+<p>Blazor, particularly in its hybrid mode, can be a strong choice for many web development projects. Here are some scenarios where Blazor might be a good fit:</p>
+<ol>
+<li><p><strong>Progressive Web Applications (PWAs):</strong> Blazor Hybrid, in combination with a Progressive Web App (PWA) strategy, can deliver a near-native experience on both web and mobile platforms. This allows you to reach a wider audience without having to develop separate native apps. Blazor Hybrid combines client-side rendering for interactivity and server-side rendering for SEO and initial load times. Leverage SSR and state management for an enhanced user experience.</p>
+</li>
+<li><p><strong>Cross-Platform Development:</strong> If you need to build applications that run on  web, desctop and mobile devices, Blazor can provide a unified codebase and development experience. This can reduce development time and maintenance costs.</p>
+</li>
+<li><p><strong>Single-Page Applications (SPAs):</strong> Blazor is well-suited for building SPAs, as it allows you to render components on the client-side, providing a more responsive and interactive user experience.</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: Blazor can be an effective choice for moderately complex SPAs, especially when you can leverage existing .NET expertise or codebases. However, for highly complex SPAs with stringent performance and scalability needs, established JavaScript frameworks may still provide more flexibility and optimized solutions.
+4. <strong>Existing .NET Codebases:</strong> If you have an existing .NET codebase, Blazor can be a natural extension. You can leverage your existing .NET skills and libraries to build web applications.</p>
+</blockquote>
+<ol start="5">
+<li><p><strong>Data-Driven Applications:</strong> Blazor's data binding features make it easy to work with data and update the UI automatically when data changes. This is particularly useful for applications that display and manipulate large datasets.</p>
+</li>
+<li><p><strong>Component-Based Development:</strong> Blazor's component-based architecture promotes code reusability and maintainability. You can create custom components that encapsulate functionality and can be used across different parts of your application.</p>
+</li>
+<li><p><strong>Microsoft Support:</strong> As a Microsoft product, Blazor benefits from the company's support and investment. This can provide confidence in the long-term viability of the framework.</p>
+</li>
+</ol>
+<h2 id="helpful-links">Helpful links</h2>
+<h3 id="articles">Articles</h3>
+<ul>
+<li><p><a href="https://www.zartis.com/why-to-choose-blazor-for-your-web-development-why-not/">Blazor – Why To Choose Blazor For Your Web Development</a> - This article discusses the advantages of using Blazor for web development, highlighting its integration with .NET, ease of use for C# developers, and its ability to create interactive web applications.</p>
+</li>
+<li><p><a href="https://daily.dev/blog/blazor-basics-for-beginners">Blazor Basics for Beginners</a> - A beginner-friendly guide that introduces Blazor, covering its key benefits, architecture, and a step-by-step approach to building your first application using C# and .NET.</p>
+</li>
+<li><p><a href="https://www.telerik.com/blogs/is-blazor-future-everything-web">Is Blazor the Future of Everything Web?</a> - This blog post examines Blazor's potential to reshape web development, discussing its unique features and how it compares to traditional JavaScript frameworks.</p>
+</li>
+<li><p><a href="https://www.telerik.com/blogs/why-modernize-blazor-winning-strategy-next-application">Why to Modernize with Blazor? A Winning Strategy for Your Next Application</a> - This article outlines the strategic benefits of modernizing applications with Blazor, emphasizing performance improvements and compatibility with existing .NET technologies.</p>
+</li>
+<li><p><a href="https://dev.to/ipazooki/should-we-consider-blazor-for-our-app-3lob">Should we consider Blazor for our app?</a> - A thoughtful exploration of whether Blazor is a suitable choice for application development, weighing its advantages against potential drawbacks.</p>
+</li>
+<li><p><a href="https://radixweb.com/blog/blazor-vs-angular">Blazor Vs Angular in Web Development</a> - This comparison highlights the differences between Blazor and Angular, helping developers decide which framework best suits their project needs.</p>
+</li>
+<li><p><a href="https://baldbeardedbuilder.com/blog/choosing-between-blazor-server-or-web-assembly/">Choosing Between Blazor Server or WebAssembly</a> - A practical guide that helps developers choose between Blazor Server and WebAssembly hosting models based on their specific application requirements.</p>
+</li>
+<li><p><a href="https://www.c-sharpcorner.com/article/blazor-what-it-is-why-should-we-use-it/">Blazor | What It Is And Why Should We Use It</a> - An introductory article explaining what Blazor is, its core functionalities, and why developers should consider using it for modern web applications.</p>
+</li>
+<li><p><a href="https://softiq.io/why-blazor-might-be-better-for-your-project-than-javascript/">Why Blazor might be better for your project than JavaScript?</a> - This article discusses scenarios where Blazor may offer advantages over JavaScript frameworks, focusing on performance and developer productivity.</p>
+</li>
+<li><p><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0">ASP.NET Core Blazor hosting models</a> - Official documentation from Microsoft detailing the different hosting models available in Blazor, including Server and WebAssembly options, to assist developers in making informed choices.</p>
+</li>
+<li><p><a href="https://walkingtree.tech/blazor-powerful-framework-empowering-enterprises-to-build-robust-and-scalable-web-applications/">Blazor: Powerful Framework Empowering Enterprises to Build Robust and Scalable Web Applications</a>: This article highlights Blazor's capabilities in building interactive and scalable web applications using C#. It discusses its component-based architecture and hosting models, emphasizing its advantages for enterprise development.</p>
+</li>
+</ul>
+<h3 id="videos">Videos</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=o0CWssf8TFw">What's Next for ASP.NET Core &amp; Blazor .NET 9.0</a> - by Daniel Roth. This video explores the future developments and enhancements expected in ASP.NET Core and Blazor with the upcoming .NET 9.0 release, focusing on new features and improvements.</p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=QD2-DwuOfKM">What's New in Blazor for .NET 8</a> - by Daniel Roth. In this presentation, Daniel Roth highlights the key features introduced in Blazor with .NET 8, including improved rendering options and enhanced navigation capabilities.</p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=VWwZrDA8om0">Blazor on .NET 8 - Ten Reasons why Blazor on .NET 8 is a Game Changer</a>. This video outlines ten significant reasons that make Blazor on .NET 8 a transformative framework for web development, emphasizing its performance and usability improvements.</p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=NJ9Kz3M8KzE">Blazor WebAssembly in .NET 8 - Why It Is Still Extremely Valuable</a>. This discussion focuses on the ongoing relevance of Blazor WebAssembly in .NET 8, detailing its advantages and how it continues to provide value to developers building client-side applications.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Blazor, with its advancements in .NET 8.0, offers a compelling alternative to traditional JavaScript frameworks for .NET developers. Its unique advantages, including language unity, performance, and flexibility, make it a strong contender for modern web development, especially for organizations already invested in the .NET ecosystem.</p>
+<p>However, it's</p>
+<h2 id="considerations-for-choosing-blazor">Considerations for Choosing Blazor</h2>
+<ol>
+<li><p><strong>Project Requirements</strong>: Assess whether Blazor aligns with your project's specific needs and constraints. Consider factors such as application complexity, user experience goals, and the need for real-time functionality.</p>
+</li>
+<li><p><strong>Team Expertise</strong>: Evaluate your team's current skills in C# and .NET technologies. If your team is already proficient in these areas, adopting Blazor may be seamless.</p>
+</li>
+<li><p><strong>Performance Requirements</strong>: Analyze your application's performance needs in terms of load times, responsiveness, and scalability. .NET 8 enhances both Blazor Server and Blazor WebAssembly.</p>
+</li>
+<li><p><strong>Long-Term Maintenance</strong>: Think about the long-term implications for maintaining and evolving your application. A technology that supports maintainability can save significant resources in the future.</p>
+</li>
+<li><p><strong>Integration Requirements</strong>: Evaluate how well Blazor integrates with other technologies and services in your stack. Consider existing APIs, databases, and third-party libraries.</p>
+</li>
+<li><p><strong>Cost Implications</strong>: Consider the overall cost of adopting Blazor, including licensing, hosting solutions, and potential savings from reduced development time.</p>
+</li>
+<li><p><strong>Community and Support</strong>: Investigate the availability of community support, documentation, and third-party libraries for Blazor.</p>
+</li>
+<li><p><strong>Security Considerations</strong>: Address any specific security advantages or concerns associated with using Blazor. Evaluate how well it adheres to best practices for web application security.
+its suitability for your specific project, team skills, and risk tolerance. While Blazor's growing capabilities are impressive, it's crucial to weigh its strengths against your project's unique requirements.</p>
+</li>
+</ol>
+<p>By carefully considering these factors, you can determine if Blazor is the right choice to drive your web development initiatives forward.</p>
+<div id="post-nav"></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AlexNek/Blog/blob/master/docs/content/en/posts/2024-11-04-blazor-for-managers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      © 2026 Alex Nek — All rights reserved · Code: MIT
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

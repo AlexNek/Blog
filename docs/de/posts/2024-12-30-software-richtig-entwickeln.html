@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Software richtig entwickeln: Es ist mehr als nur Programmieren | Alex Nek </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Software richtig entwickeln: Es ist mehr als nur Programmieren | Alex Nek ">
+    
+    
+      <link rel="shortcut icon" href="../../images/favicon.svg">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+
+<p><img src="/images/posts/software-right/cover-de.png" alt="cover">
+<strong><a href="https://github.com/AlexNek/software-dev-resources/blob/master/SDLC/readme.md">English Version</a></strong></p>
+<h2 id="überblick">Überblick</h2>
+<p>Also, Sie versuchen, die Softwareentwicklung heutzutage zu <strong>verstehen</strong>, richtig? Es geht nicht mehr nur um das Schreiben von Code, sondern Dinge zu schaffen, die gut funktionieren, von Leuten wirklich benutzt <em>werden</em> und die nicht kaputtgehen, wenn es schwierig wird. Die Zeit, als Programmieren eine Einzelarbeit war, ist vorbei. Also, wie schaffen wir das eigentlich? Lass es uns erkunden.</p>
+<p>Dieser Artikel behandelt die wichtigsten Aspekte der aktuellen Softwareentwicklung und zeigt, warum der Softwareentwicklungslebenszyklus (Software Development Life Cycle - SDLC) wichtig ist. Wir werden diskutieren, warum es wichtig ist, das Problem, das Sie lösen, zu <strong>identifizieren</strong>, eine agile Arbeitsweise anzunehmen, warum sauberer Code wichtig ist und die Bedeutung von DevOps. Schließlich werden wir alles miteinander verbinden, indem wir uns auf den Benutzer konzentrieren, dass Softwareentwicklung ein kontinuierlicher Prozess ist und wie man alles abschließt.</p>
+<p>Wenn Sie ein <strong>erfahrener Entwickler</strong> sind, wissen Sie das meiste davon wahrscheinlich schon. Dieser Artikel richtet sich in erster Linie an Projektmanager, die <strong>Schwierigkeiten</strong> mit der Softwareentwicklung  spüren, aber nicht genau wissen, wo sie anfangen sollen.</p>
+<h2 id="checkliste-für-manager">Checkliste für Manager</h2>
+<p>Verwenden Sie diese Checkliste, um Ihren Softwareentwicklungsprozess zu bewerten. Wenn Sie die meisten Fragen mit &quot;Nein&quot; beantworten, sollten Sie Ihre Prozesse verbessern:</p>
+<ul>
+<li><strong>Das Problem verstehen:</strong>
+<ul>
+<li>Nehmen wir uns genügend Zeit, um die wirklichen Bedürfnisse unserer Benutzer zu verstehen, oder konzentrieren wir uns nur auf die Anfragen?</li>
+<li>Beziehen wir Benutzer in den frühen Phasen des Prozesses ein?</li>
+</ul>
+</li>
+<li><strong>Planung und Iteration:</strong>
+<ul>
+<li>Planen wir die Arbeit in kleinen Zyklen oder versuchen wir, alles auf einmal zu planen?</li>
+<li>Sind wir bereit, bei Bedarf den Kurs zu ändern?</li>
+</ul>
+</li>
+<li><strong>Code schreiben:</strong>
+<ul>
+<li>Stellen wir sicher, dass unser Code sauber, gut dokumentiert und leicht verständlich ist?</li>
+<li>Führen wir regelmäßig Code-Reviews durch?</li>
+<li>Nutzen wir die Versionskontrolle korrekt und konsequent?</li>
+</ul>
+</li>
+<li><strong>Testen:</strong>
+<ul>
+<li>Testen wir frühzeitig und häufig, um Fehler rechtzeitig zu erkennen und zu beheben?</li>
+<li>Verwenden wir verschiedene Arten von Tests (Unit-, Integrations-, Benutzerakzeptanztests)?</li>
+</ul>
+</li>
+<li><strong>Zusammenarbeit:</strong>
+<ul>
+<li>Arbeiten Entwickler, Produktverantwortliche, Designer und Benutzer eng zusammen, um gemeinsame Ziele effizient zu erreichen?</li>
+<li>Haben wir eine klare Kommunikation und regelmäßige Meetings?</li>
+</ul>
+</li>
+<li><strong>Bereitstellung und Überwachung:</strong>
+<ul>
+<li>Automatisieren wir den Bereitstellungsprozess, um Fehler zu minimieren?</li>
+<li>Überwachen wir die Software und die Server nach der Bereitstellung?</li>
+</ul>
+</li>
+<li><strong>Lernen und Verbesserung:</strong>
+<ul>
+<li>Reflektieren wir regelmäßig darüber, was gut gelaufen ist und was wir besser machen könnten?</li>
+<li>Investieren wir kontinuierlich in unser Wissen und unsere Kompetenzen?</li>
+</ul>
+</li>
+</ul>
+<p>Eine überwiegende Anzahl an 'Nein'-Antworten zeigt, dass Handlungsbedarf besteht. Schauen wir uns an, wie Sie Ihre Prozesse verbessern können</p>
+<h2 id="mit-dem-warum-beginnen">Mit dem &quot;Warum&quot; beginnen</h2>
+<p>Bevor wir irgendeinen Code schreiben, müssen wir wissen, <em>warum</em> wir das tun. &quot;Weil der Chef es gesagt hat,&quot; ist kein guter Grund. Man muss etwas tiefer graben. Wir fangen mit der Arbeit an, weil <strong>wir wissen, dass die Leute dieses Produkt brauchen</strong>. Das bedeutet, mit Benutzern zu reden und herauszufinden, welches Problem wir genau lösen. Wenn unser Produkt niemandem wirklich hilft, wird es nicht nützlich sein.</p>
+<ul>
+<li><strong>Benutzerinterviews:</strong> Um das Problem zu verstehen, sprechen Sie mit echten Benutzern. Sehen Sie, wie sie Dinge tun, verstehen Sie ihre Probleme und stellen Sie detaillierte Fragen. Hören Sie zu, was sie sagen, und konzentrieren Sie sich auf ihre tatsächlichen Bedürfnisse.</li>
+<li><strong>Sprechen Sie mit den Beteiligten:</strong> Besprechen Sie Projektziele und Grenzen mit den Beteiligten und untersuchen Sie die Projektziele und die gewünschten Ergebnisse.</li>
+<li><strong>User Stories:</strong> Verwenden Sie kurze Beschreibungen, sogenannte &quot;User Stories&quot;, um zu beschreiben, was ein Benutzer möchte. Verwenden Sie Prototypen, um Ideen zu testen und Feedback zu sammeln, und stellen Sie sicher, dass sie schnell und interaktiv sind, um wertvolle Informationen zu erhalten.</li>
+<li><strong>Datenanalyse:</strong> Verwenden Sie Daten aus früheren Projekten, Marktforschung oder Umfragen, um Muster zu erkennen und das Benutzerverhalten zu verstehen. Verwenden Sie diese Daten, um Ihre anfänglichen Annahmen darüber zu bestätigen, was die Benutzer benötigen.</li>
+<li><strong>Prototypen verwenden:</strong> Erstellen Sie schnell Prototypen, um Ideen frühzeitig zu testen, und um Feedback von den Benutzern zu bekommen.</li>
+<li><strong>Domain-Driven Design (DDD):</strong> Wenn Sie komplexe Projekte haben, verwenden Sie DDD, um die Software um Geschäftskonzepte herum zu entwickeln und eine gemeinsame Sprache für Entwickler und Experten zu schaffen.</li>
+</ul>
+<h2 id="agil-flexibilität-als-schlüssel-zur-anpassung">Agil: Flexibilität als Schlüssel zur Anpassung</h2>
+<p>Früher nahm man an, dass man den gesamten Plan kennen müsse, bevor man überhaupt anfängt. Viel Zeit wurde in die Planung investiert, noch bevor der erste Code geschrieben war, in der Hoffnung, dass sich die Anforderungen nicht ändern würden. Wie wir alle wissen, führt das häufig zu Frustration und Missverständnissen. Die moderne Softwareentwicklung hingegen setzt darauf, Veränderungen nicht nur zu akzeptieren, sondern aktiv darauf zu reagieren und flexibel zu bleiben. Agil zu arbeiten bedeutet nicht, ständig alles neu zu erfinden, sondern vielmehr die Fähigkeit zu besitzen, auf das Unvorhersehbare einzugehen und in kurzen, intensiven Zyklen kontinuierlich greifbare Ergebnisse zu liefern.</p>
+<p>Agilität ist keine völlig neue Idee, sondern eine Denkweise, die sich auf Anpassungsfähigkeit und kontinuierliches Feedback stützt. Anstatt davon auszugehen, dass alle Anforderungen zu Beginn vollständig und richtig sind, akzeptieren wir, dass sich diese jederzeit ändern können, und arbeiten in kurzen Iterationen, die uns erlauben, schnell zu lernen und uns kontinuierlich zu verbessern.</p>
+<p>Agile Methoden ermöglichen es uns, in überschaubaren Zeiträumen zu planen, Anpassungen vorzunehmen und die Richtung zu ändern, wenn es nötig ist. Statt starr am ursprünglichen Plan oder Design festzuhalten, geht es darum, in kleinen, überschaubaren Schritten immer wieder einen Mehrwert zu liefern. Hier sind einige agile Praktiken, die uns auf diesem Weg begleiten:</p>
+<ul>
+<li><strong>Tägliche Stand-ups:</strong> Diese kurzen Meetings bieten die Gelegenheit, den aktuellen Fortschritt zu teilen, auftretende Probleme zu besprechen und zu sehen, ob es Themen gibt, die besondere Aufmerksamkeit erfordern.</li>
+<li><strong>Sprintplanung:</strong> In dieser Phase setzen wir die Prioritäten und planen, was im nächsten Sprint zu tun ist, damit alle Teammitglieder wissen, was sie erwartet.</li>
+<li><strong>Sprint Reviews:</strong> Den Projektbeteiligten zu zeigen, was wir erreicht haben und wertvolles Feedback zu erhalten, um in den nächsten Zyklen noch besser zu werden.</li>
+<li><strong>Sprint Retrospektiven:</strong> Nach jedem Sprint reflektieren wir, was gut gelaufen ist und was wir im nächsten Sprint noch optimieren können, um effizienter und zielgerichteter zusammenzuarbeiten.</li>
+</ul>
+<h2 id="codequalität-sauber-und-testbar-halten">Codequalität: Sauber und Testbar halten</h2>
+<p>Lass uns nun über den Code sprechen. Wir alle haben irgendwann einmal <strong>schlechten</strong> Code geschrieben. Das passiert. Aber lasst uns das absichtlich vermeiden.
+<img src="/images/posts/software-right/clean-code.png" alt="image">
+Was wir tun wollen, ist, sauberen, leicht lesbaren, gut dokumentierten und testbaren Code zu schreiben. So sehe ich das:</p>
+<ul>
+<li><strong>SOLID-Prinzipien:</strong> Die Anwendung der SOLID-Prinzipien hilft, Code so zu strukturieren, dass er lesbarer und wartungsfreundlicher wird. Diese Prinzipien, die <strong>S</strong>ingle Responsibility, <strong>O</strong>pen/Closed, <strong>L</strong>iskov Substitution, <strong>I</strong>nterface Segregation und <strong>D</strong>ependency Inversion umfassen, sollten Ihnen beim Schreiben von Code helfen.</li>
+<li><strong>Klare Namen und Kommentare:</strong> Die Verwendung klarer, beschreibender Namen für Variablen und Methoden ist der erste Schritt zur Dokumentation. Kommentare helfen, die Logik zu erklären, so dass sie für andere leichter verständlich ist. Dies ist sehr hilfreich, um den Code verständlicher zu machen.</li>
+<li><strong>Konsistenter Programmierstil:</strong> Die Einhaltung eines Code Style Guides und die Verwendung von Tools wie Resharper (.NET) oder ESLint (Javascript) sind wichtig. Diese Tools können Ihnen helfen, Code automatisch zu formatieren. Die Qualität und Lesbarkeit Ihres Codes wird durch die Verwendung eines Code Style Guides mit diesen Tools verbessert.</li>
+<li><strong>Code Reviews:</strong> Es ist wichtig, den Code von anderen überprüfen zu lassen, um Neues zu lernen und die Qualität des Produkts zu verbessern. KI-Tools helfen bei der Code-Überprüfung, sollten aber die menschliche Überprüfung nicht ersetzen. Das menschliche <strong>Verständnis</strong> ist nach wie vor entscheidend für den Kontext, die Absichten und die Interaktionen innerhalb des Codes.</li>
+<li><strong>Versionskontrolle (Git):</strong> Die Verwendung eines Systems wie Git ist der Schlüssel für die moderne Softwareentwicklung. Nehmen Sie häufig Änderungen vor und verwenden Sie Branches für neue Funktionen. Dies hilft Ihnen, eine stabile Codebasis zu erhalten. Eine gut definierte Branching-Strategie ist ebenfalls wichtig, z. B. Strategien wie Gitflow oder GitHub Flow. Ein guter Branching-Ansatz ermöglicht es mehreren Personen, mit minimalen Problemen an demselben Code zu arbeiten.</li>
+<li>**</li>
+</ul>
+<h2 id="software-tests">Software-Tests</h2>
+<p><img src="tests.png" alt="image"></p>
+<p>Diese Tests werden während der &quot;Test&quot;-Phase des Software-Entwicklungslebenszyklus (SDLC) durchgeführt.</p>
+<p>Softwaretests sind ein wesentlicher Bestandteil des SDLC, um die Zuverlässigkeit und Funktionsfähigkeit des Endprodukts sicherzustellen und den Erwartungen der Benutzer zu entsprechen. Dieser Prozess umfasst verschiedene Teststufen, Durchführungsmethoden und Perspektiven, die alle einen gründlichen Qualitätssicherungsprozess gewährleisten.</p>
+<h3 id="unit-tests">Unit-Tests</h3>
+<ul>
+<li><strong>Warum sie wichtig sind:</strong> Unit-Tests bieten eine Grundlage, indem sie sicherstellen, dass einzelne Codeeinheiten korrekt funktionieren.</li>
+<li><strong>Fokus:</strong> Kleinste testbare Einheiten wie Funktionen, Methoden oder Klassen.</li>
+<li><strong>Ziel:</strong> Überprüfen, ob sich jede Einheit wie erwartet isoliert verhält.</li>
+<li><strong>Umfang:</strong> Kleinste testbare Teile des Codes.</li>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Testen, ob eine bestimmte Funktion die richtige Ausgabe für gegebene Eingaben zurückgibt.</li>
+<li>Überprüfen, ob eine Klasse ihre Eigenschaften korrekt initialisiert.</li>
+<li>Verifizieren, dass die Fehlerbehandlung innerhalb einer Methode wie vorgesehen funktioniert.</li>
+</ul>
+</li>
+<li><strong>Testansatz:</strong> Oft mit White-Box-Testtechniken durchgeführt, die sich auf den Code selbst konzentrieren.</li>
+<li><strong>Testmethode:</strong> In der Regel automatisiert.</li>
+</ul>
+<h3 id="komponententests">Komponententests</h3>
+<ul>
+<li><strong>Warum sie wichtig sind:</strong> Komponententests überprüfen eine einzelne, in sich geschlossene Komponente der Anwendung, um sicherzustellen, dass sie korrekt funktioniert, bevor sie integriert wird.</li>
+<li><strong>Fokus:</strong> Ein einzelnes, in sich geschlossenes Modul oder eine Komponente.</li>
+<li><strong>Ziel:</strong> Die Funktionalität eines bestimmten Teils des Systems zu überprüfen, wenn es mit seinen unmittelbaren Abhängigkeiten interagiert.</li>
+<li><strong>Umfang:</strong> Beschränkt auf die Komponente und ihre direkten Abhängigkeiten.</li>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Testen eines Login-Moduls, einschließlich UI-Eingaben, Passwort-Hashing und Token-Erzeugung.</li>
+<li>Testen einer API-Komponente, die für die Datenverarbeitung verantwortlich ist.</li>
+</ul>
+</li>
+<li><strong>Testansatz:</strong> Oft mit White-Box-Testtechniken durchgeführt, die sich auf die Komponente und ihre internen Abläufe konzentrieren.</li>
+<li><strong>Testmethode:</strong> In der Regel automatisiert.</li>
+</ul>
+<h3 id="integrationstests">Integrationstests</h3>
+<ul>
+<li><strong>Warum sie wichtig sind:</strong> Integrationstests bauen auf der Grundlage auf, indem sie überprüfen, dass die Einheiten im System reibungslos zusammenarbeiten.</li>
+<li><strong>Fokus:</strong> Interaktionen zwischen verschiedenen Teilen des Systems.</li>
+<li><strong>Ziel:</strong> Sicherstellen, dass die Komponenten wie vorgesehen zusammenarbeiten.</li>
+<li><strong>Umfang:</strong> Größer als Unit-Tests, mit mehreren Einheiten oder Modulen.</li>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Testen des Datenflusses zwischen verschiedenen Modulen.</li>
+<li>Überprüfen, ob eine Datenbankinteraktion innerhalb des Systems korrekt funktioniert.</li>
+<li>Überprüfen der Integration einer Benutzeroberfläche mit Backend-Diensten.</li>
+</ul>
+</li>
+</ul>
+<h3 id="benutzeroberflächentests-ui-tests">Benutzeroberflächentests (UI-Tests)</h3>
+<ul>
+<li><strong>Warum sie wichtig sind:</strong> UI-Tests stellen sicher, dass die Benutzeroberfläche korrekt funktioniert und gut reagiert.</li>
+<li><strong>Fokus:</strong> Die Elemente der Benutzeroberfläche und ihre Interaktionen.</li>
+<li><strong>Ziel:</strong> Überprüfen, ob sich die Benutzeroberfläche wie erwartet verhält und Benutzer effektiv mit ihr interagieren können.</li>
+<li><strong>Umfang:</strong> Bestimmte UI-Elemente oder gesamte Bildschirme.</li>
+</ul>
+<ul>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Testen, ob Schaltflächen, Menüs und Formulare wie erwartet funktionieren.</li>
+<li>Überprüfen des UI-Layouts und der Reaktionsfähigkeit auf verschiedenen Bildschirmgrößen.</li>
+<li>Testen des Navigationsflusses durch die Anwendung.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Testansatz:</strong> Oft mit Black-Box-Testtechniken durchgeführt, die sich ausschließlich auf die Benutzeroberfläche konzentrieren, wie sie ein Endbenutzer sehen würde.</li>
+<li><strong>Testmethode:</strong> In der Regel werden Tests automatisiert, aber auch manuelle Tests sind üblich, insbesondere während der Entdeckungsphase.</li>
+</ul>
+<h3 id="benutzerakzeptanztests-uat">Benutzerakzeptanztests (UAT)</h3>
+<ul>
+<li><strong>Warum sie wichtig sind:</strong> Benutzerakzeptanztests sind der letzte Schritt, um sicherzustellen, dass das System die Bedürfnisse und Erwartungen der Benutzer erfüllt.</li>
+<li><strong>Fokus:</strong> Perspektive und Zufriedenheit des Endbenutzers sowie Übereinstimmung mit den Geschäftsanforderungen.</li>
+<li><strong>Ziel:</strong> Feststellung, ob die Software den Bedürfnissen und Erwartungen der Benutzer entspricht.</li>
+<li><strong>Umfang:</strong> Das gesamte System oder bestimmte Funktionen.</li>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Echte Benutzer testen die Software in einer realistischen Umgebung.</li>
+<li>Geschäftsinteressenten überprüfen, ob die Software ihre Anforderungen erfüllt.</li>
+<li>Überprüfen, ob die Benutzeroberfläche intuitiv und einfach zu bedienen ist.</li>
+</ul>
+</li>
+<li><strong>Testansatz:</strong> Mit Black-Box-Testtechniken, bei denen der Anwender als Endnutzer und nicht als Software-Ingenieur agiert.</li>
+<li><strong>Testmethode:</strong> In der Regel manuelle Tests durch echte Benutzer, aber auch automatisierte Testabläufe zur Validierung von Geschäftsfällen können enthalten sein.</li>
+</ul>
+<h2 id="funktionales-testen">Funktionales Testen</h2>
+<ul>
+<li><strong>Was es ist:</strong> Funktionales Testen überprüft, ob jede Funktion oder jedes Merkmal der Software gemäß ihren Spezifikationen funktioniert. Es konzentriert sich auf die Benutzeroberfläche und darauf, was der Benutzer tut, um eine Aktion durchzuführen. Es ist eine Art von Test, die auf verschiedenen Ebenen, Ansätzen und Methoden anwendbar ist.</li>
+<li><strong>Warum es wichtig ist:</strong> Funktionales Testen stellt sicher, dass sich das System aus der Perspektive des Benutzers wie erwartet verhält und alle spezifizierten Funktionen korrekt funktionieren.</li>
+<li><strong>Fokus:</strong> Benutzerinteraktionen und Testen der Ausgaben definierter Funktionen und Merkmale in Bezug auf spezifizierte Eingaben.</li>
+<li><strong>Ziel:</strong> Sicherstellen, dass die Funktionalität des Systems den Erwartungen der Benutzer entspricht.</li>
+<li><strong>Umfang:</strong> Anwendbar auf verschiedenen Ebenen, von einzelnen Einheiten bis zum gesamten System.</li>
+<li><strong>Beispiele:</strong>
+<ul>
+<li>Überprüfen, ob die Schaltfläche &quot;In den Warenkorb legen&quot; auf einer E-Commerce-Website Artikel korrekt zum Warenkorb des Benutzers hinzufügt.</li>
+<li>Überprüfen, ob ein Login-Bildschirm die Benutzeranmeldeinformationen validiert, um Zugang zum System zu gewähren.</li>
+<li>Überprüfen, ob ein Filter auf einem Dashboard nur die relevanten Daten anzeigt.</li>
+</ul>
+</li>
+</ul>
+<h2 id="zusätzliche-testarten">Zusätzliche Testarten</h2>
+<ul>
+<li><strong>Dauertest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Ein Dauertest (manchmal auch Ausdauertest genannt) testet die Stabilität des Systems über einen längeren Zeitraum.</li>
+<li><strong>Warum es wichtig ist:</strong> Es stellt sicher, dass keine Speicherlecks oder andere Probleme auftreten, die im Laufe der Zeit auftreten.</li>
+<li><strong>Wie es passt:</strong> Es kann auf System- oder Komponententests angewendet werden.</li>
+</ul>
+</li>
+<li><strong>Genehmigungstest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Tests, die überprüfen, ob die Ausgabe einer Funktion oder Komponente mit der zuvor &quot;genehmigten&quot; Ausgabe (einer Basislinie) übereinstimmt.</li>
+<li><strong>Warum es wichtig ist:</strong> Es hilft, unbeabsichtigte Änderungen der Ausgabe zu identifizieren, wenn Änderungen vorgenommen werden.</li>
+<li><strong>Wie es passt:</strong> Kann auf der Ebene von Unit- oder Komponententests verwendet werden.</li>
+</ul>
+</li>
+<li><strong>Leistungstest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Leistungstests bewerten, wie die Software unter Last oder Stress funktioniert.</li>
+<li><strong>Warum es wichtig ist:</strong> Es stellt sicher, dass die Anwendung schnell, skalierbar und realistische Benutzerlasten bewältigen kann.</li>
+<li><strong>Wie es passt:</strong> Oft auf System- oder End-to-End-Tests angewendet.</li>
+</ul>
+</li>
+<li><strong>Explorativer Test:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Eine Testmethode, bei der Tester die Software frei erkunden, um Fehler zu finden, ohne vordefinierte Testfälle.</li>
+<li><strong>Warum es wichtig ist:</strong> Es hilft, unerwartete Probleme aufzudecken und kreativen Input zu liefern.</li>
+<li><strong>Wie es passt:</strong> Oft auf UI-, Systemtests und während der Benutzerakzeptanz angewendet.</li>
+</ul>
+</li>
+<li><strong>Regressionstest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Tests, die bestehende Testfälle erneut ausführen, um sicherzustellen, dass neue Änderungen oder Fehlerbehebungen keine neuen Probleme (oder &quot;Regressionen&quot;) in der bestehenden Funktionalität eingeführt haben.</li>
+<li><strong>Warum es wichtig ist:</strong> Verhindert, dass zuvor funktionierende Teile bei Änderungen beschädigt werden.</li>
+<li><strong>Wie es passt:</strong> Kann auf jeder Testebene (Unit, Integration, System) durchgeführt werden, oft automatisiert.</li>
+</ul>
+</li>
+<li><strong>Rauchtest (Build Verification Test):</strong>
+<ul>
+<li><strong>Was es ist:</strong> Ein schneller Satz grundlegender Tests, um die grundlegende Funktionalität der Software zu überprüfen, die nach einer Codeänderung durchgeführt wird, um zu bestätigen, dass die wichtigsten Teile funktionieren.</li>
+<li><strong>Warum es wichtig ist:</strong> Stellt sicher, dass das System stabil ist, bevor eine gründlichere Prüfung beginnt.</li>
+<li><strong>Wie es passt:</strong> Oft als schnelle Überprüfung von Systemtests nach einer Bereitstellung durchgeführt.</li>
+</ul>
+</li>
+<li><strong>Verstandestest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Ähnlich wie ein Rauchtest, konzentriert es sich auf kritische Funktionalität, testet jedoch spezifische Bereiche, die sich geändert haben.</li>
+<li><strong>Warum es wichtig ist:</strong> Eine schnelle Überprüfung, um sicherzustellen, dass die geänderten Teile stabil sind.</li>
+<li><strong>Wie es passt:</strong> Oft als Teil von Systemtests oder nach der Bereitstellung einer Fehlerbehebung durchgeführt.</li>
+</ul>
+</li>
+<li><strong>Lasttest:</strong>
+<ul>
+<li><strong>Was es ist:</strong> Lasttests überprüfen, wie das System funktioniert, wenn es gleichzeitig von vielen Benutzern verwendet wird.</li>
+<li><strong>Warum es wichtig ist:</strong> Es identifiziert Leistungs- und Skalierbarkeitsprobleme unter Stressbedingungen.</li>
+<li><strong>Wie es passt:</strong> In der Regel auf Systemebene angewendet.</li>
+</ul>
+</li>
+</ul>
+<h2 id="wichtige-unterschiede-zusammengefasst">Wichtige Unterschiede zusammengefasst</h2>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Unit-Tests</th>
+<th>Komponententests</th>
+<th>Integrationstests</th>
+<th>Systemtests (End-to-End)</th>
+<th>UI-Tests</th>
+<th>Benutzerakzeptanztests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fokus</strong></td>
+<td>Einzelne Einheiten</td>
+<td>Einzelne Komponenten</td>
+<td>Interaktionen zwischen Komponenten</td>
+<td>Gesamte Anwendung</td>
+<td>Benutzeroberflächenelemente</td>
+<td>Perspektive des Endbenutzers</td>
+</tr>
+<tr>
+<td><strong>Umfang</strong></td>
+<td>Kleinste Codeeinheiten</td>
+<td>Einzelne Komponente &amp; Abhängigkeiten</td>
+<td>Bestimmte Integrationen</td>
+<td>Gesamtes System oder Funktionen</td>
+<td>UI-Elemente oder Bildschirme</td>
+<td>Gesamtes System oder geschäftskritische Funktionen</td>
+</tr>
+<tr>
+<td><strong>Ziel</strong></td>
+<td>Verhalten einzelner Einheiten</td>
+<td>Funktion einzelner Komponenten</td>
+<td>Sicherstellen, dass Komponenten zusammenarbeiten</td>
+<td>Gesamtes System aus Benutzersicht überprüfen</td>
+<td>Verhalten und Reaktionsfähigkeit der Benutzeroberfläche überprüfen</td>
+<td>Erwartungen und Bedürfnisse der Benutzer sowie den Geschäftsfall erfüllen</td>
+</tr>
+<tr>
+<td><strong>Durchgeführt von</strong></td>
+<td>Entwickler, automatisiert</td>
+<td>Entwickler, oft automatisiert</td>
+<td>Entwickler/Tester, oft automatisiert</td>
+<td>Tester, automatisiert</td>
+<td>Entwickler/Tester, oft automatisiert</td>
+<td>Endbenutzer oder Interessenträger</td>
+</tr>
+<tr>
+<td><strong>Testansatz</strong></td>
+<td>White Box</td>
+<td>White Box</td>
+<td>White/Black Box</td>
+<td>Black Box</td>
+<td>Black Box</td>
+<td>Black Box</td>
+</tr>
+<tr>
+<td><strong>Testmethode</strong></td>
+<td>Automatisiert</td>
+<td>Automatisiert</td>
+<td>In der Regel automatisiert</td>
+<td>Hauptsächlich automatisiert (mit einigen manuellen)</td>
+<td>In der Regel automatisiert (mit einigen manuellen)</td>
+<td>Hauptsächlich manuell (manchmal automatisiert)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Testmethoden und -ansätze:</strong></p>
+<ul>
+<li><strong>Manuelles Testen:</strong> Tests, die von Menschen ausgeführt werden, ideal für Benutzerfreundlichkeit, komplexe Szenarien und exploratives Testen.</li>
+<li><strong>Automatisiertes Testen:</strong> Tests, die von Skripten/Tools ausgeführt werden, effizient für Regression und wiederholbare Tests.</li>
+<li><strong>White-Box-Testen:</strong> Testen basierend auf internem Code und Logik, verwendet für Unit-, Komponenten- und einige Integrationstests.</li>
+<li><strong>Black-Box-Testen:</strong> Testen basierend auf Eingaben/Ausgaben, verwendet für System-, UI- und Akzeptanztests sowie einige Integrationstests.</li>
+</ul>
+<p><strong>Im Wesentlichen:</strong></p>
+<ul>
+<li><strong>Unit- und Komponententests</strong> stellen die Richtigkeit einzelner Codes und Komponenten sicher und bieten eine Grundlage für Tests.</li>
+<li><strong>Integrationstests</strong> überprüfen die Interaktionen zwischen Systemteilen und konzentrieren sich auf Datenflüsse, Schnittstellen und Abhängigkeiten zwischen Komponenten.</li>
+<li><strong>Systemtests (End-to-End)</strong> bieten einen umfassenden Überblick und stellen sicher, dass das System als Ganzes aus der Perspektive des Endbenutzers korrekt funktioniert und Benutzer-Workflows simuliert.</li>
+<li><strong>UI-Tests</strong> konzentrieren sich speziell auf die Benutzeroberfläche und stellen deren Reaktionsfähigkeit und korrektes Verhalten sicher.</li>
+<li><strong>Benutzerakzeptanztests</strong> bieten die endgültige Validierung durch Endbenutzer und Geschäftsbeteiligte.</li>
+<li><strong>Funktionales Testen</strong> stellt sicher, dass alle Funktionen aus der Sicht des Benutzers funktionieren.</li>
+<li><strong>Zusätzliche Testarten</strong> erfüllen spezifische Anforderungen während verschiedener Entwicklungsphasen und auf verschiedenen Testebenen.</li>
+</ul>
+<p>Durch die Implementierung dieser verschiedenen Testarten und -methoden und das Verständnis ihrer Rollen im SDLC können Sie ein robusteres, zuverlässigeres und benutzerfreundlicheres Softwareprodukt erstellen.
+:** Es gibt kein besseres Gefühl, als Code sicher zu veröffentlichen, da man weiß, dass Tests helfen, Probleme für unsere Benutzer zu verhindern. Schreiben Sie verschiedene Arten von Tests und automatisieren Sie so viel wie möglich. Wenn Sie gut im Testen sein wollen, versuchen Sie Test-Driven Development (TDD). Es wird Ihren Code beeinflussen und verbessern. Sie werden den Wert in der Zukunft sehen.</p>
+<ul>
+<li><strong>Technische Schulden:</strong> Im Laufe der Zeit können Entwicklungsteams Abkürzungen nehmen oder Kompromisse eingehen, um Funktionen schneller bereitzustellen, was zu technischen Schulden führen kann. Achten Sie immer auf technische Schulden und planen Sie Zeit ein, um den Code zu reparieren und eine gesunde Codebasis zu erhalten. Dies wird sich in der Zukunft <strong>als nützlich erweisen</strong>.</li>
+<li><strong>Paarprogrammierung:</strong> Wenn Sie es mit komplexen Aufgaben zu tun haben, verwenden Sie die Paarprogrammierung, bei der zwei Entwickler zusammen an demselben Code arbeiten. Dies ist eine gute Möglichkeit, Wissen zu teilen, die Codequalität zu verbessern und bietet eine gute Lernmöglichkeit.</li>
+</ul>
+<h2 id="der-devops-ansatz">Der DevOps-Ansatz</h2>
+<p>Getrennte Entwicklungs- und Betriebsteams, die nicht zusammenarbeiten, sind nicht effizient. Wir brauchen ein einheitliches Team, das auf ein gemeinsames Ziel hinarbeitet. Das Ziel ist ein reibungsloser, automatisierter Prozess, der Code von der Entwicklung in die Hände der Benutzer bringt. Das bedeutet:</p>
+<ul>
+<li><strong>Kontinuierliche Integration/Kontinuierliche Bereitstellung (CI/CD):</strong> Automatisieren Sie den gesamten Softwarebereitstellungsprozess, vom Erstellen über das Testen bis hin zur Freigabe. Manuelle Bereitstellungen sollten vermieden werden.</li>
+<li><strong>Infrastruktur als Code (IaC):</strong> Anstatt Server manuell einzurichten, beschreiben Sie Ihre Infrastruktur (Server, Datenbanken, Netzwerke usw.) in Code. Dieser Code kann dann in einem Versionskontrollsystem wie Git gespeichert werden, genau wie Ihr Anwendungscode. Das bedeutet, dass Sie Änderungen an Ihrer Infrastruktur im Laufe der Zeit verfolgen, zu früheren Konfigurationen zurückkehren und Ihre Umgebung bei Bedarf problemlos neu erstellen können. Tools wie Terraform, CloudFormation oder Ansible werden verwendet, um Ihre Infrastruktur als Code zu definieren und bereitzustellen. Dies ermöglicht es Ihnen, Server einfach und wiederholbar und vorhersehbar zu erstellen, zu ändern oder zu löschen.</li>
+<li><strong>Überwachung und Protokollierung:</strong> Veröffentlichen Sie nicht einfach Code, Sie müssen verfolgen, wie er funktioniert. Dazu gehören Servermetriken, Anwendungsprotokolle und andere Daten. Verwenden Sie in modernen Umgebungen ein zentralisiertes Protokollierungssystem, das Protokolle aus verschiedenen Quellen sammeln kann. Dies wird Ihnen helfen, die Leistung Ihrer Anwendung und Infrastruktur zu verfolgen.</li>
+<li><strong>Benachrichtigungen:</strong> Lassen Sie sich benachrichtigen, wenn etwas schief geht, damit Sie schnell handeln können.</li>
+</ul>
+<h2 id="der-software-development-life-cycle-sdlc-in-aktion">Der Software Development Life Cycle (SDLC) in Aktion</h2>
+<p>Nachdem wir die wesentlichen Aspekte moderner Softwareentwicklung beleuchtet haben, wollen wir nun einen Blick darauf werfen, wie alles zusammenwirkt. Diese Aktivitäten entsprechen den verschiedenen Phasen des Softwareentwicklungslebenszyklus (Software Development Life Cycle - SDLC), einem Prozess, der Softwareprojekte von der Konzeption bis hin zur Bereitstellung und Wartung begleitet. Wir werden analysieren, wie die einzelnen Schritte am effizientesten umgesetzt werden können und an welchen Stellen häufig Fehler gemacht werden.</p>
+<p><img src="/images/posts/software-right/sdlc02.png" alt="image"></p>
+<h3 id="1-das-problem-verstehen-die-wirklichen-bedürfnisse-sdlc-anforderungserhebunganalyse">1. Das Problem verstehen: Die wirklichen Bedürfnisse <em>(SDLC: Anforderungserhebung/Analyse)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Anforderungen analysieren:</strong> Akzeptieren Sie die Anforderungen nicht, ohne sie <strong>sorgfältig zu analysieren</strong>, fragen Sie immer wieder &quot;warum?&quot;, um den Kern des Problems zu finden. Konzentrieren Sie sich auf die tatsächlichen Bedürfnisse und Motivationen des Benutzers und nicht nur auf das, was er sagt.</li>
+<li><strong>Benutzer verstehen:</strong> Es ist wichtig, die Bedürfnisse der Benutzer zu verstehen. Wenn Sie sich in die Lage der Benutzer versetzen, können Sie Software entwickeln, die reale Probleme löst und die Benutzer zufriedenstellt.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Annahmen vertrauen:</strong> Mit dem Programmieren beginnen, ohne das Problem vollständig zu verstehen; Annahmen <strong>vertrauen</strong>; Benutzer nicht frühzeitig einbeziehen; die notwendige Forschung überspringen. Es ist, als würde man versuchen, ein Matheproblem zu lösen, ohne die Zahlen zu kennen.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-planung-und-iteration-flexibilität-ist-entscheidend-sdlc-design--planung">2. Planung und Iteration: Flexibilität ist entscheidend <em>(SDLC: Design &amp; Planung)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Agil ist entscheidend:</strong> Planen Sie in kurzen Zyklen und seien Sie bereit, Pläne bei Bedarf zu ändern. Liefern Sie Wert in kleinen Teilen. Bekämpfen Sie den Wandel nicht, seien Sie flexibel und bereit, sich anzupassen. Es ist, als hätten Sie eine Karte, wüssten aber, dass Straßen gesperrt oder geändert werden könnten, so dass Sie sich anpassen müssen. Die Planung sollte nicht unflexibel sein; sie sollte sich an die Realität anpassen.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Starre Planung:</strong> Zu viel Zeit für die Planung am Anfang aufwenden und keine Änderungen zulassen. Versuchen, ein Design vor dem Start zu &quot;perfektionieren&quot;. Den Plan nie neu bewerten, während sich das Projekt weiterentwickelt. Es ist, als würde man versuchen, den perfekten Plan zu erstellen, bevor irgendetwas gebaut wird, und glauben, dass man alle Antworten von Anfang an kennt. Das ist eine schlechte Strategie und ein Rezept für eine Katastrophe.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-code-schreiben-qualität-zählt-sdlc-implementierung">3. Code schreiben: Qualität zählt <em>(SDLC: Implementierung)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Sauberen Code schreiben:</strong> Schreiben Sie Code, der leicht zu lesen und zu verstehen, gut dokumentiert und einfach zu warten ist.</li>
+<li><strong>Bewährte Praktiken anwenden:</strong> Verwenden Sie Programmierstandards, ein Versionskontrollsystem und Code-Reviews.</li>
+<li><strong>Zukunftssicheren Code schreiben:</strong> Das Ziel ist, Code zu schreiben, der nicht nur funktioniert, sondern auch für Sie und andere in der Zukunft leicht zu verstehen und zu erweitern ist. Dies ist eine langfristige Investition, die die Anzahl der Fehler und den Aufwand für die Wartung der Software verringert.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Schlampiger Code:</strong> Code schreiben, der schwer zu verstehen ist, keine Versionskontrolle verwenden, was zu Arbeitsverlust führt, den Code nicht dokumentieren und keine Tests haben, um zukünftige Fehler zu verhindern. Es ist, als würde man ein Haus mit schlechten Materialien bauen.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-testen-fehler-frühzeitig-erkennen-sdlc-testen">4. Testen: Fehler frühzeitig erkennen <em>(SDLC: Testen)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Frühzeitig und oft testen:</strong> Testen Sie Ihren Code häufig, mit Unit-Tests, Integrationstests und Benutzerakzeptanztests.</li>
+<li><strong>Automatisierung:</strong> Automatisieren Sie so viel wie möglich vom Testprozess, dies wird dazu beitragen, die Geschwindigkeit und Zuverlässigkeit zu verbessern.</li>
+<li><strong>Funktionalität sicherstellen:</strong> Beim Testen geht es nicht nur darum, Fehler zu finden, sondern auch darum sicherzustellen, dass die Software die Anforderungen erfüllt und wie erwartet funktioniert, so dass Sie mit Zuversicht in die Produktion gehen können.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Tests überspringen:</strong> Das Testen überspringen und sich darauf verlassen, dass Benutzer Fehler finden (was nie eine gute Idee ist). Es ist, als würde man ein Auto bauen, ohne zu prüfen, ob es fährt.</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-zusammenarbeit-teamarbeit-ist-entscheidend-sdlc-alle-phasen">5. Zusammenarbeit: Teamarbeit ist entscheidend <em>(SDLC: Alle Phasen)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Zusammenarbeiten:</strong> Arbeiten Sie eng mit Entwicklern, Produktverantwortlichen, Designern und Benutzern zusammen.</li>
+<li><strong>Klar kommunizieren:</strong> Richten Sie klare Kommunikationskanäle ein und vereinbaren Sie regelmäßige Meetings, um Fortschritte auszutauschen, Herausforderungen zu diskutieren und Feedback zu erhalten.</li>
+<li><strong>Unterschiedliche Meinungen schätzen:</strong> Schaffen Sie ein Umfeld, in dem sich jedes Teammitglied wohlfühlt, Ideen und Bedenken zu äußern. Schätzen Sie Vielfalt und respektieren Sie unterschiedliche Standpunkte. Zusammenarbeit ist ein wichtiger Aspekt für den Erfolg in jeder Phase des SDLC.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Getrennt arbeiten:</strong> Erlauben, dass Entwickler getrennt arbeiten, Teamarbeit nicht fördern, schlechte Kommunikation haben und nicht auf Feedback hören. Dies führt oft zu Missverständnissen, doppelter Arbeit und einem Gefühl der Isolation. Wenn Teams nicht aufeinander abgestimmt sind, ist es wie eine Band, in der jedes Mitglied nur seine eigene Musik spielt und die anderen ignoriert, was nie zu guten Ergebnissen führt.</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-bereitstellung-und-überwachung-vom-code-zur-realität-sdlc-bereitstellung--wartung">6. Bereitstellung und Überwachung: Vom Code zur Realität <em>(SDLC: Bereitstellung &amp; Wartung)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Automatisierte Bereitstellungen:</strong> Verwenden Sie automatisierte und zuverlässige Prozesse, um Code bereitzustellen, was Fehler reduziert.</li>
+<li><strong>Echtzeitüberwachung:</strong> Richten Sie Systeme ein, um zu überwachen und zu protokollieren, was mit dem System in Echtzeit geschieht. Verfolgen Sie, wie die Software funktioniert, wie Benutzer sie verwenden, und versuchen Sie, Probleme so schnell wie möglich zu finden.</li>
+<li><strong>Reagieren:</strong> Haben Sie einen Plan, um mit Problemen umzugehen, wenn sie auftreten, und ein System, um den reibungslosen Betrieb zu gewährleisten, und wissen Sie, dass Sie den Code nicht nur ausliefern, sondern auch sicherstellen müssen, dass er gut funktioniert, sobald er veröffentlicht ist.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Manuelle Bereitstellungen:</strong> Manuelle Bereitstellungen, die eher Fehler aufweisen. Das Produkt nicht überwachen, nachdem es veröffentlicht wurde, und keine Probleme mit der Anwendung erkennen. Dies kann zu Ausfallzeiten, Frustration und Misstrauen bei den Benutzern führen. Es ist, als würde man eine Flasche ins Meer werfen und nie wieder daran denken.</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-lernen-und-verbesserung-die-kontinuierliche-reise-sdlc-alle-phasen">7. Lernen und Verbesserung: Die kontinuierliche Reise <em>(SDLC: Alle Phasen)</em></h3>
+<ul>
+<li><strong>Richtig machen:</strong>
+<ul>
+<li><strong>Immer verbessern:</strong> Suchen Sie nach Möglichkeiten, Ihre Arbeit, Ihre Fähigkeiten und das Produkt zu verbessern.</li>
+<li><strong>Offen für Veränderungen sein:</strong> Seien Sie offen für Feedback und nehmen Sie Änderungen aufgrund dieses Feedbacks vor.</li>
+<li><strong>Reflektieren und anpassen:</strong> Nehmen Sie sich Zeit, um darüber nachzudenken, was gut gelaufen ist und was hätte besser gemacht werden können. Seien Sie immer bestrebt, Ihre Prozesse und Fähigkeiten zu verbessern. Diese Aktion sollte jede Phase des SDLC beeinflussen, da Sie Ihre gesamte Arbeit verbessern möchten.</li>
+</ul>
+</li>
+<li><strong>Falsch machen:</strong>
+<ul>
+<li><strong>Fehler wiederholen:</strong> Nicht aus Fehlern lernen, sich nicht an neue Technologien anpassen und immer wieder die gleichen alten Muster wiederholen. Es ist, als würde man jeden Tag die gleiche Strecke fahren, auch wenn es eine bessere gäbe, was einem das Leben auf lange Sicht schwerer machen kann.</li>
+</ul>
+</li>
+</ul>
+<h2 id="schlussfolgerung">Schlussfolgerung</h2>
+<p>Softwareentwicklung ist mehr als nur das Schreiben von Code. Es geht vielmehr darum, Software zu entwickeln, die benutzerorientiert, flexibel, robust und kontinuierlich verbessert wird. Wir beginnen mit der Arbeit, weil <strong>wir wissen, dass die Menschen dieses Produkt brauchen</strong>. Die wichtigsten Aspekte sind das Verständnis des &quot;Warum&quot;, die Anwendung agiler Methoden, das Schreiben von hochwertigem Code, die Umsetzung eines DevOps-Ansatzes, die Konzentration auf die Zusammenarbeit und die Priorisierung der Benutzererfahrung, wobei sichergestellt wird, dass die Software funktional, intuitiv und einfach zu bedienen ist. Wenn die Benutzererfahrung (UX) schlecht ist, werden die Nutzer schnell eine bessere Alternative finden. Es ist daher entscheidend, regelmäßig Feedback zu sammeln. Die Softwareentwicklung ist ein kontinuierlicher Prozess, und jeder Fehler ist eine Gelegenheit zum Lernen. Seien Sie offen für Feedback, passen Sie sich an neue Technologien an und haben Sie keine Angst vor Experimenten.</p>
+<p>Dies war nur ein kurzer Überblick über die Entwicklung in der heutigen Zeit, aber ich hoffe, dass er Sie zum Nachdenken anregt. Moderne Entwicklung bedeutet, zusammenzuarbeiten und stets an die Menschen zu denken, für die wir Software entwickeln. Wenn Sie diese Dinge beachten, werden Sie gut zurechtkommen. Nehmen Sie sich etwas Zeit, um die Konzepte zu verstehen, über die wir gesprochen haben. Beginnen Sie, diese Praktiken in Ihrer täglichen Arbeit anzuwenden. Es wird empfohlen, sich weiterzubilden und kontinuierlich zu verbessern.</p>
+<div id="post-nav"></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AlexNek/Blog/blob/master/docs/content/de/posts/2024-12-30-software-richtig-entwickeln.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      © 2026 Alex Nek — All rights reserved · Code: MIT
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

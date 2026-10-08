@@ -14,7 +14,7 @@ $ErrorActionPreference = 'Stop'
 
 $repoRoot = $PSScriptRoot
 $docsDir    = Join-Path $repoRoot 'docs'
-$siteDir    = Join-Path $docsDir '_site'
+$siteDir    = $docsDir
 $contentDir = Join-Path $docsDir 'content'
 
 # ── 1. Ensure docfx is available ──────────────────────────────────────────────
@@ -36,10 +36,25 @@ if (-not $docfxCmd) {
     }
 }
 
-# ── 2. Clean previous build and rebuild with DocFX ─────────────────────────
-if (Test-Path $siteDir) {
-    Write-Host 'Cleaning previous build…' -ForegroundColor Yellow
-    Remove-Item -Recurse -Force $siteDir
+# ─ 2. Clean build artifacts and rebuild with DocFX ────────────────────────
+# Remove previous build output from docs/ root (keep source: content/, docfx.json, images/)
+$buildArtifacts = @(
+    '_site', 'en', 'de', 'posts',
+    'index.html', 'about.html', 'toc.html',
+    'index.json', 'toc.json', 'xrefmap.yml',
+    'favicon.ico', 'logo.svg', 'manifest.json', 'search-stopwords.json',
+    'posts-en.json', 'posts-de.json', 'language-switcher.json'
+)
+foreach ($item in $buildArtifacts) {
+    $path = Join-Path $docsDir $item
+    if (Test-Path $path) {
+        Remove-Item -Recurse -Force $path
+    }
+}
+# Clean DocFX vendor files in styles/
+$stylesDir = Join-Path $docsDir 'styles'
+if (Test-Path $stylesDir) {
+    Get-ChildItem $stylesDir -Filter 'docfx*' | Remove-Item -Recurse -Force
 }
 
 Write-Host 'Building site with DocFX…' -ForegroundColor Cyan

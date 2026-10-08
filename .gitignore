@@ -68,7 +68,6 @@ Testing/
 .cache/
 
 # DocFX
-docs/_site/
 .docfx/
 
 # OS files
