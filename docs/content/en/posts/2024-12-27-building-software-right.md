@@ -6,7 +6,7 @@ tags: [sdlc, agile, devops, software-quality]
 lang: en
 excerpt: "A practical guide to modern software development covering SDLC, agile, code quality, and DevOps."
 ---
-![cover](/images/posts/software-right/cover.png)
+![cover](~/images/posts/software-right/cover.png)
 **[German version](https://github.com/AlexNek/software-dev-resources/blob/master/SDLC/readme-de.md)**
 
 ## Overview
@@ -73,7 +73,7 @@ Agile methods allow us to plan in short timeframes, and be able to change direct
 
 Now, let’s talk about the code. We've all written **poor** code, at some point. It happens. But let's avoid doing it on purpose. 
 
-![image](/images/posts/software-right/clean-code.png)
+![image](~/images/posts/software-right/clean-code.png)
 
 What we want to be doing is writing clean, easy-to-read, well-documented, and testable code. Here’s how I see it:
 
@@ -263,7 +263,7 @@ Having separate development and operations teams that don't work together is not
 
 Now that we've covered the key aspects of modern development, let’s explore how it all comes together. These actions align with the various stages of the Software Development Life Cycle (SDLC) - a process that guides projects from start to delivery. We’ll look at the right way to approach these actions and where things often go wrong.
 
-![image](/images/posts/software-right/sdlc02.png)
+![image](~/images/posts/software-right/sdlc02.png)
 
 ### 1. Understanding the Problem: The Real Needs *(SDLC: Requirement Gathering/Analysis)*
 

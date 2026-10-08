@@ -6,7 +6,7 @@ tags: [ki, ai, programmierung, gpt, werkzeuge]
 lang: de
 excerpt: "KI-Tools für Entwickler: praktische Workflows, Codegenerierung, Fehlererkennung und mehr."
 ---
-![cover](/images/posts/ai-programmers/cover.png)
+![cover](~/images/posts/ai-programmers/cover.png)
 ## Überblick
 
 Die Frage, ob wir Künstliche Intelligenz (KI) heute brauchen, wird viel diskutiert. Die einen argumentieren, dass ein Leben ohne KI undenkbar wäre, während die anderen die KI für einen unnötigen oder übertriebenen Hype halten. Wie bei vielen Debatten liegt die Wahrheit wahrscheinlich irgendwo dazwischen.
@@ -156,7 +156,7 @@ Während sich die diskutierten Quellen hauptsächlich auf spezifische Anwendunge
 
 ## Die duale Natur der KI verstehen
 Mit KI zu arbeiten, ist nicht so einfach, wie man denken könnte. Man kann KI sowohl mit einem Werkzeug als auch mit einem Tier vergleichen. Man muss wissen, wie man mit dem Werkzeug umgeht, und man muss die Gewohnheiten des Tieres kennen, um zu wissen, was man von ihm erwarten kann.  
-![AI Tools and Animals Illustration](/images/posts/ai-programmers/Ai-tools-andAnimal600.jpg)  
+![AI Tools and Animals Illustration](~/images/posts/ai-programmers/Ai-tools-andAnimal600.jpg)  
 *Bild erzeugt mit AI (DALL-E)*. 
 
 ### KI als Werkzeug
@@ -180,7 +180,7 @@ Die effektive Nutzung von KI erfordert die Kombination der Kontrolle eines Werkz
 ## Ein praktischer Workflow für die Verwendung von KI in der Entwicklung
 
 Während KI bei der Entwicklung helfen kann, wird sie nicht jedes Problem fehlerfrei lösen. Einige Aufgaben sind unkompliziert, während andere Geduld und Ausdauer erfordern können. Es ist wichtig, das Problem zu kennen, das Sie lösen möchten, da die KI sonst den falschen Lösungsweg vorschlagen könnte.  
-![image](/images/posts/ai-programmers/workflow.png)
+![image](~/images/posts/ai-programmers/workflow.png)
 
 Hier ist ein strukturierter, iterativer Ansatz zur effektiven Nutzung von KI:
 
@@ -233,7 +233,7 @@ Diese Einschränkungen können je nach Plattform variieren und ob es sich um ein
 
 1. **Verwendung von Copilot unter Windows**:
    - Öffnen Sie den Edge-Browser und starten Sie Microsoft Copilot (nicht zu verwechseln mit GitHub Copilot; es ist nicht für alle kostenlos).
-   ![image](/images/posts/ai-programmers/ms_copilot.png)
+   ![image](~/images/posts/ai-programmers/ms_copilot.png)
    - Es kann auch als [Anwendung](https://www.microsoft.com/en-us/microsoft-copilot/personal-ai-assistant) installiert werden.
    - Zugriff auf Copilot in Skype: Nutzen Sie Copilot auch in Skype.
 

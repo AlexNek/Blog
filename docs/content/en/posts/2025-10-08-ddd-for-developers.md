@@ -7,7 +7,7 @@ lang: en
 excerpt: "A concise overview of Domain-Driven Design for developers: how DDD differs from OOAD, core vocabulary, onion architecture, and event storming."
 ---
 
-![cover](/images/posts/ddd-developers/cover.png)
+![cover](~/images/posts/ddd-developers/cover.png)
 
 **[GitHub Repository](https://github.com/AlexNek/ddd-for-developers)**
 

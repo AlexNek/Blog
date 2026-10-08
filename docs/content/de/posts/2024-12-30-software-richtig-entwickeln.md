@@ -6,7 +6,7 @@ tags: [sdlc, agil, devops, softwarequalitaet]
 lang: de
 excerpt: "Ein praktischer Leitfaden zur modernen Softwareentwicklung: SDLC, agil, Codequalität und DevOps."
 ---
-![cover](/images/posts/software-right/cover-de.png)
+![cover](~/images/posts/software-right/cover-de.png)
 **[English Version](https://github.com/AlexNek/software-dev-resources/blob/master/SDLC/readme.md)**
 
 ## Überblick
@@ -74,7 +74,7 @@ Agile Methoden ermöglichen es uns, in überschaubaren Zeiträumen zu planen, An
 ## Codequalität: Sauber und Testbar halten
 
 Lass uns nun über den Code sprechen. Wir alle haben irgendwann einmal **schlechten** Code geschrieben. Das passiert. Aber lasst uns das absichtlich vermeiden.
-![image](/images/posts/software-right/clean-code.png)
+![image](~/images/posts/software-right/clean-code.png)
 Was wir tun wollen, ist, sauberen, leicht lesbaren, gut dokumentierten und testbaren Code zu schreiben. So sehe ich das:
 
 -   **SOLID-Prinzipien:** Die Anwendung der SOLID-Prinzipien hilft, Code so zu strukturieren, dass er lesbarer und wartungsfreundlicher wird. Diese Prinzipien, die **S**ingle Responsibility, **O**pen/Closed, **L**iskov Substitution, **I**nterface Segregation und **D**ependency Inversion umfassen, sollten Ihnen beim Schreiben von Code helfen.
@@ -247,7 +247,7 @@ Getrennte Entwicklungs- und Betriebsteams, die nicht zusammenarbeiten, sind nich
 
 Nachdem wir die wesentlichen Aspekte moderner Softwareentwicklung beleuchtet haben, wollen wir nun einen Blick darauf werfen, wie alles zusammenwirkt. Diese Aktivitäten entsprechen den verschiedenen Phasen des Softwareentwicklungslebenszyklus (Software Development Life Cycle - SDLC), einem Prozess, der Softwareprojekte von der Konzeption bis hin zur Bereitstellung und Wartung begleitet. Wir werden analysieren, wie die einzelnen Schritte am effizientesten umgesetzt werden können und an welchen Stellen häufig Fehler gemacht werden.
 
-![image](/images/posts/software-right/sdlc02.png)
+![image](~/images/posts/software-right/sdlc02.png)
 
 ### 1. Das Problem verstehen: Die wirklichen Bedürfnisse *(SDLC: Anforderungserhebung/Analyse)*
 

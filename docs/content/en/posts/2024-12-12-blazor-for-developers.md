@@ -6,14 +6,14 @@ tags: [blazor, rendering, ssr, interactive, dotnet]
 lang: en
 excerpt: "A deep-dive into Blazor's rendering modes: SSR, Interactive, and Hybrid."
 ---
-![cover](/images/posts/blazor-developers/cover.png)
+![cover](~/images/posts/blazor-developers/cover.png)
 **[German version](https://github.com/AlexNek/Blazor-for-You/blob/master/ForDevelopers/readme-de.md)**
 
 ## Overview
 In this article, we won't go over another basic Blazor tutorial. Many resources already cover that topic. Instead, we'll focus on specific challenges that developers might face when using the new rendering modes in .NET 8 and later.
 
 The article is not straightforward because there is a lot of information in it and I have tried to break it down.
-![image](/images/posts/blazor-developers/article.png)
+![image](~/images/posts/blazor-developers/article.png)
 
 For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/README.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
 
@@ -35,7 +35,7 @@ While these modes offer a flexible approach, combining speed, interactivity, and
 
 Deciding how your app should render isn’t just about a single choice—it’s about understanding the unique needs of your application. With Blazor’s flexible rendering options, you can match each part of your app to its specific purpose, ensuring both performance and a great user experience.
 
-![image](/images/posts/blazor-developers/render-modes.png)
+![image](~/images/posts/blazor-developers/render-modes.png)
 
 ### Render Modes Across Levels  
 
@@ -616,7 +616,7 @@ If you're looking to dive deeper into Blazor and the various rendering modes, he
 
 Choosing the right render mode in Blazor is about finding the balance between performance, interactivity, and maintainability. Each mode brings unique behaviors and constraints that can influence how your app operates. For instance, lifecycle events like `OnInitializedAsync` may execute multiple times depending on the mode, and access to features like `HttpContext` might vary based on where the rendering occurs. The choice between Server-Side Rendering (SSR), Interactive Server, Interactive Client, and Auto render modes requires careful consideration and strategic planning.
 
-![image](/images/posts/blazor-developers/development.png)
+![image](~/images/posts/blazor-developers/development.png)
 
 **Tips for Success:**  
 

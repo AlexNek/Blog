@@ -6,7 +6,7 @@ tags: [blazor, rendering, ssr, interaktiv, dotnet]
 lang: de
 excerpt: "Ein Deep-Dive in Blazors Rendering-Modi: SSR, Interaktiv und Hybrid."
 ---
-![cover](/images/posts/blazor-developers/cover-de.png)
+![cover](~/images/posts/blazor-developers/cover-de.png)
 ## Blazor für Entwickler
 **[English Version](https://github.com/AlexNek/Blazor-for-You/blob/master/ForDevelopers/readme.md)**
 
@@ -15,7 +15,7 @@ excerpt: "Ein Deep-Dive in Blazors Rendering-Modi: SSR, Interaktiv und Hybrid."
 In diesem Artikel gehen wir nicht noch einmal auf das grundlegende Blazor-Tutorial ein. Viele Ressourcen decken bereits dieses Thema ab. Stattdessen werden wir uns auf die spezifischen Herausforderungen konzentrieren, die sich Entwicklern bei der Verwendung der neuen Rendering-Modi in .NET 8 und höher stellen können.
 
 Der Artikel ist nicht einfach, weil er eine Menge Informationen enthält, und ich habe versucht, sie aufzuschlüsseln.
-![image](/images/posts/blazor-developers/article.png)
+![image](~/images/posts/blazor-developers/article.png)
 
 Für Beispiele besuchen Sie das [Beispiel-Repository](https://github.com/AlexNek/BlazorNet8PlusExamples). Dort finden Sie auch eine detaillierte [Beschreibung der Beispiele](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/readme-de.md). Alternativ können Sie direkt mit den Demos starten: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) oder [Demo 2](https://blazorauthentication202412.azurewebsites.net).
 
@@ -37,7 +37,7 @@ Obwohl diese Modi einen flexiblen Ansatz bieten, der Geschwindigkeit, Interaktiv
 
 Die Entscheidung, wie Ihre App gerendert werden soll, ist nicht nur eine einzelne Wahl – es geht darum, die einzigartigen Anforderungen Ihrer Anwendung zu verstehen. Mit den flexiblen Rendering-Optionen von Blazor können Sie jedem Teil Ihrer Anwendung seinen spezifischen Zweck zuweisen und sowohl die Leistung als auch das Benutzererlebnis sicherstellen.
 
-![image](/images/posts/blazor-developers/render-modes.png)
+![image](~/images/posts/blazor-developers/render-modes.png)
 
 ### Render-Modi auf verschiedenen Ebenen  
 
@@ -613,7 +613,7 @@ In Blazor werden **Singleton-Dienste** verwendet, um eine einzige Instanz währe
 
 Die Auswahl des optimalen Rendering-Modus in Blazor ist eine wichtige Entscheidung, die einen großen Einfluss auf die Performance, die Benutzererfahrung und die langfristige Lebensfähigkeit Ihrer Anwendung hat. Die Wahl zwischen Server-Side Rendering (SSR), Interactive Server, Interactive Client und Auto-Render-Modi ist nicht nur eine technische Überlegung, sondern eine strategische, die sorgfältige Planung und Überlegung erfordert.
 
-![image](/images/posts/blazor-developers/development.png)
+![image](~/images/posts/blazor-developers/development.png)
 
 Wichtige Punkte, die zu berücksichtigen sind:
 
@@ -632,7 +632,7 @@ Durch die Anwendung dieser Prinzipien können Sie reaktionsfähige Webanwendunge
 
 Die Wahl des richtigen Render-Modus in Blazor besteht darin, das Gleichgewicht zwischen Leistung, Interaktivität und Wartbarkeit zu finden. Jeder Modus bringt einzigartige Verhaltensweisen und Einschränkungen mit sich, die beeinflussen können, wie Ihre App funktioniert. Zum Beispiel können Lebenszyklusereignisse wie `OnInitializedAsync` je nach Modus mehrmals ausgeführt werden, und der Zugriff auf Funktionen wie `HttpContext` kann je nach Render-Ort variieren. Die Wahl zwischen Server-Side Rendering (SSR), Interaktivem Server, Interaktivem Client und Auto-Render-Modi erfordert sorgfältige Überlegungen und strategische Planung.
 
-![image](/images/posts/blazor-developers/development.png)
+![image](~/images/posts/blazor-developers/development.png)
 
 **Tipps für den Erfolg:**
 

@@ -6,7 +6,7 @@ tags: [blazor, webassembly, server, dotnet, managers]
 lang: en
 excerpt: "A Blazor overview for managers: hosting models, pros and cons, decision guidance."
 ---
-![cover](/images/posts/blazor-manager/cover.jpeg)
+![cover](~/images/posts/blazor-manager/cover.jpeg)
 ## Overview
 
 Blazor, Microsoft's web framework for building interactive client-side web UIs with .NET, has gained significant traction in recent years. As a manager, understanding its strengths, weaknesses, and ideal use cases is crucial for making informed decisions about your technology stack.
@@ -86,7 +86,7 @@ This comprehensive set of rendering options in .NET 8 provides developers with f
 3. **Blazor Unified**: Allowing mix server-side and client-side rendering within the same application. 
 >Note: For the purposes of this article, we will use the name `Blazor Unified` as a shorthand for `Unified Full-Stack Model` or `Full Stack Web UI with Blazor`. This model enables you to opt for any of the various supported rendering modes (client rendering, server-side rendering, and static rendering) and switch between them on a per-component or per-page basis within a single application. 
 
-![Image](/images/posts/blazor-manager/BlazorRendering.png)  
+![Image](~/images/posts/blazor-manager/BlazorRendering.png)  
 *Pic: Simplified Drawing of Blazor Hosting Models*
 
 ## Differences between Blazor Client, Blazor Server and Blazor Unified

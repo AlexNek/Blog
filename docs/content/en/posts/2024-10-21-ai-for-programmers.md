@@ -6,7 +6,7 @@ tags: [ai, programming, gpt, tools, developers]
 lang: en
 excerpt: "AI tools for developers: practical workflows, code generation, error detection, and more."
 ---
-![cover](/images/posts/ai-programmers/cover.png)
+![cover](~/images/posts/ai-programmers/cover.png)
 
 ## Overview
 
@@ -161,7 +161,7 @@ While the sources discussed primarily focus on specific applications of AI in so
 ## Understanding AI's Dual Nature
 Working with AI is not as easy as you might think. An analogy can be drawn by comparing AI to both a tool and an animal. You need to know how to use the tool and you need to know the animal's habits to know what to expect from it.
 
-![AI Tools and Animals Illustration](/images/posts/ai-programmers/Ai-tools-andAnimal600.jpg)  
+![AI Tools and Animals Illustration](~/images/posts/ai-programmers/Ai-tools-andAnimal600.jpg)  
 *Image generated using AI (DALL-E)*  
 
 ### AI as a Tool
@@ -187,7 +187,7 @@ Using AI effectively requires combining the control of a tool with the patience 
 ## A Practical Workflow for Using AI in Development
 
 While AI can assist in development, it won’t solve every problem flawlessly. Some tasks are straightforward, but others may require patience and persistence. It is important to know the problem you are trying to solve, otherwise the AI may suggest the wrong way to solve it.  
-![image](/images/posts/ai-programmers/workflow.png)
+![image](~/images/posts/ai-programmers/workflow.png)
 
 Here's a structured, iterative approach to using AI effectively:
 
@@ -241,7 +241,7 @@ These limitations may vary depending on the platform and whether it’s a free o
 
 1. **Using Copilot on Windows**:
    - Open the Edge browser and launch Microsoft Copilot (not to be confused with GitHub Copilot it is not free for all). 
-    ![image](/images/posts/ai-programmers/ms_copilot.png)
+    ![image](~/images/posts/ai-programmers/ms_copilot.png)
    - You can also install it as an [application](https://www.microsoft.com/en-us/microsoft-copilot/personal-ai-assistant).
    - Accessing Copilot in Skype: You can also utilize Copilot in Skype.
 

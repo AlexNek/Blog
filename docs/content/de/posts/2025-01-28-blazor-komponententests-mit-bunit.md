@@ -6,7 +6,7 @@ tags: [bunit, blazor, testing, xunit, dotnet]
 lang: de
 excerpt: "Ein praktischer Leitfaden zum Testen von Blazor-Komponenten mit bUnit, xUnit und FluentAssertions."
 ---
-![cover](/images/posts/blazor-testing/cover.png)
+![cover](~/images/posts/blazor-testing/cover.png)
 ## Überblick
 
 Das Testen von Blazor-Komponenten muss nicht kompliziert sein. Mit **bUnit** können Sie die Komponentenlogik, -rendering und -verhalten validieren, ohne sich mit einer vollständigen Browser-Einrichtung auseinanderzusetzen. Dieser Leitfaden beschreibt die Grundlagen für die Verwendung von bUnit zum effizienten und effektiven Testen von Komponenten.
