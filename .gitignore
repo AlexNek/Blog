@@ -69,7 +69,20 @@ Testing/
 
 # DocFX
 .docfx/
-docs/public/*.map
+docs/public/
+docs/en/
+docs/de/
+docs/index.html
+docs/index.json
+docs/toc.html
+docs/xrefmap.yml
+docs/manifest.json
+docs/search-stopwords.json
+docs/favicon.ico
+docs/logo.svg
+docs/posts-en.json
+docs/posts-de.json
+docs/language-switcher.json
 
 # OS files
 .DS_Store
