@@ -136,6 +136,8 @@ function detectLang() {
 
 function init() {
   const lang = detectLang();
+  // Remember the language so the site root redirects to it on the next visit (set once).
+  try { localStorage.setItem('lang', lang); } catch (err) {}
   const isLanding = document.querySelector('div#recent-posts') !== null;
   const isPost = document.getElementById('post-nav') !== null;
 
