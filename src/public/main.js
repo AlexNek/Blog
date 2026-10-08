@@ -29,7 +29,14 @@ function renderRecentPosts(posts, lang) {
     const tags = (post.tags || []).map(t =>
       `<span class="tag-chip">${escapeHtml(t)}</span>`
     ).join('');
-    html += `<div class="post-card">
+    // post.cover is site-root-relative ('/images/posts/…/cover.png'), so the site root
+    // has to be prepended - using it bare would resolve to the domain root and break on
+    // the /Blog/ sub-path. The title link next to it already names the post, so alt is
+    // intentionally empty.
+    const thumb = post.cover
+      ? `<img class="post-thumb" src="${escapeAttr(resolveBaseUrl() + post.cover)}" alt="" loading="lazy">`
+      : '';
+    html += `<div class="post-card">${thumb}
       <h3><a href="${escapeAttr(post.url)}">${escapeHtml(post.title)}</a></h3>
       <div class="meta">${formatDate(post.date, lang)} · ${readingTime(post.wordCount)} ${lang === 'de' ? 'Min. Lesezeit' : 'min read'}</div>
       ${tags ? `<div class="tags">${tags}</div>` : ''}

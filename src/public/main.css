@@ -160,6 +160,19 @@ footer a:hover {
   background-color: var(--accent-soft);
 }
 
+/* Covers come in mixed aspect ratios and formats, so they are cropped to a
+   fixed-height banner by object-fit instead of being scaled proportionally. */
+.post-card .post-thumb {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  height: 9rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
 .post-card h3 {
   font-size: 1.25rem;
   font-weight: 600;

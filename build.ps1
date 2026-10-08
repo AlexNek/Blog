@@ -192,12 +192,28 @@ function Build-PostEntries {
         $body = $fm['_body']
         $words = ($body -split '\s+' | Where-Object { $_ -match '\w' }).Count
 
+        # Cover image for the overview thumbnails: taken from the
+        # `![cover](~/images/posts/<topic>/cover.png)` body line that follows the
+        # frontmatter. The DocFX-only `~/` anchor (= the docs/ folder) is stripped and the
+        # path is stored site-root-relative with a leading slash, because the JSON is read
+        # by main.js, not by DocFX. main.js must prepend the resolved site root before
+        # using it - a bare leading-slash URL resolves against the DOMAIN root and 404s
+        # under the /Blog/ sub-path deployment.
+        $cover = ''
+        if ($body -match '!\[cover\]\(\s*<?([^)\s]+)') {
+            $coverPath = $Matches[1] -replace '^~/', ''
+            if ($coverPath -notmatch '^(?:https?:)?//') {
+                $cover = '/' + $coverPath
+            }
+        }
+
         $entry = @{
             slug      = $slug
             title     = if ($fm.ContainsKey('title')) { $fm['title'] } else { $slug }
             date      = if ($fm.ContainsKey('date')) { $fm['date'] } else { '1970-01-01' }
             url       = $url
             excerpt   = $excerpt
+            cover     = $cover
             wordCount = $words
             tags      = if ($fm.ContainsKey('tags')) { @($fm['tags']) } else { @() }
             categories = if ($fm.ContainsKey('categories')) { @($fm['categories']) } else { @() }
