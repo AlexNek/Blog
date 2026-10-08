@@ -1,8 +1,9 @@
 [
   {
+    "url": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html",
     "slug": "2025-10-08-ddd-fuer-entwickler",
     "wordCount": 1044,
-    "title": "Domain-Driven Design für Entwickler",
+    "excerpt": "Ein kompakter Überblick über Domain-Driven Design für Entwickler: Wie sich DDD von OOAD unterscheidet, Kernbegriffe, Onion-Architektur und Event Storming.",
     "date": "2025-10-08",
     "tags": [
       "ddd",
@@ -11,17 +12,17 @@
       "ooad",
       "event-storming"
     ],
-    "excerpt": "Ein kompakter Überblick über Domain-Driven Design für Entwickler: Wie sich DDD von OOAD unterscheidet, Kernbegriffe, Onion-Architektur und Event Storming.",
     "categories": [
       "softwareentwicklung",
       "architektur"
     ],
-    "url": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html"
+    "title": "Domain-Driven Design für Entwickler"
   },
   {
+    "url": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html",
     "slug": "2025-01-28-blazor-komponententests-mit-bunit",
     "wordCount": 4126,
-    "title": "Blazor-Komponententests mit bUnit",
+    "excerpt": "Ein praktischer Leitfaden zum Testen von Blazor-Komponenten mit bUnit, xUnit und FluentAssertions.",
     "date": "2025-01-28",
     "tags": [
       "bunit",
@@ -30,17 +31,17 @@
       "xunit",
       "dotnet"
     ],
-    "excerpt": "Ein praktischer Leitfaden zum Testen von Blazor-Komponenten mit bUnit, xUnit und FluentAssertions.",
     "categories": [
       "blazor",
       "testing"
     ],
-    "url": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html"
+    "title": "Blazor-Komponententests mit bUnit"
   },
   {
+    "url": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html",
     "slug": "2024-12-30-software-richtig-entwickeln",
     "wordCount": 4303,
-    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren",
+    "excerpt": "Ein praktischer Leitfaden zur modernen Softwareentwicklung: SDLC, agil, Codequalität und DevOps.",
     "date": "2024-12-30",
     "tags": [
       "sdlc",
@@ -48,14 +49,14 @@
       "devops",
       "softwarequalitaet"
     ],
-    "excerpt": "Ein praktischer Leitfaden zur modernen Softwareentwicklung: SDLC, agil, Codequalität und DevOps.",
     "categories": ["softwareentwicklung"],
-    "url": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html"
+    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren"
   },
   {
+    "url": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html",
     "slug": "2024-12-13-blazor-fuer-entwickler",
     "wordCount": 6601,
-    "title": "Blazor für Entwickler",
+    "excerpt": "Ein Deep-Dive in Blazors Rendering-Modi: SSR, Interaktiv und Hybrid.",
     "date": "2024-12-13",
     "tags": [
       "blazor",
@@ -64,17 +65,17 @@
       "interaktiv",
       "dotnet"
     ],
-    "excerpt": "Ein Deep-Dive in Blazors Rendering-Modi: SSR, Interaktiv und Hybrid.",
     "categories": [
       "blazor",
       "dotnet"
     ],
-    "url": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html"
+    "title": "Blazor für Entwickler"
   },
   {
+    "url": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html",
     "slug": "2024-11-04-blazor-fuer-manager",
     "wordCount": 3324,
-    "title": "Blazor für Manager",
+    "excerpt": "Blazor-Übersicht für Manager: Hosting-Modelle, Vor- und Nachteile, Entscheidungshilfen.",
     "date": "2024-11-04",
     "tags": [
       "blazor",
@@ -83,17 +84,17 @@
       "dotnet",
       "manager"
     ],
-    "excerpt": "Blazor-Übersicht für Manager: Hosting-Modelle, Vor- und Nachteile, Entscheidungshilfen.",
     "categories": [
       "blazor",
       "dotnet"
     ],
-    "url": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html"
+    "title": "Blazor für Manager"
   },
   {
+    "url": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html",
     "slug": "2024-10-21-ki-fuer-programmierer",
     "wordCount": 3357,
-    "title": "Künstliche Intelligenz für Programmierer",
+    "excerpt": "KI-Tools für Entwickler: praktische Workflows, Codegenerierung, Fehlererkennung und mehr.",
     "date": "2024-10-21",
     "tags": [
       "ki",
@@ -102,11 +103,10 @@
       "gpt",
       "werkzeuge"
     ],
-    "excerpt": "KI-Tools für Entwickler: praktische Workflows, Codegenerierung, Fehlererkennung und mehr.",
     "categories": [
       "ki",
       "dotnet"
     ],
-    "url": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html"
+    "title": "Künstliche Intelligenz für Programmierer"
   }
 ]

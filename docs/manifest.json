@@ -1,5 +1,6 @@
 {
-  "source_base_path": "Y:/user_alex_new/dot_net2022/Github/Blog/docs",
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/Blog/Blog/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
