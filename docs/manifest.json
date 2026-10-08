@@ -1,0 +1,496 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/Blog/Blog/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/about.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/about.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2024-10-21-ki-fuer-programmierer.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2024-10-21-ki-fuer-programmierer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2024-11-04-blazor-fuer-manager.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2024-11-04-blazor-fuer-manager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2024-12-13-blazor-fuer-entwickler.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2024-12-13-blazor-fuer-entwickler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2024-12-30-software-richtig-entwickeln.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2024-12-30-software-richtig-entwickeln.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2025-01-28-blazor-komponententests-mit-bunit.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2025-01-28-blazor-komponententests-mit-bunit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/de/posts/2025-10-08-ddd-fuer-entwickler.md",
+      "output": {
+        ".html": {
+          "relative_path": "de/posts/2025-10-08-ddd-fuer-entwickler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "content/de/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "de/toc.html"
+        },
+        ".json": {
+          "relative_path": "de/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/about.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/about.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2024-10-21-ai-for-programmers.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2024-10-21-ai-for-programmers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2024-11-04-blazor-for-managers.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2024-11-04-blazor-for-managers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2024-12-12-blazor-for-developers.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2024-12-12-blazor-for-developers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2024-12-27-building-software-right.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2024-12-27-building-software-right.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2025-01-28-blazor-component-testing-bunit.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2025-01-28-blazor-component-testing-bunit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/en/posts/2025-10-08-ddd-for-developers.md",
+      "output": {
+        ".html": {
+          "relative_path": "en/posts/2025-10-08-ddd-for-developers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "content/en/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "en/toc.html"
+        },
+        ".json": {
+          "relative_path": "en/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "content/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/Ai-tools-andAnimal600.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/Ai-tools-andAnimal600.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/cover.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/cover.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/diagram1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/diagram1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/diagram2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/diagram2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/diagram3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/diagram3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/ms_copilot.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/ms_copilot.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ai-programmers/workflow.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ai-programmers/workflow.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/article.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/article.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/cover-de.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/cover-de.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/cover.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/cover.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/development.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/development.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram1-de.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram1-de.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram2-de.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram2-de.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram3-de.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram3-de.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/diagram3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/diagram3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-developers/render-modes.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-developers/render-modes.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-manager/BlazorRendering.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-manager/BlazorRendering.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-manager/cover.jpeg",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-manager/cover.jpeg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-manager/diagram1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-manager/diagram1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/blazor-testing/cover.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/blazor-testing/cover.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/ddd-developers/cover.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/ddd-developers/cover.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/software-right/clean-code.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/software-right/clean-code.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/software-right/cover-de.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/software-right/cover-de.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/software-right/cover.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/software-right/cover.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/posts/software-right/sdlc02.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/posts/software-right/sdlc02.png"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

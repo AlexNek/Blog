@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Domain-Driven Design f&#252;r Entwickler | Alex Nek </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Domain-Driven Design f&#252;r Entwickler | Alex Nek ">
+      
+      
+      <link rel="icon" href="../../images/favicon.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/AlexNek/Blog/blob/master/docs/content/de/posts/2025-10-08-ddd-fuer-entwickler.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+
+<p><img src="/images/posts/ddd-developers/cover.png" alt="cover"></p>
+<p><strong><a href="https://github.com/AlexNek/ddd-for-developers">GitHub-Repository</a></strong></p>
+<h2 id="einführung">Einführung</h2>
+<p>Es gibt viele Informationen über DDD, aber es ist schwer, eine kurze Erklärung zu finden, was der Unterschied zur objektorientierten Analyse und Design (OOAD) tatsächlich ist und welche Änderungen Entwickler erwarten sollten. Dieser Artikel extrahiert und sammelt nur die wesentlichen Stücke aus dem großen Berg von DDD, damit Softwareentwickler schnell den Unterschied zur gängigsten Art der Softwareentwicklung verstehen können.</p>
+<h2 id="wann-ddd-nützlich-sein-kann">Wann DDD nützlich sein kann</h2>
+<p>Es hat keinen großen Sinn, DDD zu verwenden, wenn man ein kleines Projekt hat oder kein bedeutendes Problem im aktuellen Projekt. Jeder Designansatz hat Vor- und Nachteile, und die Dinge sehen je nach Betrachter unterschiedlich aus.</p>
+<p>Wenn ein <strong>Fachexperte</strong> einen Raum sieht, sieht er Geschäftsnamen und reale Konzepte. Wenn ein <strong>Entwickler</strong> denselben Raum sieht, sieht er Benennungen im Softwarecode — technische Begriffe, Datenstrukturen und Abstraktionen. Beide Menschen können nicht gut zusammenarbeiten, wenn sie eine unterschiedliche Sprache für dieselben Objekte verwenden. Wäre es nicht besser, wenn wir eine <strong>gemeinsame Sprache</strong> sprechen würden?</p>
+<p>Dieselbe Frage gilt für die Strukturierung unseres Codes. Kennnt man das übliche Muster, bei dem alles nach technischen Schichten organisiert ist — Controller, Services, Repositories — anstatt nach Geschäftsbereichen? DDD fordert uns auf, nach <strong>Geschäftsdomänen</strong> zu organisieren, nicht nach technischer Bequemlichkeit.</p>
+<h2 id="zwei-denkweisen">Zwei Denkweisen</h2>
+<p>Vergleichen wir, wie wir über unsere Anwendungen denken können:</p>
+<h3 id="1-der-oop-weg">1. Der OOP-Weg</h3>
+<p>Unsere Anwendung ist eine Sammlung von Objekten. Jedes Objekt hat Attribute und Methoden — Operationen. Objekte und Datenfluss sind unsere Hauptleitfäden. Wir denken über Klassenvererbung nach, wie Objekte interagieren und wie Daten durch Schichten fließen.</p>
+<p>Typisches OOP-Denken konzentriert sich auf:</p>
+<ul>
+<li><strong>Klassenhierarchien</strong> — Basisklassen, abgeleitete Klassen, Schnittstellen.</li>
+<li><strong>Datenfluss</strong> — wie Objekte Daten zwischen Schichten weitergeben.</li>
+<li><strong>Technische Schichtung</strong> — Präsentation, Geschäftslogik, Datenzugriff.</li>
+</ul>
+<h3 id="2-der-ddd-weg">2. Der DDD-Weg</h3>
+<p>Unsere Anwendung folgt unseren <strong>Geschäftsregeln</strong>. Eine Person startet eine Aktion, wir prüfen einige Regeln und schließen die Aktion ab. Der Fokus verlagert sich von Objekten und Daten zu <strong>Domänenverhalten</strong> und <strong>Geschäftsprozessen</strong>.</p>
+<p>Das bekannteste Bild der DDD-Architektur ist die <strong>Onion-Architektur</strong> (auch Clean Architecture oder Hexagonale Architektur genannt). Die Idee ist einfach:</p>
+<ul>
+<li>Das <strong>Domänenmodell</strong> steht im Zentrum — Entitäten, Wertobjekte, Domänenereignisse.</li>
+<li><strong>Domänendienste</strong> und <strong>Anwendungsdienste</strong> umgeben es.</li>
+<li><strong>Infrastruktur</strong> (Datenbanken, Nachrichtenwarteschlangen, externe APIs) befindet sich in der äußersten Schicht.</li>
+</ul>
+<p>Die wichtigste Erkenntnis: <strong>DDD erfordert nicht, zuerst über Objekte und Daten nachzudenken.</strong> Es erfordert, zuerst über Geschäftsregeln und Prozesse nachzudenken. Das Domänenmodell treibt alles andere an.</p>
+<h2 id="ddd-vokabular">DDD-Vokabular</h2>
+<p>DDD ist nicht einfach zu erlernen — es gibt viele neue Konzepte zu verstehen. Hier sind die wesentlichen Definitionen, hauptsächlich aus Eric Evans' Werk:</p>
+<ul>
+<li><strong>Domäne</strong> — Eine Wissens-, Einfluss- oder Aktivitätssphäre. Das Fachgebiet, auf das ein Benutzer ein Programm anwendet, ist die Domäne der Software.</li>
+<li><strong>Modell</strong> — Ein System von Abstraktionen, das ausgewählte Aspekte einer Domäne beschreibt und zur Lösung von Problemen in dieser Domäne verwendet werden kann.</li>
+<li><strong>Allgegenwärtige Sprache</strong> — Eine Sprache, die um das Domänenmodell herum strukturiert ist und von allen Teammitgliedern innerhalb eines begrenzten Kontexts verwendet wird. Sie verbindet alle Aktivitäten des Teams mit der Software.</li>
+<li><strong>Kontext</strong> — Der Rahmen, in dem ein Wort oder eine Aussage erscheint und der ihre Bedeutung bestimmt. Aussagen über ein Modell können nur in einem Kontext verstanden werden.</li>
+<li><strong>Begrenzter Kontext</strong> — Eine Beschreibung einer Grenze (typischerweise eines Subsystems oder der Arbeit eines bestimmten Teams), innerhalb derer ein bestimmtes Modell definiert und anwendbar ist.</li>
+<li><strong>Entitäten</strong> — Objekte, die einen Faden der Kontinuität und Identität darstellen, der einen Lebenszyklus durchläuft, obwohl sich ihre Attribute ändern können. Ein Objekt muss von anderen Objekten unterschieden werden können, auch wenn es dieselben Attribute hat. Verwechslungen können zu Datenbeschädigung führen.</li>
+<li><strong>Wertobjekte</strong> — Objekte, die eine Eigenschaft eines Dinges beschreiben oder berechnen. Sie haben keine konzeptionelle Identität. Wenn man sich nur für die Attribute und die Logik eines Modells interessiert, klassifiziert man es als Wertobjekt. Behandeln Sie das Wertobjekt als unveränderlich.</li>
+<li><strong>Domänenereignisse</strong> — Etwas ist passiert, das Domänenexperten interessiert. Ein Domänenereignis ist ein vollwertiger Teil des Domänenmodells, eine Darstellung dessen, was in der Domäne passiert ist. Domänenereignisse sind in der Regel unveränderlich, da sie eine Aufzeichnung von etwas in der Vergangenheit sind.</li>
+<li><strong>Dienste</strong> — Wenn ein bedeutender Prozess oder eine bedeutende Transformation in der Domäne keine natürliche Verantwortung einer Entität oder eines Wertobjekts ist, fügen Sie dem Modell eine Operation als eigenständige Schnittstelle hinzu, die als Dienst deklariert wird.</li>
+<li><strong>Module</strong> — Wählen Sie Module, die die Geschichte des Systems erzählen und einen zusammenhängenden Satz von Konzepten enthalten. Geben Sie den Modulen Namen, die Teil der allgegenwärtigen Sprache werden.</li>
+<li><strong>Aggregate</strong> — Clustern Sie die Entitäten und Wertobjekte in Aggregaten und definieren Sie Grenzen um jedes. Wählen Sie eine Entität als Wurzel jedes Aggregats und erlauben Sie externen Objekten nur, Verweise auf die Wurzel zu halten.</li>
+<li><strong>Repositories</strong> — Abfragezugriff auf Aggregate, ausgedrückt in der allgegenwärtigen Sprache. Für jeden Aggregattyp, der globalen Zugriff benötigt, erstellen Sie einen Dienst, der die Illusion einer In-Memory-Sammlung aller Objekte dieses Aggregatwurzeltyps bieten kann.</li>
+</ul>
+<h2 id="wie-man-geschäftsprozesse-modelliert">Wie man Geschäftsprozesse modelliert</h2>
+<p><strong>Event Storming</strong> ist die beliebteste Prozessmodellierungstechnik in der DDD-Welt. Die Idee ist, Softwareentwickler und Domänenexperten zusammenzubringen und sie voneinander lernen zu lassen. Das Ergebnis basiert auf wiederholten Aktionen aus der realen Welt.</p>
+<p>Die häufigsten Farben und Elemente beim Event Storming:</p>
+<ul>
+<li><strong>Domänenereignisse</strong> — orange</li>
+<li><strong>Befehle</strong> — hellblau</li>
+<li><strong>Aggregate</strong> — gelb</li>
+<li><strong>Probleme</strong> — rot oder lila</li>
+<li><strong>Benutzerrollen / Personas</strong> — gelb mit Strichmännchen</li>
+<li><strong>Ansichten</strong> — grün</li>
+<li><strong>Begrenzte Kontexte</strong> — durchgezogene Linie, Namen auf rosa Zetteln</li>
+<li><strong>Subdomänen</strong> — gestrichelte Linien</li>
+<li><strong>Ereignisfluss</strong> — Pfeile</li>
+</ul>
+<p>Innerhalb der Ellipsen findet man typischerweise einen begrenzten Kontext. Das Ziel ist es, das Domänenmodell kollaborativ zu entdecken, Schritt für Schritt, indem man den Geschäftsprozess als Abfolge von Ereignissen durchgeht.</p>
+<h2 id="mehr-erfahren">Mehr erfahren</h2>
+<p>Hier sind einige Links, um mit DDD zu beginnen.</p>
+<h3 id="bücher">Bücher</h3>
+<blockquote>
+<p>Hinweis: Die Lesereihenfolge ist wichtig — 1, 2, 3 (grün, rot, blau) / (Überblick, leicht verständlich, akademische Erklärung).</p>
+</blockquote>
+<ol>
+<li>Vaughn Vernon — <em>Domain-Driven Design Distilled</em> (ca. 160 Seiten)</li>
+<li>Vaughn Vernon — <em>Implementing Domain-Driven Design</em> (ca. 700 Seiten)</li>
+<li>Eric Evans — <em>Domain-Driven Design</em> (ca. 450 Seiten)</li>
+<li>Alberto Brandolini — <em>Introducing EventStorming</em></li>
+<li>Eric Evans — <em>DDD Reference</em> (Kostenloses PDF)</li>
+</ol>
+<h3 id="videos">Videos</h3>
+<ul>
+<li>Eric Evans — <em>What is DDD</em> (DDD Europe 2019)</li>
+<li>Eric Evans — <em>Bounded Contexts</em> (DDD Europe 2020)</li>
+<li>Vaughn Vernon — <em>Microservices and Domain Driven Design</em> (Munich 2017)</li>
+<li>Vaughn Vernon — <em>How to Use Aggregates for Tactical Design</em></li>
+<li>Alberto Brandolini — <em>Event Storming</em> (DDD Europe 2019)</li>
+<li>Michael Plöd — <em>Introduction to Context Mapping</em> (DDD Europe 2022)</li>
+<li>Amichai Mantinband — <em>ASP.NET 6 REST API Following CLEAN ARCHITECTURE &amp; DDD Tutorial</em> (19 Teile)</li>
+<li>Codewrinkles — <em>DDD Fundamentals</em> (8 Teile)</li>
+<li>Codewrinkles — <em>Social Network from Scratch with DDD</em> (5 Teile)</li>
+</ul>
+<h3 id="webseiten">Webseiten</h3>
+<ul>
+<li><a href="https://dddcrew.com/">Domain-Driven Design Crew</a></li>
+<li><a href="https://github.com/mariuszgil/awesome-ddd">Free Domain-Driven Design Learning Resources</a></li>
+<li><a href="https://dddcommunity.io/">Domain Driven Design (DDD) — Domain Centric</a></li>
+<li><a href="https://www.eventstorming.com/">Event Storming</a></li>
+<li><a href="https://github.com/hassanmonfa/TaskoMask">TaskoMask</a> — Realweltliches Open-Source-Projekt basierend auf .NET 6 mit Microservices, DDD, BDD und Testing-Konzepten.</li>
+</ul>
+<div id="post-nav"></div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/AlexNek/Blog/blob/master/docs/content/de/posts/2025-10-08-ddd-fuer-entwickler.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 Alex Nek — All rights reserved · Code: MIT
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
