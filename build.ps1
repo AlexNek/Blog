@@ -143,7 +143,7 @@ function Parse-Frontmatter {
 
 function Get-SlugFromFile {
     param([string]$FileName)
-    # Remove .md extension; filename is already YYYY-MM-DD-slug format
+    # Remove .md extension to get the slug
     return ($FileName -replace '\.md$', '')
 }
 
@@ -262,24 +262,14 @@ Write-Host 'Generating language-switcher.json…' -ForegroundColor Cyan
 
 $switcher = @{}
 
-# Explicit translation pairs (EN slug -> DE slug)
-$translationPairs = @{
-    '2025-10-08-ddd-for-developers'                = '2025-10-08-ddd-fuer-entwickler'
-    '2024-12-27-building-software-right'         = '2024-12-30-software-richtig-entwickeln'
-    '2024-12-12-blazor-for-developers'           = '2024-12-13-blazor-fuer-entwickler'
-    '2025-01-28-blazor-component-testing-bunit'  = '2025-01-28-blazor-komponententests-mit-bunit'
-    '2024-11-04-blazor-for-managers'             = '2024-11-04-blazor-fuer-manager'
-    '2024-10-21-ai-for-programmers'              = '2024-10-21-ki-fuer-programmierer'
+# EN and DE posts share identical filenames; the counterpart URL is just /en/ ↔ /de/
+foreach ($post in $enPosts) {
+    $counterpart = $post.url -replace '/en/', '/de/'
+    $switcher[$post.url] = $counterpart
 }
-
-foreach ($enSlug in $translationPairs.Keys) {
-    $deSlug = $translationPairs[$enSlug]
-    $enPost = $enPosts | Where-Object { $_.slug -eq $enSlug } | Select-Object -First 1
-    $dePost = $dePosts | Where-Object { $_.slug -eq $deSlug } | Select-Object -First 1
-    if ($enPost -and $dePost) {
-        $switcher[$enPost.url] = $dePost.url
-        $switcher[$dePost.url] = $enPost.url
-    }
+foreach ($post in $dePosts) {
+    $counterpart = $post.url -replace '/de/', '/en/'
+    $switcher[$post.url] = $counterpart
 }
 
 # Also map the landing pages

@@ -1,6 +1,6 @@
 ---
 title: "Domain-Driven Design für Entwickler"
-date: 2025-10-08
+date: 2023-10-06
 categories: [softwareentwicklung, architektur]
 tags: [ddd, domain-driven-design, architektur, ooad, event-storming]
 lang: de

@@ -4,15 +4,15 @@
   href: about.md
 - name: Posts
   items:
-  - name: Domain-Driven Design for Developers
-    href: posts/2025-10-08-ddd-for-developers.md
   - name: Blazor Component Testing with bUnit
-    href: posts/2025-01-28-blazor-component-testing-bunit.md
+    href: posts/blazor-component-testing-bunit.md
   - name: Building Software Right
-    href: posts/2024-12-27-building-software-right.md
+    href: posts/building-software-right.md
   - name: Blazor for Developers
-    href: posts/2024-12-12-blazor-for-developers.md
+    href: posts/blazor-for-developers.md
   - name: Blazor for Managers
-    href: posts/2024-11-04-blazor-for-managers.md
+    href: posts/blazor-for-managers.md
   - name: AI for Programmers
-    href: posts/2024-10-21-ai-for-programmers.md
+    href: posts/ai-for-programmers.md
+  - name: Domain-Driven Design for Developers
+    href: posts/ddd-for-developers.md
