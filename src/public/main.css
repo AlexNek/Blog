@@ -1,4 +1,6 @@
 /* ===== Design Tokens ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   --bg: #ffffff;
   --bg-soft: #fafaf9;
@@ -10,9 +12,21 @@
   --accent-soft: #fff7ed;
 }
 
-/* ===== Typography ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* DocFX's theme switcher only flips data-bs-theme on <html>; the palette above
+   is the light one, so the dark values have to be declared here as well,
+   otherwise switching themes has no visible effect on this site. */
+[data-bs-theme="dark"] {
+  --bg: #1c1917;
+  --bg-soft: #292524;
+  --text: #e7e5e4;
+  --text-muted: #a8a29e;
+  --border: #44403c;
+  --accent: #f97316;
+  --accent-hover: #fdba74;
+  --accent-soft: #2b1d13;
+}
 
+/* ===== Typography ===== */
 *, *::before, *::after {
   box-sizing: border-box;
 }

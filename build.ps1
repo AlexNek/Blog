@@ -74,6 +74,16 @@ if ((Test-Path $srcPublic) -and (Test-Path $publicDir)) {
     Write-Host 'Restored custom public/main.js and public/main.css' -ForegroundColor Green
 }
 
+# ── 2c. Strip debug source maps from the site output ───────────────────────
+# *.map files are only fetched by browser devtools; they are ~55% of the Pages
+# payload and slow down the GitHub Pages deployment, so they are not published.
+$mapFiles = @(Get-ChildItem $docsDir -Recurse -Filter '*.map' -ErrorAction SilentlyContinue)
+if ($mapFiles.Count -gt 0) {
+    $mapBytes = ($mapFiles | Measure-Object Length -Sum).Sum
+    $mapFiles | Remove-Item -Force
+    Write-Host ('Stripped {0} source maps ({1:N1} MB)' -f $mapFiles.Count, ($mapBytes / 1MB)) -ForegroundColor Green
+}
+
 # ── 3. Generate posts JSON per language ───────────────────────────────────────
 Write-Host 'Generating posts JSON files…' -ForegroundColor Cyan
 
@@ -248,8 +258,10 @@ $switcherJson = $switcher | ConvertTo-Json -Depth 4
 Set-Content -Path (Join-Path $siteDir 'language-switcher.json') -Value $switcherJson -Encoding UTF8
 
 # ── 5. Done ───────────────────────────────────────────────────────────────────
+$siteFiles = @(Get-ChildItem $docsDir -Recurse -File)
 Write-Host ''
 Write-Host 'Build complete!' -ForegroundColor Green
 Write-Host "  Site output : $siteDir"
+Write-Host "  Pages upload: $($siteFiles.Count) files, $([Math]::Round(($siteFiles | Measure-Object Length -Sum).Sum / 1MB, 1)) MB"
 Write-Host "  Open        : $(Join-Path $siteDir 'index.html')"
 Write-Host ''

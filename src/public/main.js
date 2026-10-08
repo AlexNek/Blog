@@ -127,7 +127,7 @@ function detectLang() {
   return window.location.pathname.indexOf('/de/') !== -1 ? 'de' : 'en';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
   const lang = detectLang();
   const isLanding = document.getElementById('recent-posts') !== null;
   const isPost = document.getElementById('post-nav') !== null;
@@ -154,6 +154,16 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => {
       console.warn('Failed to load posts:', err);
     });
-});
+}
+
+// docfx.min.js pulls this module in with a dynamic import(), which resolves
+// after DOMContentLoaded has already fired. Listening for the event alone would
+// therefore never run, so call init() directly unless the document is still
+// loading.
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 
 export default {};
