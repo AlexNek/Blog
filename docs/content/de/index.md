@@ -12,3 +12,4 @@ Willkommen auf meinem zweisprachigen Blog. Hier schreibe ich über .NET-Entwickl
 
 <!-- Beiträge werden hier von main.js aus posts.json gerendert -->
 <div id="recent-posts">Beiträge werden geladen…</div>
+<nav id="pagination"></nav>

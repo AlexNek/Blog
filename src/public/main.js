@@ -1,4 +1,7 @@
 const WORDS_PER_MINUTE = 200;
+const POSTS_PER_PAGE = 5;
+let currentPage = 1;
+let allSortedPosts = [];
 
 function readingTime(wordCount) {
   return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
@@ -23,13 +26,16 @@ function renderRecentPosts(posts, lang) {
     }
     return;
   }
-  const sorted = posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  if (currentPage > totalPages) currentPage = totalPages;
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const pagePosts = posts.slice(start, start + POSTS_PER_PAGE);
   let html = '';
-  sorted.forEach(post => {
+  pagePosts.forEach(post => {
     const tags = (post.tags || []).map(t =>
       `<span class="tag-chip">${escapeHtml(t)}</span>`
     ).join('');
-    // post.cover is site-root-relative ('/images/posts/…/cover.png'), so the site root
+    // post.cover is site-root relative ('/images/posts/…/cover.png'), so the site root
     // has to be prepended - using it bare would resolve to the domain root and break on
     // the /Blog/ sub-path. The title link next to it already names the post, so alt is
     // intentionally empty.
@@ -44,6 +50,54 @@ function renderRecentPosts(posts, lang) {
     </div>`;
   });
   container.innerHTML = html;
+}
+
+function renderPagination(totalPosts, lang) {
+  const nav = document.getElementById('pagination');
+  if (!nav) return;
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+  if (totalPages <= 1) {
+    nav.innerHTML = '';
+    return;
+  }
+  const prevLabel = lang === 'de' ? 'Zurück' : 'Prev';
+  const nextLabel = lang === 'de' ? 'Weiter' : 'Next';
+  let html = '';
+  if (currentPage > 1) {
+    html += `<a href="#" data-page="${currentPage - 1}" class="page-link page-prev">${prevLabel}</a>`;
+  } else {
+    html += `<span class="page-link page-prev disabled">${prevLabel}</span>`;
+  }
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      html += `<span class="page-link active">${i}</span>`;
+    } else {
+      html += `<a href="#" data-page="${i}" class="page-link">${i}</a>`;
+    }
+  }
+  if (currentPage < totalPages) {
+    html += `<a href="#" data-page="${currentPage + 1}" class="page-link page-next">${nextLabel}</a>`;
+  } else {
+    html += `<span class="page-link page-next disabled">${nextLabel}</span>`;
+  }
+  nav.innerHTML = html;
+  nav.querySelectorAll('a[data-page]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(parseInt(link.dataset.page, 10));
+    });
+  });
+}
+
+function showPage(page) {
+  currentPage = page;
+  const lang = detectLang();
+  renderRecentPosts(allSortedPosts, lang);
+  renderPagination(allSortedPosts.length, lang);
+  const postsContainer = document.querySelector('div#recent-posts');
+  if (postsContainer) {
+    postsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function renderPostNav(posts, currentUrl, lang) {
@@ -150,7 +204,11 @@ function init() {
   fetch(postsPath)
     .then(r => r.json())
     .then(posts => {
-      if (isLanding) renderRecentPosts(posts, lang);
+      allSortedPosts = posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+      if (isLanding) {
+        renderRecentPosts(allSortedPosts, lang);
+        renderPagination(allSortedPosts.length, lang);
+      }
       if (isPost) {
         const currentUrl = window.location.pathname.replace(/\/+$/, '');
         const normalizedPosts = posts.map(p => {
