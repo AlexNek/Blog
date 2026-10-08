@@ -36,7 +36,7 @@
     "dest": ".",
     "globalMetadata": {
       "_appTitle": "Alex Nek",
-      "_appFooter": "© 2026 Alex Nek — All rights reserved · Code: MIT",
+      "_appFooter": "© 2026 Alex Nek — All rights reserved · <a href=\"https://github.com/AlexNek/Blog/blob/master/LICENSE\" rel=\"license\">License</a>",
       "_appFaviconPath": "images/favicon.svg",
       "_enableSearch": true
     },

@@ -1,3 +1,24 @@
+Split License
+
+This repository is distributed under two separate licenses:
+
+1. Code, build scripts and configuration files — that is, every file
+   EXCEPT those under docs/content/ — are released under the MIT
+   License reproduced below.
+
+2. Blog articles and pages — every file under docs/content/ — are
+   Copyright (c) 2026 Alex Nek, all rights reserved. Short quotations
+   with attribution and a link back to the original are permitted;
+   reproducing full articles or substantial portions of them is not.
+
+For the avoidance of doubt, the phrase "associated documentation
+files" in the MIT text below refers only to documentation of the code
+(for example source-code comments, README.md and docs/docfx.json), and
+does NOT extend to the blog content under docs/content/, which remains
+all rights reserved under item 2 above.
+
+--------------------------------------------------------------------
+
 MIT License
 
 Copyright (c) 2026 Alex Nek
