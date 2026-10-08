@@ -108,9 +108,9 @@ function Build-PostEntries {
 
         # Determine URL relative to site root
         if ($Lang -eq 'en') {
-            $url = "$BaseUrl/posts/$slug"
+            $url = "$BaseUrl/posts/$slug.html"
         } else {
-            $url = "$BaseUrl/de/posts/$slug"
+            $url = "$BaseUrl/de/posts/$slug.html"
         }
 
         # Excerpt: use frontmatter 'excerpt' if present, else first paragraph of body

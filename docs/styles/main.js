@@ -121,11 +121,14 @@
 
   /**
    * Determine the base URL for fetching JSON files.
+   * Counts only directory depth (strips the filename), so that
+   * /Blog/index.html → ".." and /Blog/de/posts/foo.html → "../../.."
    */
   function resolveBaseUrl() {
     var path = window.location.pathname;
-    // If served from /Blog/de/posts/..., we need to go up to root
-    var parts = path.split('/').filter(Boolean);
+    // Strip filename so only directory segments are counted
+    var dir = path.replace(/[^\/]*$/, '');
+    var parts = dir.split('/').filter(Boolean);
     var depth = parts.length;
     var prefix = '';
     for (var i = 0; i < depth; i++) prefix += '../';
