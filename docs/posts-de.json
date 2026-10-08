@@ -1,10 +1,11 @@
 [
   {
-    "url": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html",
-    "slug": "2025-10-08-ddd-fuer-entwickler",
-    "wordCount": 1044,
+    "title": "Domain-Driven Design für Entwickler",
     "excerpt": "Ein kompakter Überblick über Domain-Driven Design für Entwickler: Wie sich DDD von OOAD unterscheidet, Kernbegriffe, Onion-Architektur und Event Storming.",
-    "date": "2025-10-08",
+    "categories": [
+      "softwareentwicklung",
+      "architektur"
+    ],
     "tags": [
       "ddd",
       "domain-driven-design",
@@ -12,18 +13,18 @@
       "ooad",
       "event-storming"
     ],
-    "categories": [
-      "softwareentwicklung",
-      "architektur"
-    ],
-    "title": "Domain-Driven Design für Entwickler"
+    "wordCount": 1044,
+    "slug": "2025-10-08-ddd-fuer-entwickler",
+    "url": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html",
+    "date": "2025-10-08"
   },
   {
-    "url": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html",
-    "slug": "2025-01-28-blazor-komponententests-mit-bunit",
-    "wordCount": 4126,
+    "title": "Blazor-Komponententests mit bUnit",
     "excerpt": "Ein praktischer Leitfaden zum Testen von Blazor-Komponenten mit bUnit, xUnit und FluentAssertions.",
-    "date": "2025-01-28",
+    "categories": [
+      "blazor",
+      "testing"
+    ],
     "tags": [
       "bunit",
       "blazor",
@@ -31,33 +32,33 @@
       "xunit",
       "dotnet"
     ],
-    "categories": [
-      "blazor",
-      "testing"
-    ],
-    "title": "Blazor-Komponententests mit bUnit"
+    "wordCount": 4126,
+    "slug": "2025-01-28-blazor-komponententests-mit-bunit",
+    "url": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html",
+    "date": "2025-01-28"
   },
   {
-    "url": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html",
-    "slug": "2024-12-30-software-richtig-entwickeln",
-    "wordCount": 4303,
+    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren",
     "excerpt": "Ein praktischer Leitfaden zur modernen Softwareentwicklung: SDLC, agil, Codequalität und DevOps.",
-    "date": "2024-12-30",
+    "categories": ["softwareentwicklung"],
     "tags": [
       "sdlc",
       "agil",
       "devops",
       "softwarequalitaet"
     ],
-    "categories": ["softwareentwicklung"],
-    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren"
+    "wordCount": 4303,
+    "slug": "2024-12-30-software-richtig-entwickeln",
+    "url": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html",
+    "date": "2024-12-30"
   },
   {
-    "url": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html",
-    "slug": "2024-12-13-blazor-fuer-entwickler",
-    "wordCount": 6601,
+    "title": "Blazor für Entwickler",
     "excerpt": "Ein Deep-Dive in Blazors Rendering-Modi: SSR, Interaktiv und Hybrid.",
-    "date": "2024-12-13",
+    "categories": [
+      "blazor",
+      "dotnet"
+    ],
     "tags": [
       "blazor",
       "rendering",
@@ -65,18 +66,18 @@
       "interaktiv",
       "dotnet"
     ],
+    "wordCount": 6601,
+    "slug": "2024-12-13-blazor-fuer-entwickler",
+    "url": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html",
+    "date": "2024-12-13"
+  },
+  {
+    "title": "Blazor für Manager",
+    "excerpt": "Blazor-Übersicht für Manager: Hosting-Modelle, Vor- und Nachteile, Entscheidungshilfen.",
     "categories": [
       "blazor",
       "dotnet"
     ],
-    "title": "Blazor für Entwickler"
-  },
-  {
-    "url": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html",
-    "slug": "2024-11-04-blazor-fuer-manager",
-    "wordCount": 3324,
-    "excerpt": "Blazor-Übersicht für Manager: Hosting-Modelle, Vor- und Nachteile, Entscheidungshilfen.",
-    "date": "2024-11-04",
     "tags": [
       "blazor",
       "webassembly",
@@ -84,18 +85,18 @@
       "dotnet",
       "manager"
     ],
-    "categories": [
-      "blazor",
-      "dotnet"
-    ],
-    "title": "Blazor für Manager"
+    "wordCount": 3324,
+    "slug": "2024-11-04-blazor-fuer-manager",
+    "url": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html",
+    "date": "2024-11-04"
   },
   {
-    "url": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html",
-    "slug": "2024-10-21-ki-fuer-programmierer",
-    "wordCount": 3357,
+    "title": "Künstliche Intelligenz für Programmierer",
     "excerpt": "KI-Tools für Entwickler: praktische Workflows, Codegenerierung, Fehlererkennung und mehr.",
-    "date": "2024-10-21",
+    "categories": [
+      "ki",
+      "dotnet"
+    ],
     "tags": [
       "ki",
       "ai",
@@ -103,10 +104,9 @@
       "gpt",
       "werkzeuge"
     ],
-    "categories": [
-      "ki",
-      "dotnet"
-    ],
-    "title": "Künstliche Intelligenz für Programmierer"
+    "wordCount": 3357,
+    "slug": "2024-10-21-ki-fuer-programmierer",
+    "url": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html",
+    "date": "2024-10-21"
   }
 ]

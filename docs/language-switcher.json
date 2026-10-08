@@ -1,16 +1,16 @@
 {
-  "/Blog/de/index.html": "/Blog/en/index.html",
-  "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html": "/Blog/en/posts/2024-12-12-blazor-for-developers.html",
-  "/Blog/en/posts/2024-10-21-ai-for-programmers.html": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html",
-  "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html": "/Blog/en/posts/2024-10-21-ai-for-programmers.html",
-  "/Blog/en/index.html": "/Blog/de/index.html",
   "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html": "/Blog/en/posts/2025-10-08-ddd-for-developers.html",
-  "/Blog/en/posts/2024-12-12-blazor-for-developers.html": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html",
   "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html": "/Blog/en/posts/2024-12-27-building-software-right.html",
   "/Blog/en/posts/2024-11-04-blazor-for-managers.html": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html",
-  "/Blog/en/posts/2025-01-28-blazor-component-testing-bunit.html": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html",
-  "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html": "/Blog/en/posts/2025-01-28-blazor-component-testing-bunit.html",
+  "/Blog/en/posts/2024-12-27-building-software-right.html": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html",
+  "/Blog/en/posts/2024-10-21-ai-for-programmers.html": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html",
+  "/Blog/de/index.html": "/Blog/en/index.html",
   "/Blog/en/posts/2025-10-08-ddd-for-developers.html": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html",
   "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html": "/Blog/en/posts/2024-11-04-blazor-for-managers.html",
-  "/Blog/en/posts/2024-12-27-building-software-right.html": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html"
+  "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html": "/Blog/en/posts/2024-10-21-ai-for-programmers.html",
+  "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html": "/Blog/en/posts/2024-12-12-blazor-for-developers.html",
+  "/Blog/en/posts/2024-12-12-blazor-for-developers.html": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html",
+  "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html": "/Blog/en/posts/2025-01-28-blazor-component-testing-bunit.html",
+  "/Blog/en/posts/2025-01-28-blazor-component-testing-bunit.html": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html",
+  "/Blog/en/index.html": "/Blog/de/index.html"
 }
