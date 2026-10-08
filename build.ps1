@@ -74,14 +74,30 @@ if ((Test-Path $srcPublic) -and (Test-Path $publicDir)) {
     Write-Host 'Restored custom public/main.js and public/main.css' -ForegroundColor Green
 }
 
-# ── 2c. Strip debug source maps from the site output ───────────────────────
+# ── 2c. Strip debug source maps and their references from the site output ───
 # *.map files are only fetched by browser devtools; they are ~55% of the Pages
 # payload and slow down the GitHub Pages deployment, so they are not published.
+# The sourceMappingURL comments in minified files must also be removed, or the
+# browser will 404 trying to fetch the deleted maps.
 $mapFiles = @(Get-ChildItem $docsDir -Recurse -Filter '*.map' -ErrorAction SilentlyContinue)
 if ($mapFiles.Count -gt 0) {
     $mapBytes = ($mapFiles | Measure-Object Length -Sum).Sum
     $mapFiles | Remove-Item -Force
     Write-Host ('Stripped {0} source maps ({1:N1} MB)' -f $mapFiles.Count, ($mapBytes / 1MB)) -ForegroundColor Green
+}
+
+$minFiles = @(Get-ChildItem $docsDir -Recurse -Include '*.min.js', '*.min.css' -ErrorAction SilentlyContinue)
+$stripped = 0
+foreach ($f in $minFiles) {
+    $content = Get-Content $f.FullName -Raw
+    if ($content -match '//# sourceMappingURL=.*\.map') {
+        $content = $content -replace '//# sourceMappingURL=.*\.map\s*', ''
+        Set-Content $f.FullName -Value $content -NoNewline
+        $stripped++
+    }
+}
+if ($stripped -gt 0) {
+    Write-Host "Removed $stripped sourceMappingURL references" -ForegroundColor Green
 }
 
 # ── 3. Generate posts JSON per language ───────────────────────────────────────

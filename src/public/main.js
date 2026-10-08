@@ -14,7 +14,7 @@ function formatDate(dateStr, lang) {
 }
 
 function renderRecentPosts(posts, lang) {
-  const container = document.getElementById('recent-posts');
+  const container = document.querySelector('div#recent-posts');
   if (!container || !posts || posts.length === 0) {
     if (container) {
       container.innerHTML = lang === 'de'
@@ -129,7 +129,7 @@ function detectLang() {
 
 function init() {
   const lang = detectLang();
-  const isLanding = document.getElementById('recent-posts') !== null;
+  const isLanding = document.querySelector('div#recent-posts') !== null;
   const isPost = document.getElementById('post-nav') !== null;
 
   injectNavbarLangSwitcher(lang);
