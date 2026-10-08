@@ -527,7 +527,6 @@ Remember that Blazor's flexibility allows you to mix and match rendering modes w
 | Hybrid application         | Variable (SSR to Interactive)      |
 
 
-
 ## Component and Service Placement
 When developing a Blazor application, deciding where to place components and services is crucial for ensuring optimal performance and security. The placement of these elements should be considered carefully to ensure your application runs efficiently and meets the necessary security requirements.
 
@@ -632,6 +631,5 @@ Choosing the right render mode in Blazor is about finding the balance between pe
 
 Blazor’s flexibility empowers you to craft apps that perform well and adapt to evolving needs. By keeping these principles in mind and planning carefully, you can confidently handle the intricacies of render modes while delivering a seamless, user-focused experience.
 
-<a href="../de/posts/2024-12-13-blazor-fuer-entwickler.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

@@ -760,6 +760,5 @@ Now it’s time to put your knowledge into action. Keep writing tests, catch iss
 
 Happy testing!
 
-<a href="../de/posts/2025-01-28-blazor-komponententests-mit-bunit.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

@@ -290,6 +290,5 @@ However, it's
 
 By carefully considering these factors, you can determine if Blazor is the right choice to drive your web development initiatives forward.
 
-<a href="../de/posts/2024-11-04-blazor-fuer-manager.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

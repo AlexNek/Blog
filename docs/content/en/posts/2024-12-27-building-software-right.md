@@ -331,6 +331,5 @@ Now that we've covered the key aspects of modern development, let’s explore ho
 Software development is more than just writing code. It's about building software that is user-focused, flexible, strong, and always improving. We start working because **we know people need this product**. The key things to consider are understanding the "why," using agile methods, writing quality code, using a DevOps approach, focusing on teamwork, and always focusing on the user experience, making sure the software is functional, intuitive, and easy to use. If the UX is bad, users will find something better. Collect feedback often. Software development is a constant journey, and each mistake is an opportunity to learn. Be open to feedback, adapt to new technology, and don't be afraid to experiment.
 This was just a quick overview of modern development, but it should get you thinking. Modern development is all about working together, and always thinking about the people using the software. If you remember those things, you’ll be ok. Take some time to understand the concepts we talked about. Start using these practices at work. I encourage you to keep learning and improving.
 
-<a href="../de/posts/2024-12-30-software-richtig-entwickeln.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

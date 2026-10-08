@@ -316,6 +316,5 @@ Softwareentwicklung ist mehr als nur das Schreiben von Code. Es geht vielmehr da
 
 Dies war nur ein kurzer Überblick über die Entwicklung in der heutigen Zeit, aber ich hoffe, dass er Sie zum Nachdenken anregt. Moderne Entwicklung bedeutet, zusammenzuarbeiten und stets an die Menschen zu denken, für die wir Software entwickeln. Wenn Sie diese Dinge beachten, werden Sie gut zurechtkommen. Nehmen Sie sich etwas Zeit, um die Konzepte zu verstehen, über die wir gesprochen haben. Beginnen Sie, diese Praktiken in Ihrer täglichen Arbeit anzuwenden. Es wird empfohlen, sich weiterzubilden und kontinuierlich zu verbessern.
 
-<a href="../../posts/2024-12-27-building-software-right.html">Read in English</a>
 
 <div id="post-nav"></div>

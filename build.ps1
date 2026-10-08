@@ -36,7 +36,12 @@ if (-not $docfxCmd) {
     }
 }
 
-# ── 2. Build with DocFX ──────────────────────────────────────────────────────
+# ── 2. Clean previous build and rebuild with DocFX ─────────────────────────
+if (Test-Path $siteDir) {
+    Write-Host 'Cleaning previous build…' -ForegroundColor Yellow
+    Remove-Item -Recurse -Force $siteDir
+}
+
 Write-Host 'Building site with DocFX…' -ForegroundColor Cyan
 $docfxJson = Join-Path $docsDir 'docfx.json'
 & $docfxCmd build $docfxJson
@@ -108,7 +113,7 @@ function Build-PostEntries {
 
         # Determine URL relative to site root
         if ($Lang -eq 'en') {
-            $url = "$BaseUrl/posts/$slug.html"
+            $url = "$BaseUrl/en/posts/$slug.html"
         } else {
             $url = "$BaseUrl/de/posts/$slug.html"
         }
@@ -212,8 +217,8 @@ foreach ($enSlug in $translationPairs.Keys) {
 }
 
 # Also map the landing pages
-$switcher["$baseUrl/index.html"] = "$baseUrl/de/index.html"
-$switcher["$baseUrl/de/index.html"] = "$baseUrl/index.html"
+$switcher["$baseUrl/en/index.html"] = "$baseUrl/de/index.html"
+$switcher["$baseUrl/de/index.html"] = "$baseUrl/en/index.html"
 
 $switcherJson = $switcher | ConvertTo-Json -Depth 4
 Set-Content -Path (Join-Path $siteDir 'language-switcher.json') -Value $switcherJson -Encoding UTF8

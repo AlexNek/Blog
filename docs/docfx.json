@@ -7,7 +7,7 @@
           "**/*.md",
           "**/*.yml"
         ],
-        "dest": "."
+        "dest": "en"
       },
       {
         "src": "content/de",
@@ -25,13 +25,6 @@
           "images/**/*"
         ],
         "dest": "."
-      },
-      {
-        "files": [
-          "styles/**/*",
-          "images/**/*"
-        ],
-        "dest": "de"
       }
     ],
     "dest": "_site",

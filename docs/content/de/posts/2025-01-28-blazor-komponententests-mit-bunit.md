@@ -683,7 +683,6 @@ Weitere bUnit-Beispiele finden Sie [hier](https://github.com/AlexNek/TodoAppMaui
 Nachdem wir nun die Grundlagen kennen, werden wir einige Best Practices durchgehen, um Ihren Testcode organisiert, zuverlässig und performant zu halten.
 
 
-
 ## Testorganisation und Struktur  
 
 Eine gut strukturierte Testsuite ist genauso wichtig wie sauberer Anwendungscode. Befolgen Sie diese Richtlinien, um Klarheit und Effizienz zu wahren:
@@ -760,6 +759,5 @@ Jetzt ist es an der Zeit, Ihr Wissen in die Tat umzusetzen. Schreiben Sie weiter
 
 Viel Spaß beim Testen!
 
-<a href="../../posts/2025-01-28-blazor-component-testing-bunit.html">Read in English</a>
 
 <div id="post-nav"></div>

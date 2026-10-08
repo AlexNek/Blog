@@ -100,6 +100,33 @@
   }
 
   /**
+   * Inject a language-switcher button into the navbar next to the search box.
+   * The href is resolved dynamically from language-switcher.json.
+   */
+  function injectNavbarLangSwitcher(lang) {
+    var navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    // Don't inject twice
+    if (navbar.querySelector('.lang-switcher-btn')) return;
+
+    var label = lang === 'de' ? 'EN' : 'DE';
+    var btn = document.createElement('a');
+    btn.className = 'nav-link lang-switcher-btn';
+    btn.setAttribute('data-lang-switcher', '');
+    btn.href = '#';
+    btn.textContent = label;
+    btn.title = lang === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln';
+
+    // Insert before the search form
+    var searchForm = navbar.querySelector('#search');
+    if (searchForm && searchForm.parentNode) {
+      searchForm.parentNode.insertBefore(btn, searchForm);
+    } else {
+      navbar.appendChild(btn);
+    }
+  }
+
+  /**
    * Resolve the header language-switcher link from language-switcher.json.
    */
   function resolveLanguageSwitcher() {
@@ -173,9 +200,11 @@
     var isLanding = document.getElementById('recent-posts') !== null;
     var isPost = document.getElementById('post-nav') !== null;
 
+    // Always inject navbar language switcher and resolve its URL
+    injectNavbarLangSwitcher(lang);
+    resolveLanguageSwitcher();
+
     if (!isLanding && !isPost) {
-      // Still resolve language switcher on any page
-      resolveLanguageSwitcher();
       return;
     }
 
@@ -198,7 +227,5 @@
       .catch(function (err) {
         console.warn('Failed to load posts:', err);
       });
-
-    resolveLanguageSwitcher();
   });
 })();

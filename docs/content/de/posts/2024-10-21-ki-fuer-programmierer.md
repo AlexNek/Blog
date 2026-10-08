@@ -318,6 +318,5 @@ Entwickler müssen das Potenzial der KI nutzen, um Automatisierung und Optimieru
 
 Mit der Weiterentwicklung der KI entwickeln sich auch die Best Practices für ihren effektiven Einsatz in der Softwareentwicklung.
 
-<a href="../../posts/2024-10-21-ai-for-programmers.html">Read in English</a>
 
 <div id="post-nav"></div>

@@ -7,7 +7,6 @@ lang: en
 excerpt: "AI tools for developers: practical workflows, code generation, error detection, and more."
 ---
 ![cover](/images/posts/ai-programmers/cover.png)
-[DE version](readme-de.md)
 
 ## Overview
 
@@ -337,6 +336,5 @@ Alex Nek
 
 https://github.com/user-attachments/assets/cc57ff2f-d348-48cc-9e78-a9cb383cd827
 
-<a href="../de/posts/2024-10-21-ki-fuer-programmierer.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

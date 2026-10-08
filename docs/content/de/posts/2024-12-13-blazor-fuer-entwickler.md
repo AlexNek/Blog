@@ -554,7 +554,6 @@ Bei der Entscheidung, wo Komponenten in einer Blazor-Anwendung platziert werden 
    - Komponenten ohne Rendering-Modus (Standard SSR) und ohne spezifische Dienstverbindung können überall platziert werden.
 
 
-
 ### Service-Platzierung
 
 Bei der Entwicklung einer Blazor-Anwendung spielt auch die Platzierung und Registrierung von Diensten eine wichtige Rolle.
@@ -648,6 +647,5 @@ Die Wahl des richtigen Render-Modus in Blazor besteht darin, das Gleichgewicht z
 
 Blazors Flexibilität ermöglicht es Ihnen, Apps zu erstellen, die gut funktionieren und sich an sich ändernde Bedürfnisse anpassen. Indem Sie diese Prinzipien im Hinterkopf behalten und sorgfältig planen, können Sie die Komplexitäten der Render-Modi souverän meistern und gleichzeitig ein nahtloses, benutzerorientiertes Erlebnis bieten.
 
-<a href="../../posts/2024-12-12-blazor-for-developers.html">Read in English</a>
 
 <div id="post-nav"></div>

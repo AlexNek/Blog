@@ -290,6 +290,5 @@ Es ist jedoch
 
 Indem Sie diese Faktoren sorgfältig berücksichtigen, können Sie feststellen, ob Blazor die richtige Wahl ist, um Ihre Webentwicklungsinitiativen voranzutreiben.
 
-<a href="../../posts/2024-11-04-blazor-for-managers.html">Read in English</a>
 
 <div id="post-nav"></div>

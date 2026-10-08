@@ -117,6 +117,5 @@ These are some links to get you started with DDD.
 - [Event Storming](https://www.eventstorming.com/)
 - [TaskoMask](https://github.com/hassanmonfa/TaskoMask) — Real-world open-source project based on .NET 6 with Microservices, DDD, BDD and Testing concepts.
 
-<a href="../de/posts/2025-10-08-ddd-fuer-entwickler.html">Deutsch lesen</a>
 
 <div id="post-nav"></div>

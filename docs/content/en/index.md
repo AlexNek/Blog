@@ -7,7 +7,6 @@ lang: en
 
 Welcome to my bilingual blog. Here I write about .NET development, AI integration, and software architecture.
 
-<a href="../de/index.html" data-lang-switcher>Deutsch →</a>
 
 ## Recent Posts
 

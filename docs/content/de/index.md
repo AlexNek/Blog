@@ -7,7 +7,6 @@ lang: de
 
 Willkommen auf meinem zweisprachigen Blog. Hier schreibe ich über .NET-Entwicklung, KI-Integration und Softwarearchitektur.
 
-<a href="../index.html" data-lang-switcher>English →</a>
 
 ## Neueste Beiträge
 
