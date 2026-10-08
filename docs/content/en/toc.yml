@@ -1,0 +1,12 @@
+- name: Blog Home
+  href: index.md
+- name: About
+  href: about.md
+- name: Posts
+  items:
+  - name: Blazor Component Testing with bUnit
+    href: posts/2025-01-28-blazor-component-testing-bunit.md
+  - name: Building Software Right
+    href: posts/2024-12-27-building-software-right.md
+  - name: Blazor for Developers
+    href: posts/2024-12-12-blazor-for-developers.md

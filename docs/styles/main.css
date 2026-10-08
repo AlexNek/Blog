@@ -1,0 +1,316 @@
+/* ===== Design Tokens ===== */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #fafaf9;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #ea580c;
+  --accent-hover: #c2410c;
+  --accent-soft: #fff7ed;
+}
+
+/* ===== Typography — Inter via Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+/* ===== Hide DocFX TOC sidebars (blog mode) ===== */
+.flex.grow-1,
+aside.toc,
+.toc-offcanvas,
+.breadcrumb,
+.navbar-expand-lg .d-flex.flex-column.pe-4 {
+  display: none !important;
+}
+
+/* ===== Widen and center the article reading column ===== */
+article {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
+
+/* ===== Navbar → Blog Header ===== */
+.navbar {
+  background-color: var(--bg-soft) !important;
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.navbar .navbar-brand:hover {
+  color: var(--accent);
+}
+
+.navbar .nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+footer a {
+  color: var(--accent);
+}
+
+footer a:hover {
+  color: var(--accent-hover);
+}
+
+/* ===== Hero Band ===== */
+.hero {
+  background-color: var(--bg-soft);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* ===== Post Cards (Landing Page) ===== */
+.post-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  background-color: var(--bg);
+  transition: border-color 0.15s ease;
+}
+
+.post-card:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.post-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.post-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-card h3 a:hover {
+  color: var(--accent);
+}
+
+.post-card .meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card .excerpt {
+  color: var(--text);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== Tag Chips ===== */
+.tag-chip {
+  display: inline-block;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  margin-right: 0.35rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+}
+
+.tag-chip:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ===== Post Header ===== */
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.post-header .meta {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-header .tags {
+  margin-top: 0.5rem;
+}
+
+/* ===== Prev/Next Navigation ===== */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-nav a {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.post-nav a:hover {
+  color: var(--accent-hover);
+}
+
+.post-nav .prev::before {
+  content: "← ";
+}
+
+.post-nav .next::after {
+  content: " →";
+}
+
+/* ===== Blockquote ===== */
+blockquote {
+  border-left: 4px solid var(--accent);
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--bg-soft);
+  color: var(--text);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ===== Images ===== */
+article img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Code Blocks — light only ===== */
+pre {
+  background-color: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+code {
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875em;
+}
+
+:not(pre) > code {
+  background-color: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+}
+
+/* ===== Section Headings ===== */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  article {
+    padding: 1.5rem 1rem;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+}

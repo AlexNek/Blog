@@ -1,0 +1,14 @@
+- name: Blog Startseite
+  href: index.md
+- name: Über mich
+  href: about.md
+- name: Beiträge
+  items:
+  - name: Software richtig entwickeln
+    href: posts/2024-12-30-software-richtig-entwickeln.md
+  - name: Blazor für Entwickler
+    href: posts/2024-12-13-blazor-fuer-entwickler.md
+  - name: Blazor für Manager
+    href: posts/2024-11-04-blazor-fuer-manager.md
+  - name: Künstliche Intelligenz für Programmierer
+    href: posts/2024-10-21-ki-fuer-programmierer.md

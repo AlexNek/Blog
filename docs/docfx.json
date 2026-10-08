@@ -1,0 +1,48 @@
+{
+  "build": {
+    "content": [
+      {
+        "src": "content/en",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "dest": "."
+      },
+      {
+        "src": "content/de",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "dest": "de"
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "styles/**/*",
+          "images/**/*"
+        ],
+        "dest": "."
+      },
+      {
+        "files": [
+          "styles/**/*",
+          "images/**/*"
+        ],
+        "dest": "de"
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "Alex Nek",
+      "_appFooter": "© 2026 Alex Nek — All rights reserved · Code: MIT",
+      "_appFaviconPath": "images/favicon.svg",
+      "_enableSearch": true
+    },
+    "template": [
+      "default"
+    ]
+  }
+}
