@@ -87,7 +87,7 @@
     }
 
     var homeLabel = lang === 'de' ? 'Startseite' : 'Home';
-    html += '<a href="' + (lang === 'de' ? '../index.html' : 'index.html') + '">' + homeLabel + '</a>';
+    html += '<a href="' + resolveBaseUrl() + '/index.html">' + homeLabel + '</a>';
 
     if (idx < sorted.length - 1) {
       html += '<a class="next" href="' + escapeAttr(sorted[idx + 1].url) + '">' +
@@ -120,20 +120,26 @@
   }
 
   /**
-   * Determine the base URL for fetching JSON files.
-   * Counts only directory depth (strips the filename), so that
-   * /Blog/index.html → ".." and /Blog/de/posts/foo.html → "../../.."
+   * Determine the site root URL by inspecting where main.js is loaded from.
+   * Since main.js lives at <site-root>/styles/main.js, we strip "/styles/main.js"
+   * to get the absolute site root (e.g. "/Blog" or "/Blog/de").
+   */
+  function getSiteRoot() {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].src || '';
+      if (src.indexOf('main.js') !== -1) {
+        return src.replace(/\/styles\/main\.js.*$/, '');
+      }
+    }
+    return '';
+  }
+
+  /**
+   * Resolve the base URL for fetching JSON files (site root).
    */
   function resolveBaseUrl() {
-    var path = window.location.pathname;
-    // Strip filename so only directory segments are counted
-    var dir = path.replace(/[^\/]*$/, '');
-    var parts = dir.split('/').filter(Boolean);
-    var depth = parts.length;
-    var prefix = '';
-    for (var i = 0; i < depth; i++) prefix += '../';
-    // Remove trailing slash
-    return prefix.replace(/\/$/, '');
+    return getSiteRoot();
   }
 
   /**

@@ -4,6 +4,10 @@
   href: about.md
 - name: Beiträge
   items:
+  - name: Domain-Driven Design für Entwickler
+    href: posts/2025-10-08-ddd-fuer-entwickler.md
+  - name: Blazor Komponententests mit bUnit
+    href: posts/2025-01-28-blazor-komponententests-mit-bunit.md
   - name: Software richtig entwickeln
     href: posts/2024-12-30-software-richtig-entwickeln.md
   - name: Blazor für Entwickler

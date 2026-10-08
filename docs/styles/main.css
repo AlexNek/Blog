@@ -32,12 +32,14 @@ body {
   background-color: var(--bg);
 }
 
-/* ===== Hide DocFX TOC sidebars (blog mode) ===== */
+/* ===== Hide DocFX TOC sidebars and navbar nav (blog mode) ===== */
 .flex.grow-1,
 aside.toc,
 .toc-offcanvas,
 .breadcrumb,
-.navbar-expand-lg .d-flex.flex-column.pe-4 {
+.navbar-expand-lg .d-flex.flex-column.pe-4,
+#navbar > ul.nav,
+#navbar .navbar-nav {
   display: none !important;
 }
 
