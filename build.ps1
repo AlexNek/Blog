@@ -65,6 +65,14 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
+# ── 2b. Restore custom styles (DocFX build may overwrite them) ─────────────
+$srcStyles = Join-Path $repoRoot 'src\styles'
+if (Test-Path $srcStyles) {
+    Copy-Item (Join-Path $srcStyles 'main.js') (Join-Path $stylesDir 'main.js') -Force
+    Copy-Item (Join-Path $srcStyles 'main.css') (Join-Path $stylesDir 'main.css') -Force
+    Write-Host 'Restored custom main.js and main.css' -ForegroundColor Green
+}
+
 # ── 3. Generate posts JSON per language ───────────────────────────────────────
 Write-Host 'Generating posts JSON files…' -ForegroundColor Cyan
 

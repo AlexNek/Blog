@@ -1,9 +1,5 @@
 [
   {
-    "slug": "2025-10-08-ddd-for-developers",
-    "wordCount": 1143,
-    "title": "Domain-Driven Design for Developers",
-    "date": "2025-10-08",
     "tags": [
       "ddd",
       "domain-driven-design",
@@ -16,13 +12,13 @@
       "software-development",
       "architecture"
     ],
+    "slug": "2025-10-08-ddd-for-developers",
+    "wordCount": 1143,
+    "title": "Domain-Driven Design for Developers",
+    "date": "2025-10-08",
     "url": "/Blog/en/posts/2025-10-08-ddd-for-developers.html"
   },
   {
-    "slug": "2025-01-28-blazor-component-testing-bunit",
-    "wordCount": 4165,
-    "title": "Blazor Component Testing with bUnit",
-    "date": "2025-01-28",
     "tags": [
       "bunit",
       "blazor",
@@ -35,13 +31,13 @@
       "blazor",
       "testing"
     ],
+    "slug": "2025-01-28-blazor-component-testing-bunit",
+    "wordCount": 4165,
+    "title": "Blazor Component Testing with bUnit",
+    "date": "2025-01-28",
     "url": "/Blog/en/posts/2025-01-28-blazor-component-testing-bunit.html"
   },
   {
-    "slug": "2024-12-27-building-software-right",
-    "wordCount": 4263,
-    "title": "Building Software Right: It's More Than Just Coding",
-    "date": "2024-12-27",
     "tags": [
       "sdlc",
       "agile",
@@ -50,13 +46,13 @@
     ],
     "excerpt": "A practical guide to modern software development covering SDLC, agile, code quality, and DevOps.",
     "categories": ["software-development"],
+    "slug": "2024-12-27-building-software-right",
+    "wordCount": 4263,
+    "title": "Building Software Right: It's More Than Just Coding",
+    "date": "2024-12-27",
     "url": "/Blog/en/posts/2024-12-27-building-software-right.html"
   },
   {
-    "slug": "2024-12-12-blazor-for-developers",
-    "wordCount": 6283,
-    "title": "Blazor for Developers",
-    "date": "2024-12-12",
     "tags": [
       "blazor",
       "rendering",
@@ -69,13 +65,13 @@
       "blazor",
       "dotnet"
     ],
+    "slug": "2024-12-12-blazor-for-developers",
+    "wordCount": 6283,
+    "title": "Blazor for Developers",
+    "date": "2024-12-12",
     "url": "/Blog/en/posts/2024-12-12-blazor-for-developers.html"
   },
   {
-    "slug": "2024-11-04-blazor-for-managers",
-    "wordCount": 3500,
-    "title": "Blazor for Managers",
-    "date": "2024-11-04",
     "tags": [
       "blazor",
       "webassembly",
@@ -88,13 +84,13 @@
       "blazor",
       "dotnet"
     ],
+    "slug": "2024-11-04-blazor-for-managers",
+    "wordCount": 3500,
+    "title": "Blazor for Managers",
+    "date": "2024-11-04",
     "url": "/Blog/en/posts/2024-11-04-blazor-for-managers.html"
   },
   {
-    "slug": "2024-10-21-ai-for-programmers",
-    "wordCount": 3278,
-    "title": "Artificial Intelligence for Programmers",
-    "date": "2024-10-21",
     "tags": [
       "ai",
       "programming",
@@ -107,6 +103,10 @@
       "ai",
       "dotnet"
     ],
+    "slug": "2024-10-21-ai-for-programmers",
+    "wordCount": 3278,
+    "title": "Artificial Intelligence for Programmers",
+    "date": "2024-10-21",
     "url": "/Blog/en/posts/2024-10-21-ai-for-programmers.html"
   }
 ]

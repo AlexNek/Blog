@@ -1,9 +1,5 @@
 [
   {
-    "slug": "2025-10-08-ddd-fuer-entwickler",
-    "wordCount": 1044,
-    "title": "Domain-Driven Design für Entwickler",
-    "date": "2025-10-08",
     "tags": [
       "ddd",
       "domain-driven-design",
@@ -16,13 +12,13 @@
       "softwareentwicklung",
       "architektur"
     ],
+    "slug": "2025-10-08-ddd-fuer-entwickler",
+    "wordCount": 1044,
+    "title": "Domain-Driven Design für Entwickler",
+    "date": "2025-10-08",
     "url": "/Blog/de/posts/2025-10-08-ddd-fuer-entwickler.html"
   },
   {
-    "slug": "2025-01-28-blazor-komponententests-mit-bunit",
-    "wordCount": 4126,
-    "title": "Blazor-Komponententests mit bUnit",
-    "date": "2025-01-28",
     "tags": [
       "bunit",
       "blazor",
@@ -35,13 +31,13 @@
       "blazor",
       "testing"
     ],
+    "slug": "2025-01-28-blazor-komponententests-mit-bunit",
+    "wordCount": 4126,
+    "title": "Blazor-Komponententests mit bUnit",
+    "date": "2025-01-28",
     "url": "/Blog/de/posts/2025-01-28-blazor-komponententests-mit-bunit.html"
   },
   {
-    "slug": "2024-12-30-software-richtig-entwickeln",
-    "wordCount": 4303,
-    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren",
-    "date": "2024-12-30",
     "tags": [
       "sdlc",
       "agil",
@@ -50,13 +46,13 @@
     ],
     "excerpt": "Ein praktischer Leitfaden zur modernen Softwareentwicklung: SDLC, agil, Codequalität und DevOps.",
     "categories": ["softwareentwicklung"],
+    "slug": "2024-12-30-software-richtig-entwickeln",
+    "wordCount": 4303,
+    "title": "Software richtig entwickeln: Es ist mehr als nur Programmieren",
+    "date": "2024-12-30",
     "url": "/Blog/de/posts/2024-12-30-software-richtig-entwickeln.html"
   },
   {
-    "slug": "2024-12-13-blazor-fuer-entwickler",
-    "wordCount": 6601,
-    "title": "Blazor für Entwickler",
-    "date": "2024-12-13",
     "tags": [
       "blazor",
       "rendering",
@@ -69,13 +65,13 @@
       "blazor",
       "dotnet"
     ],
+    "slug": "2024-12-13-blazor-fuer-entwickler",
+    "wordCount": 6601,
+    "title": "Blazor für Entwickler",
+    "date": "2024-12-13",
     "url": "/Blog/de/posts/2024-12-13-blazor-fuer-entwickler.html"
   },
   {
-    "slug": "2024-11-04-blazor-fuer-manager",
-    "wordCount": 3324,
-    "title": "Blazor für Manager",
-    "date": "2024-11-04",
     "tags": [
       "blazor",
       "webassembly",
@@ -88,13 +84,13 @@
       "blazor",
       "dotnet"
     ],
+    "slug": "2024-11-04-blazor-fuer-manager",
+    "wordCount": 3324,
+    "title": "Blazor für Manager",
+    "date": "2024-11-04",
     "url": "/Blog/de/posts/2024-11-04-blazor-fuer-manager.html"
   },
   {
-    "slug": "2024-10-21-ki-fuer-programmierer",
-    "wordCount": 3357,
-    "title": "Künstliche Intelligenz für Programmierer",
-    "date": "2024-10-21",
     "tags": [
       "ki",
       "ai",
@@ -107,6 +103,10 @@
       "ki",
       "dotnet"
     ],
+    "slug": "2024-10-21-ki-fuer-programmierer",
+    "wordCount": 3357,
+    "title": "Künstliche Intelligenz für Programmierer",
+    "date": "2024-10-21",
     "url": "/Blog/de/posts/2024-10-21-ki-fuer-programmierer.html"
   }
 ]
