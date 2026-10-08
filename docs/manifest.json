@@ -1,6 +1,5 @@
 {
-  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
-  "source_base_path": "/home/runner/work/Blog/Blog/docs",
+  "source_base_path": "Y:/user_alex_new/dot_net2022/Github/Blog/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -483,96 +482,6 @@
       "output": {
         "resource": {
           "relative_path": "images/posts/software-right/sdlc02.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/glyphicons-halflings-regular-ACNUA6UY.ttf",
-      "output": {
-        "resource": {
-          "relative_path": "styles/glyphicons-halflings-regular-ACNUA6UY.ttf"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/glyphicons-halflings-regular-JOUF32XT.woff",
-      "output": {
-        "resource": {
-          "relative_path": "styles/glyphicons-halflings-regular-JOUF32XT.woff"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/glyphicons-halflings-regular-PIHUWCJO.eot",
-      "output": {
-        "resource": {
-          "relative_path": "styles/glyphicons-halflings-regular-PIHUWCJO.eot"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/glyphicons-halflings-regular-QXYEM3FU.svg",
-      "output": {
-        "resource": {
-          "relative_path": "styles/glyphicons-halflings-regular-QXYEM3FU.svg"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/glyphicons-halflings-regular-W4DYDFZM.woff2",
-      "output": {
-        "resource": {
-          "relative_path": "styles/glyphicons-halflings-regular-W4DYDFZM.woff2"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/main.css",
-      "output": {
-        "resource": {
-          "relative_path": "styles/main.css"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/main.js",
-      "output": {
-        "resource": {
-          "relative_path": "styles/main.js"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/search-worker.min.js",
-      "output": {
-        "resource": {
-          "relative_path": "styles/search-worker.min.js"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "styles/search-worker.min.js.map",
-      "output": {
-        "resource": {
-          "relative_path": "styles/search-worker.min.js.map"
         }
       },
       "version": ""

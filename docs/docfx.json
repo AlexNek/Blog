@@ -28,7 +28,6 @@
     "resource": [
       {
         "files": [
-          "styles/**/*",
           "images/**/*"
         ],
         "dest": "."
@@ -42,7 +41,8 @@
       "_enableSearch": true
     },
     "template": [
-      "default"
+      "default",
+      "modern"
     ]
   }
 }

@@ -39,7 +39,7 @@ if (-not $docfxCmd) {
 # ─ 2. Clean build artifacts and rebuild with DocFX ────────────────────────
 # Remove previous build output from docs/ root (keep source: content/, docfx.json, images/)
 $buildArtifacts = @(
-    '_site', 'en', 'de', 'posts',
+    '_site', 'en', 'de', 'posts', 'public',
     'index.html', 'about.html', 'toc.html',
     'index.json', 'toc.json', 'xrefmap.yml',
     'favicon.ico', 'logo.svg', 'manifest.json', 'search-stopwords.json',
@@ -51,7 +51,7 @@ foreach ($item in $buildArtifacts) {
         Remove-Item -Recurse -Force $path
     }
 }
-# Clean DocFX vendor files in styles/
+# Clean DocFX vendor files in styles/ (legacy) and public/
 $stylesDir = Join-Path $docsDir 'styles'
 if (Test-Path $stylesDir) {
     Get-ChildItem $stylesDir -Filter 'docfx*' | Remove-Item -Recurse -Force
@@ -65,12 +65,13 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
-# ── 2b. Restore custom styles (DocFX build may overwrite them) ─────────────
-$srcStyles = Join-Path $repoRoot 'src\styles'
-if (Test-Path $srcStyles) {
-    Copy-Item (Join-Path $srcStyles 'main.js') (Join-Path $stylesDir 'main.js') -Force
-    Copy-Item (Join-Path $srcStyles 'main.css') (Join-Path $stylesDir 'main.css') -Force
-    Write-Host 'Restored custom main.js and main.css' -ForegroundColor Green
+# ── 2b. Restore custom public/ files (DocFX build overwrites them) ─────────
+$publicDir = Join-Path $docsDir 'public'
+$srcPublic = Join-Path $repoRoot 'src\public'
+if ((Test-Path $srcPublic) -and (Test-Path $publicDir)) {
+    Copy-Item (Join-Path $srcPublic 'main.js') (Join-Path $publicDir 'main.js') -Force
+    Copy-Item (Join-Path $srcPublic 'main.css') (Join-Path $publicDir 'main.css') -Force
+    Write-Host 'Restored custom public/main.js and public/main.css' -ForegroundColor Green
 }
 
 # ── 3. Generate posts JSON per language ───────────────────────────────────────
