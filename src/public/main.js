@@ -248,6 +248,9 @@ function decorateArticle(post, lang) {
     : '';
   const meta = post
     ? `<div class="post-meta">${metaLine(post, lang)}<span class="dot"></span>`
+      + `<span class="view-counter" aria-label="${escapeHtml(label(lang, 'Views', 'Aufrufe'))}">`
+      + `<span class="view-counter-icon">👁</span> <span class="view-counter-count">…</span></span>`
+      + `<span class="dot"></span>`
       + `<a class="lang-link" href="#" data-lang-switcher>${escapeHtml(label(lang, 'Read in Deutsch', 'Read in English'))}</a></div>`
     : '';
 
@@ -302,6 +305,49 @@ function initReadProgress() {
     }
   }, { passive: true });
   update();
+}
+
+/* Fetches the pageview count for the current article from the GoatCounter API
+   and renders it into the .view-counter element injected by decorateArticle().
+   The GoatCounter site URL and read-only API token are read from <meta> tags
+   that build.ps1 injects into every HTML file.  When no API token is configured
+   the counter is hidden silently — tracking still works via the standard script. */
+function initViewCounter() {
+  if (!document.body.classList.contains('page-post')) return;
+  const counter = document.querySelector('.view-counter');
+  if (!counter) return;
+
+  const siteMeta = document.querySelector('meta[name="goatcounter:site"]');
+  const tokenMeta = document.querySelector('meta[name="goatcounter:token"]');
+  const siteUrl = siteMeta ? siteMeta.getAttribute('content') : '';
+  const token = tokenMeta ? tokenMeta.getAttribute('content') : '';
+
+  // Without an API token the count cannot be fetched; hide the element.
+  if (!siteUrl || !token) {
+    counter.style.display = 'none';
+    return;
+  }
+
+  const path = window.location.pathname;
+  const apiUrl = siteUrl.replace(/\/+$/, '') + '/api/v0/count'
+    + '?path=' + encodeURIComponent(path) + '&total=true';
+
+  fetch(apiUrl, { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      var countEl = counter.querySelector('.view-counter-count');
+      if (countEl) {
+        var n = (data && typeof data.count === 'number') ? data.count : 0;
+        countEl.textContent = n.toLocaleString();
+      }
+    })
+    .catch(function () {
+      var countEl = counter.querySelector('.view-counter-count');
+      if (countEl) countEl.textContent = '—';
+    });
 }
 
 function injectNavbarLangSwitcher(lang) {
@@ -468,6 +514,7 @@ function init() {
         resolveLanguageSwitcher();
         renderPostNav(normalizedPosts, currentUrl, lang);
         initReadProgress();
+        initViewCounter();
       }
     })
     .catch(err => {

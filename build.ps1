@@ -100,6 +100,47 @@ if ($stripped -gt 0) {
     Write-Host "Removed $stripped sourceMappingURL references" -ForegroundColor Green
 }
 
+# ── 2d. Inject GoatCounter analytics tracking script ────────────────────────
+# The tracking snippet is injected into every HTML file before </head>.
+# It is skipped on localhost so local development does not pollute analytics.
+# CONFIGURATION: set $gcSite to your GoatCounter site name (the subdomain you
+#                chose when creating the site at goatcounter.com).
+#                Set $gcApiToken to the read-only API token from
+#                GoatCounter → Settings → API token (needed for the on-page
+#                view counter; leave empty to show only the dashboard).
+$gcSite    = 'alex-nek-stat'
+$gcApiToken = ''
+
+Write-Host "Injecting GoatCounter analytics ($gcSite)…" -ForegroundColor Cyan
+$gcSnippet = @"
+<meta name="goatcounter:site" content="https://$gcSite.goatcounter.com">
+<meta name="goatcounter:token" content="$gcApiToken">
+<script data-goatcounter="https://$gcSite.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script>
+  // Disable GoatCounter on localhost / 127.0.0.1 so local dev is not tracked.
+  (function(){
+    var h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || h === '::1' || h === '') {
+      window.gc_skip = true;
+      var s = document.querySelector('script[data-goatcounter]');
+      if (s) s.remove();
+    }
+  })();
+</script>
+"@
+
+$htmlFiles = @(Get-ChildItem $docsDir -Recurse -Filter '*.html' -ErrorAction SilentlyContinue)
+$gcInjected = 0
+foreach ($f in $htmlFiles) {
+    $raw = Get-Content $f.FullName -Raw -Encoding UTF8
+    if ($raw -match 'data-goatcounter') { continue }
+    $raw = $raw -replace '</head>', "$gcSnippet`n</head>"
+    Set-Content $f.FullName -Value $raw -Encoding UTF8 -NoNewline
+    $gcInjected++
+}
+Write-Host "  GoatCounter injected into $gcInjected HTML file(s)" -ForegroundColor Green
+
 # ── 3. Generate posts JSON per language ───────────────────────────────────────
 Write-Host 'Generating posts JSON files…' -ForegroundColor Cyan
 
