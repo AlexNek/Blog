@@ -249,9 +249,7 @@ function decorateArticle(post, lang) {
   const meta = post
     ? `<div class="post-meta">${metaLine(post, lang)}<span class="dot"></span>`
       + `<span class="view-counter" aria-label="${escapeHtml(label(lang, 'Views', 'Aufrufe'))}">`
-      + `<span class="view-counter-icon">👁</span> <span class="view-counter-count">…</span></span>`
-      + `<span class="dot"></span>`
-      + `<a class="lang-link" href="#" data-lang-switcher>${escapeHtml(label(lang, 'Read in Deutsch', 'Read in English'))}</a></div>`
+      + `<span class="view-counter-icon">👁</span> <span class="view-counter-count">…</span></span></div>`
     : '';
 
   const head = document.createElement('header');
